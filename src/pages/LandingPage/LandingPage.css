@@ -1,0 +1,93 @@
+.LandingPage {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.LandingPage h1 {
+    font-family: 'Fugaz One', sans-serif;
+    font-size: 110px;
+    width: 95vw;
+    margin: 0;
+    position: relative;
+}
+
+.LandingPage-img {
+    position: relative;
+    transform: translate(0, -10%);
+    z-index: 0;
+    transition: all 0.1s;
+}
+
+.LandingPage-img:hover {
+    transform: translate(-2%, -10%);
+    -webkit-filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px -1px 0 white);
+    filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px -1px 0 white);
+}
+
+.LandingPage-gradient {
+    background: -webkit-linear-gradient(left, #3E7EDE, #8FE2BD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translate(0, 0%);
+    z-index: 2;
+    position: relative;
+    height: max-content;
+}
+
+.LandingPage-shadow {
+    color: red;
+    background: none;
+    transform: translate(0.25%, -98%);
+    z-index: 1;
+}
+
+.LandingPage h2 {
+    font-family: 'Epilogue', sans-serif;
+    color: white;
+    text-shadow: 3px 2px rgba(0, 0, 0, 0.4);
+    transform: translate(0, -780%);
+    z-index: 2;
+}
+
+.LandingPage-c3po {
+    width: 15vw;
+    shadow: 3px 2px rgba(0, 0, 0, 0.4);
+}
+
+.LandingPage-terminator {
+    width: 20vw;
+}
+
+.LandingPage-walle {
+    width: 24vw;
+}
+
+.LandingPage-metropolis {
+    width: 15vw;
+}
+
+.LandingPage-title {
+    position: relative;
+    text-align: center;
+}
+
+.LandingPage-welcome {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    max-height: 190px;
+}
+
+.LandingPage-enter {
+    font-family: 'Orbitron', sans-serif;
+    color: greenyellow;
+    text-decoration: none;
+    font-size: 30px;
+    margin-top: 1em;
+    margin-bottom: -1em;
+}
