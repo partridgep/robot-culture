@@ -2,7 +2,10 @@ const express = require('express');
 const router = express.Router();
 const robotsCtrl = require('../../controllers/robots');
 
-router.get('/', robotsCtrl.index);
-router.post('/', robotsCtrl.create);
+// GET /api/robots
+router.get('/', robotsCtrl.getRobots);
+
+// POST /api/robots
+router.post('/', robotsCtrl.addRobot);
 
 module.exports = router;

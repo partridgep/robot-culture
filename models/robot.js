@@ -9,7 +9,8 @@ const robotSchema = new Schema({
   height: Number,
   length: Number,
   width: Number,
-  actors: [String]
+  actors: [String],
+  approved: Boolean
 }, {
   timestamps: true
 });

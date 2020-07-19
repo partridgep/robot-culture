@@ -1,18 +1,18 @@
 var Robot = require('../models/robot');
 
 module.exports = {
-  index,
-  create
+  getRobots,
+  addRobot
 };
 
 //get ALL robots
-async function index(req, res) {
+async function getRobots(req, res) {
   const robots = await Robot.find({});
-  res.json(scores);
+  res.status(201).json(robots);
 }
 
 //create new robots
-async function create(req, res) {
+async function addRobot(req, res) {
   try {
     await Robot.create(req.body);
     // Use the highScores action to return the list

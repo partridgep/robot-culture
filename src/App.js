@@ -7,11 +7,19 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import SelectionPage from './pages/SelectionPage/SelectionPage';
 import RobotInfoPage from './pages/RobotInfoPage/RobotInfoPage';
 
+import robotsService from './utils/robotsService';
+
 class App extends Component {
 
   state = {
     robots: [],
     selRobot: {}
+  }
+
+  async componentDidMount() {
+    console.log('component did mount');
+    const robots = await robotsService.index();
+    console.log(robots);
   }
 
   render() {

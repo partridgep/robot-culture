@@ -1,21 +1,20 @@
 const BASE_URL = '/api/robots/';
 
-export default {
-  index,
-  create
+function index() {
+  return fetch(BASE_URL)
+  //.then(response => response.json());
+  .then(res => res.text())          // convert to plain text
+  .then(text => console.log(text))  // then log it out
 };
 
-function index() {
-  return fetch(BASE_URL).then(res => res.json());
-}
+function create(data) {
+  return fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+          'Content-type': 'Application/json'
+      },
+      body: JSON.stringify(data) //turn the data into JSON (not using AJAX anymore)
+      }).then(response => response.json()); 
+};
 
-function create(robot) {
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json'
-    },
-    body: JSON.stringify(robot)
-  };
-  return fetch(BASE_URL, options).then(res => res.json());
-}
+export default { index, create }
