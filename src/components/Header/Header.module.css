@@ -1,0 +1,46 @@
+.header {
+    background-color: rgba(0,0,0, 0.5);
+    display: grid;
+    grid-template-columns: 30% 2fr 30%;
+    grid-template-rows: 2fr 1fr;
+}
+
+.title {
+    font-family: 'Fugaz One', sans-serif;
+    font-size: 50px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin: 20px 1px;
+    background: -webkit-linear-gradient(left, #3E7EDE, #8FE2BD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translate(0, 0%);
+    z-index: 2;
+    position: relative;
+    height: max-content;
+}
+
+.login {
+    font-family: 'Epilogue', sans-serif;
+    color: white;
+    margin-top: 15%;
+}
+
+.select {
+    font-family: 'Epilogue', sans-serif;
+    color: white;
+    grid-column: span 1;
+}
+
+.options {
+    font-family: 'Epilogue', sans-serif;
+    background-color: rgb(157, 211, 255);
+    margin: 0 5px;
+    padding: 1px;
+}
+
+.search {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+

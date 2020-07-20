@@ -30,7 +30,7 @@ class App extends Component {
           <LandingPage {...props} robots={this.state.robots} />
         } />
         <Route exact path="/robots" render={ props =>
-          <SelectionPage {...props} />
+          <SelectionPage {...props} robots={this.state.robots} />
         } />
         <Route exact path="/robots/:id" render={ props =>
           <RobotInfoPage {...props} />

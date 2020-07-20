@@ -1,7 +1,7 @@
 const express = require('express');
-const path = require('path');
-const favicon = require('serve-favicon');
 const logger = require('morgan');
+//const path = require('path');
+//const favicon = require('serve-favicon');
 
 // Configure to use port 3001 instead of 3000 during
 // development to avoid collision with React's dev server
@@ -11,7 +11,6 @@ const app = express();
 
 // require dotenv and configure()
 // require database module
-
 require('dotenv').config();
 require('./config/database');
 
@@ -29,9 +28,9 @@ app.use('/api/robots', require('./routes/api/robots'));
 
 // The following "catch all" route (note the * is necessary)
 // for a SPA's client-side routing to properly work
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+//app.get('/*', function(req, res) {
+  //  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  //});
 
 
 app.listen(port, function() {
