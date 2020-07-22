@@ -15,7 +15,8 @@ class App extends Component {
     robots: [
       {
         "movies": [
-            "Wall-E"
+            {"title": "Wall-E", "link": "https://www.imdb.com/title/tt0910970/"},
+            {"title": "Wall-E", "link": "https://www.imdb.com/title/tt0910970/"}
         ],
         "books": [],
         "games": [],
@@ -28,6 +29,7 @@ class App extends Component {
         "length": 13,
         "width": 15,
         "categories": ["Pixar", "Friendly", "Animated"],
+        "tvShows" : [],
         "approved": true,
         "imageLandscape": "https://cdn.vox-cdn.com/thumbor/DUP2JhIEkY0yvu0RLcy34ipj6Z0=/0x0:1200x808/1200x800/filters:focal(475x111:667x303)/cdn.vox-cdn.com/uploads/chorus_image/image/55061015/wall_ecover.0.jpg",
         "imagePortrait": "https://img3.akspic.ru/image/21806-robot-atmosfera-sammit-piksar-film-1080x1920.jpg",

@@ -69,3 +69,11 @@
 .trivia p {
     margin-left: 25px;
 }
+
+.trivia a {
+    color: white;
+}
+
+.trivia a:hover {
+    color: rgb(201, 201, 201);
+}

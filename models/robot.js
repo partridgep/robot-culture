@@ -11,6 +11,7 @@ const robotSchema = new Schema({
   movies: [String],
   books: [String],
   games: [String],
+  tvShows: [String],
   height: Number,
   length: Number,
   width: Number,

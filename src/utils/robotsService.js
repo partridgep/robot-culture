@@ -1,10 +1,10 @@
-const BASE_URL = '/api/robots/';
+const BASE_URL = '/api/robots';
 
 function index() {
   return fetch(BASE_URL)
-  //.then(response => response.json());
-  .then(res => res.text())          // convert to plain text
-  .then(text => console.log(text))  // then log it out
+  .then(response => response.json());
+  //.then(res => res.text())          // convert to plain text
+  //.then(text => console.log(text))  // then log it out
 };
 
 function create(data) {
