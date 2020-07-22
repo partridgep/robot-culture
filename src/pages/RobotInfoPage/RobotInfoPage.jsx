@@ -1,15 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import './RobotInfoPage.css';
+import Info from '../../components/Info/Info';
 
-function RobotInfoPage(props) {
-
-    console.log('robot info page');
+function RobotInfoPage({selRobot}) {
 
     return (
-        <div>
-            <h1>ROBOT CULTURE</h1>
-            <h2>Wall-e</h2>
-            <Link to="/robots">Home</Link>
+        <div className='RobotInfoPage'>
+            <Info selRobot={selRobot}/>
         </div>
     );
 }

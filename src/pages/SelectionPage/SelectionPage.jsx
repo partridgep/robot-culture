@@ -1,23 +1,17 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import Header from '../../components/Header/Header';
+import RobotLink from '../../components/RobotLink/RobotLink';
 
 function SelectionPage(props) {
 
     const robotLinks = props.robots.map(robot => (
-        <Link
-            to={'/'+robot.__id}
-            key={robot.__id}
-        >
-            {robot.name}
-        </Link>
+            <RobotLink robot={robot} handleRobotSelection={props.handleRobotSelection}/>
         )
-    )
+    );
 
     return (
         <div className='SelectionPage'>
             <Header />
-            <Link to="/robots/1">Select Robot</Link>
             {props.robots && props.robots.length > 0 ? robotLinks : 'Loading...'}
         </div>
     );

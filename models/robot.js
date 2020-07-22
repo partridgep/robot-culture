@@ -2,7 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const robotSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  imageLandscape: String,
+  imagePortrait: String,
   movies: [String],
   books: [String],
   games: [String],
@@ -10,6 +15,7 @@ const robotSchema = new Schema({
   length: Number,
   width: Number,
   actors: [String],
+  categories: [String],
   approved: Boolean
 }, {
   timestamps: true

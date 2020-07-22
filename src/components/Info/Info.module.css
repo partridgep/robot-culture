@@ -1,0 +1,71 @@
+.diagonalBox {
+    background-image: linear-gradient(45deg, #035db1ee, #121031);
+    transform: skewY(-12deg);
+    width: 100%;
+    height: 100%;
+}
+
+.diagonalBox:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(45deg, #035db1ee, #121031); 	
+    transform: skewY(-12deg);
+}
+
+.content {
+    margin: 0 auto; 
+    transform: skewY(12deg);
+}
+
+.top {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 95% 5%;
+}
+
+.name {
+    font-size: 50px;
+    color: white;
+    transform: translateX(5%);
+}
+
+.xOut {
+    font-size: 40px;
+    color: white;
+    text-decoration: none;
+}
+
+.lower {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.picture {
+    max-width: 40vw;
+    max-height: 55vw;
+    margin: -10% 5% 5% auto;
+    border-radius: 4px;
+    border: 4px inset rgba(0, 0, 0, 0.5);
+}
+
+.trivia {
+    height: max-content;
+    background: linear-gradient(56deg, #654ea3, #0b2469);
+    border-radius: 5px;
+    margin: 10% 15% auto 15%;
+    text-align: left;
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.trivia span {
+    font-weight: 400;
+}
+
+.trivia p {
+    margin-left: 25px;
+}
