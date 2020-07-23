@@ -90,6 +90,8 @@ class App extends Component {
         }
       }
     }
+    //sort the robots by name
+    robotsToShow.sort((robot1, robot2) => (robot1.name > robot2.name) ? 1 : ((robot2.name > robot1.name) ? -1 : 0)); 
     //set the array of robots to show to state
     this.setState({ robotsToShow });
   }
@@ -114,11 +116,15 @@ class App extends Component {
     this.setState({selCategory: e.target.value}, () => this.filterRobots());
   }
 
+  handleLandingPageRobotClick = e => {
+    console.log(e);
+  }
+
   render() {
     return( 
     <div className="App">
         <Route exact path="/" render={ props =>
-          <LandingPage {...props} robots={this.state.robots} />
+          <LandingPage {...props} robots={this.state.robots} handleLandingPageRobotClick={this.handleLandingPageRobotClick}/>
         } />
         <Route path="/robots" render={ props =>
           <SelectionPage 
@@ -135,7 +141,8 @@ class App extends Component {
         <Route exact path="/robots/:id" render={ props =>
           <RobotInfoPage 
             {...props} 
-            selRobot={this.state.selRobot}
+            robots={this.state.robots}
+            selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
           />
         } />
     </div>
