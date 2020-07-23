@@ -1,18 +1,27 @@
 import React from 'react';
+import './SelectionPage.css';
 import Header from '../../components/Header/Header';
 import RobotLink from '../../components/RobotLink/RobotLink';
 
 function SelectionPage(props) {
 
-    const robotLinks = props.robots.map(robot => (
-            <RobotLink robot={robot} handleRobotSelection={props.handleRobotSelection}/>
+    const robotLinks = props.robotsToShow.map(robot => (
+            <RobotLink key={robot._id} robot={robot} handleRobotSelection={props.handleRobotSelection}/>
         )
     );
 
     return (
         <div className='SelectionPage'>
-            <Header />
-            {props.robots && props.robots.length > 0 ? robotLinks : 'Loading...'}
+            <Header 
+                robots={props.robots}
+                robotsToShow={props.robotsToShow}
+                handleCultureSelection={props.handleCultureSelection}
+                handleCategorySelection={props.handleCategorySelection}
+            />
+            <div className='SelectionPage-AllLinks'>
+                {props.robots && props.robots.length > 0 ? robotLinks : 'Loading...'}
+                {props.robotsToShow.length === 0 && <p>No Robots</p>}
+            </div>
         </div>
     );
 }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './RobotLink.module.css';
 
 const RobotLink = ({robot, handleRobotSelection}) => (
-    <div className={styles.allLinks}>
+
         <Link
             style={{
                 backgroundImage: `url("${robot.imageLandscape}")`,
@@ -18,7 +18,6 @@ const RobotLink = ({robot, handleRobotSelection}) => (
         >
         {robot.name}
         </Link>
-    </div>
 )
 
 export default RobotLink;
