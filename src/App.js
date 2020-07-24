@@ -12,43 +12,13 @@ import robotsService from './utils/robotsService';
 class App extends Component {
 
   state = {
-    robots: [
-      /*
-      {
-        "movies": [
-            {"title": "Wall-E", "link": "https://www.imdb.com/title/tt0910970/", "releaseYear": "2008"}
-        ],
-        "books": [],
-        "games": [],
-        "actors": [
-            {
-              "name": "Ben Burtt",
-              "link": "https://www.imdb.com/name/nm0123785/?ref_=tt_cl_t1"
-            }
-        ],
-        "_id": "5f14ae311e2231e17881c743",
-        "name": "Wall-E",
-        "height": {
-          "feet": 0,
-          "inches": 18
-        },
-        "manufacturer": "Buy n Large Corporation",
-        "categories": ["Pixar", "Friendly", "Animated"],
-        "tvShows" : [],
-        "approved": true,
-        "imageLandscape": "https://cdn.vox-cdn.com/thumbor/DUP2JhIEkY0yvu0RLcy34ipj6Z0=/0x0:1200x808/1200x800/filters:focal(475x111:667x303)/cdn.vox-cdn.com/uploads/chorus_image/image/55061015/wall_ecover.0.jpg",
-        "imagePortrait": "https://img3.akspic.ru/image/21806-robot-atmosfera-sammit-piksar-film-1080x1920.jpg",
-        "createdAt": "2020-07-19T20:33:53.168Z",
-        "updatedAt": "2020-07-19T20:33:53.168Z",
-        "__v": 0
-    }
-    */
-    ],
+    robots: [],
     selRobot: {},
     robotsToShow: [],
     selCategory: "All",
     selCulture: "All Pop-Culture",
-    robotsOfHoveredCategory: []
+    robotsOfHoveredCategory: [],
+    search: ""
   }
 
   async componentDidMount() {
@@ -63,6 +33,7 @@ class App extends Component {
 
   //function called to filter the robots in the robotsToShow property
   filterRobots() {
+    console.log("filtering");
     //initialize an array
     let robotsToShow = [];
     //filter through all the robots
@@ -128,6 +99,59 @@ class App extends Component {
     this.setState({ robotsOfHoveredCategory: categoryRobots });
   }
 
+  handleChange = e => {
+    // get search value
+    let search = e.target.value;
+    console.log(search.toLowerCase());
+    // initialize roster of robots by filtering all through categories and cultures
+    this.filterRobots();
+
+    //NEED ABOVE TO HAPPEN BEFORE THE REST HAPPENS
+
+    // set state of search value
+    this.setState({ search });
+    // if the search query is empty quit function (show all filtered robots)
+    if (search === "") return;
+
+    // initialize array of robots to show
+    let robotsToShow = [];
+    // iterate through array of filtered robots in state
+    for (var robot of this.state.robotsToShow) {
+      console.log(robot.name.toLowerCase());
+      console.log(robot.name.toLowerCase().includes(search.toLowerCase()));
+      // if name includes letters in search query, add robot to array
+      if (robot.name.toLowerCase().includes(search.toLowerCase())) {
+        robotsToShow.push(robot);
+        }
+      else {
+        // iterate through robot's categories
+        for (var category of robot.categories) {
+          // if category name includes letters in search query
+          // add to array if it is not already in it
+          if (category.toLowerCase().includes(search.toLowerCase()) && !robotsToShow.includes(robot)) {
+            robotsToShow.push(robot);
+          }
+        }
+      }
+    }
+
+    //display robots that match search query
+    this.setState({ robotsToShow });
+  }
+
+  handleSearch = searchQuery => {
+    console.log(searchQuery);
+  }
+
+  handleSubmit = e => {
+      // Prevent Page Refresh
+      e.preventDefault();
+      // Pass our newly created todo txt to the add todo method
+      this.handleSearch(this.state.search.toLowerCase());
+      // lear our todo form
+      this.setState({search: ""});
+  }
+
   render() {
     return( 
     <div className="App">
@@ -141,9 +165,12 @@ class App extends Component {
             robotsToShow={this.state.robotsToShow}
             selCategory={this.state.selCategory}
             selCulture={this.state.selCulture}
+            search={this.state.search}
             handleRobotSelection={this.handleRobotSelection}
             handleCultureSelection={this.handleCultureSelection}
             handleCategorySelection={this.handleCategorySelection}
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
           />
         } />
         <Route exact path="/robots/:id" render={ props =>

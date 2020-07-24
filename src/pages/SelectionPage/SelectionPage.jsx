@@ -15,13 +15,22 @@ function SelectionPage(props) {
             <Header 
                 robots={props.robots}
                 robotsToShow={props.robotsToShow}
+                selCategory={props.selCategory}
+                search={props.search}
                 handleCultureSelection={props.handleCultureSelection}
                 handleCategorySelection={props.handleCategorySelection}
-                selCategory={props.selCategory}
+                handleSubmit={props.handleSubmit}
+                handleChange={props.handleChange}
             />
             <div className='SelectionPage-AllLinks'>
-                {props.robots && props.robots.length > 0 ? robotLinks : 'Loading...'}
-                {props.robotsToShow.length === 0 && <p>No Robots</p>}
+                {/* show loading message if still getting robots */}
+                {props.robots && props.robots.length === 0 && 'Loading...'}
+                {/* Show robot links or "No Robots" if no robot matches query */}
+                {props.robotsToShow.length === 0 && props.robots.length > 0 ? 
+                    <p className="SelectionPage-NoRobots">No Robots</p> 
+                    : 
+                    robotLinks
+                }
             </div>
         </div>
     );

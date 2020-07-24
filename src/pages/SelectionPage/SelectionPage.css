@@ -2,12 +2,35 @@
     height: 100vh;
 }
 
+@keyframes slideDown {
+    0% {
+      transform: translateY(5%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 100%;
+    }
+  }
+
 .SelectionPage-AllLinks {
-    height: calc(100vh - 169.5px);
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
     padding: 5%;   
     box-sizing: border-box;
+    animation: 0.3s ease-in 0s 1 slideDown;
+}
+
+.SelectionPage-NoRobots {
+    height: 35vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 0.1em;
 }

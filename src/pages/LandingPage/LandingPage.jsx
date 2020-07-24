@@ -4,8 +4,6 @@ import './LandingPage.css';
 
 function LandPage(props) {
 
-    
-
     return (
         <div className='LandingPage'>
             <div className='LandingPage-title'>

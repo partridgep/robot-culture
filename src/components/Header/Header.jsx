@@ -46,7 +46,12 @@ const Header = props => (
                 {getCategories(props.robots).map(category => <option key={category}>{category}</option>)}
             </select>
         </p>
-        <form className={styles.search}><input placeholder="Search"/></form>
+        <form className={styles.search} onSubmit={props.handleSubmit}>
+            <input placeholder="Search"
+            value={props.search} 
+            onChange={props.handleChange}
+            />
+        </form>
     </div>
 );
 
