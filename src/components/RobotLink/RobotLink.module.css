@@ -4,28 +4,20 @@
     align-items: flex-end;
     color: white;
     font-family: 'Fugaz One', sans-serif;
-    background-color: -webkit-linear-gradient(#3E7EDE, #8FE2BD);
+    object-fit: fill;
     transform: translate(0, 0%);
     text-decoration: none;
     font-size: 50px;
     white-space: normal;
-    height: 150px;
-    width: 250px;
+    height: 160px;
+    width: 260px;
     padding: 5px;
-    margin: 0 2%;
+    margin-right: 4%;
     border: 2px solid rgba(197, 197, 197, 0.5);
     border-radius: 7px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
     text-shadow: 1px 1px 20px #000000;
     transition: all 0.2s;
-}
-
-.link:first-of-type {
-    margin-left: 0;
-}
-
-.link:last-of-type {
-    margin-right: 0;
 }
 
 .link:hover {

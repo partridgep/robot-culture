@@ -1,13 +1,22 @@
 import React from 'react';
 import './RobotInfoPage.css';
 import Info from '../../components/Info/Info';
-import robotsService from '../../utils/robotsService';
 
-function RobotInfoPage({selRobot, robots}) {
+function RobotInfoPage(props) {
 
     return (
         <div className='RobotInfoPage'>
-            {robots.length > 0 && <Info selRobot={selRobot} key={selRobot._id}/>}
+            {props.robots.length > 0 
+            && 
+            props.selRobot
+            &&
+            <Info 
+                selRobot={props.selRobot} 
+                key={props.selRobot._id} 
+                robotsOfHoveredCategory={props.robotsOfHoveredCategory}
+                handleCategorySelection={props.handleCategorySelection}
+                handleHoverCategory={props.handleHoverCategory}
+            />}
         </div>
     );
 }

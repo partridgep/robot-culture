@@ -17,6 +17,7 @@ function SelectionPage(props) {
                 robotsToShow={props.robotsToShow}
                 handleCultureSelection={props.handleCultureSelection}
                 handleCategorySelection={props.handleCategorySelection}
+                selCategory={props.selCategory}
             />
             <div className='SelectionPage-AllLinks'>
                 {props.robots && props.robots.length > 0 ? robotLinks : 'Loading...'}

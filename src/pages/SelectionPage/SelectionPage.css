@@ -8,5 +8,6 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin: 5%;   
+    padding: 5%;   
+    box-sizing: border-box;
 }

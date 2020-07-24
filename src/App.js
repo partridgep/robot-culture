@@ -47,7 +47,8 @@ class App extends Component {
     selRobot: {},
     robotsToShow: [],
     selCategory: "All",
-    selCulture: "All Pop-Culture"
+    selCulture: "All Pop-Culture",
+    robotsOfHoveredCategory: []
   }
 
   async componentDidMount() {
@@ -111,13 +112,20 @@ class App extends Component {
 
   // handles change in the category selector
   handleCategorySelection = e => {
+    let selCategory;
+    // this will be used when selecting from the drop-down menu
+    if (e.target.value) selCategory = e.target.value;
+    // this will be used when clicking on a category link from within a robot page
+    else selCategory = e.target.textContent;
     //immediately filter robots as a callback function 
     //for a re-render of robots on the selection page
-    this.setState({selCategory: e.target.value}, () => this.filterRobots());
+    this.setState({ selCategory }, () => this.filterRobots());
   }
 
-  handleLandingPageRobotClick = e => {
-    console.log(e);
+  handleHoverCategory = e => {
+    const hoveredCategory = e.target.textContent;
+    const categoryRobots = this.state.robots.filter((robot) => robot.categories.includes(hoveredCategory));
+    this.setState({ robotsOfHoveredCategory: categoryRobots });
   }
 
   render() {
@@ -143,6 +151,9 @@ class App extends Component {
             {...props} 
             robots={this.state.robots}
             selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
+            robotsOfHoveredCategory={this.state.robotsOfHoveredCategory}
+            handleCategorySelection={this.handleCategorySelection}
+            handleHoverCategory={this.handleHoverCategory}
           />
         } />
     </div>

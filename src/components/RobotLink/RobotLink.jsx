@@ -9,7 +9,7 @@ const RobotLink = ({robot, handleRobotSelection}) => (
                 backgroundImage: `url("${robot.imageLandscape}")`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat'
+                backgroundRepeat: 'no-repeat',
             }}
             className={styles.link} 
             to={'/robots/'+robot._id}
