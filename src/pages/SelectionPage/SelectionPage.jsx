@@ -21,6 +21,7 @@ function SelectionPage(props) {
                 handleCategorySelection={props.handleCategorySelection}
                 handleSubmit={props.handleSubmit}
                 handleChange={props.handleChange}
+                resetSearch={props.resetSearch}
             />
             <div className='SelectionPage-AllLinks'>
                 {/* show loading message if still getting robots */}

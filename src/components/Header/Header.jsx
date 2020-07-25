@@ -47,10 +47,14 @@ const Header = props => (
             </select>
         </p>
         <form className={styles.search} onSubmit={props.handleSubmit}>
-            <input placeholder="Search"
-            value={props.search} 
-            onChange={props.handleChange}
+            <input 
+                required
+                className={styles.searchBox}
+                placeholder="Search"
+                value={props.search} 
+                onChange={props.handleChange}
             />
+            <button className={styles.closeIcon} onClick={props.resetSearch}></button>
         </form>
     </div>
 );

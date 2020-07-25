@@ -108,7 +108,7 @@ class App extends Component {
   handleChange = e => {
     // get search value
     let search = e.target.value;
-    console.log(search.toLowerCase());
+    //console.log(search.toLowerCase());
 
     // set state of search value
     this.setState({ search });
@@ -119,8 +119,8 @@ class App extends Component {
     let robotsToShow = [];
     // iterate through array of filtered robots in state
     for (var robot of this.state.filteredRobots) {
-      console.log(robot.name.toLowerCase());
-      console.log(robot.name.toLowerCase().includes(search.toLowerCase()));
+      //console.log(robot.name.toLowerCase());
+      //console.log(robot.name.toLowerCase().includes(search.toLowerCase()));
       // if name includes letters in search query, add robot to array
       if (robot.name.toLowerCase().includes(search.toLowerCase())) {
         robotsToShow.push(robot);
@@ -147,6 +147,12 @@ class App extends Component {
       e.preventDefault();
   }
 
+  resetSearch = () => {
+    console.log('resetting');
+    this.setState({ search: ""});
+    this.filterRobots();
+  }
+
   render() {
     return( 
     <div className="App">
@@ -166,6 +172,7 @@ class App extends Component {
             handleCategorySelection={this.handleCategorySelection}
             handleSubmit={this.handleSubmit}
             handleChange={this.handleChange}
+            resetSearch={this.resetSearch}
           />
         } />
         <Route exact path="/robots/:id" render={ props =>

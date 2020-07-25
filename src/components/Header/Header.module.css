@@ -1,5 +1,5 @@
 .header {
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     display: grid;
     grid-template-columns: 30% 2fr 30%;
     grid-template-rows: 2fr 1fr;
@@ -44,3 +44,54 @@
     margin-bottom: auto;
 }
 
+.searchBox {
+	position: relative;
+}
+
+.closeIcon {
+    position: fixed;
+}
+
+.searchBox {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: 0;
+    padding: 5px;
+}
+
+.searchBox:focus {
+    box-shadow: 0 0 5px 1px #85d5ee;
+    border: 2px solid #a7eaff;
+}
+
+ .closeIcon {
+    border: 1px solid transparent;
+    background-color: transparent;
+    vertical-align: middle;
+    outline: 0;
+    cursor: pointer;
+} 
+
+.closeIcon:after {
+	content: "X";
+	display: block;
+	width: 13px;
+	height: 13px;
+	position: absolute;
+	background-color: #adadad;
+	z-index:1;
+	right: 25px;
+	top: 25px;
+	bottom: 0;
+	margin: auto;
+	border-radius: 50%;
+    text-align: center;
+	color: white;
+	font-weight: normal;
+	font-size: 10px;
+	cursor: pointer;
+}
+
+.searchBox:not(:valid) ~ .closeIcon {
+	display: none;
+}
