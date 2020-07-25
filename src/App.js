@@ -15,6 +15,7 @@ class App extends Component {
     robots: [],
     selRobot: {},
     robotsToShow: [],
+    filteredRobots: [],
     selCategory: "All",
     selCulture: "All Pop-Culture",
     robotsOfHoveredCategory: [],
@@ -65,7 +66,8 @@ class App extends Component {
     //sort the robots by name
     robotsToShow.sort((robot1, robot2) => (robot1.name > robot2.name) ? 1 : ((robot2.name > robot1.name) ? -1 : 0)); 
     //set the array of robots to show to state
-    this.setState({ robotsToShow });
+    // create duplicate array of filtered robots for search optimization
+    this.setState({ robotsToShow, filteredRobots: robotsToShow });
   }
 
   // handles click on a robot link
@@ -93,9 +95,13 @@ class App extends Component {
     this.setState({ selCategory }, () => this.filterRobots());
   }
 
+  // handles hover over categories on robot info page
   handleHoverCategory = e => {
+    // grab category name
     const hoveredCategory = e.target.textContent;
+    // find all robots from category
     const categoryRobots = this.state.robots.filter((robot) => robot.categories.includes(hoveredCategory));
+    // set state of category robots
     this.setState({ robotsOfHoveredCategory: categoryRobots });
   }
 
@@ -103,10 +109,6 @@ class App extends Component {
     // get search value
     let search = e.target.value;
     console.log(search.toLowerCase());
-    // initialize roster of robots by filtering all through categories and cultures
-    this.filterRobots();
-
-    //NEED ABOVE TO HAPPEN BEFORE THE REST HAPPENS
 
     // set state of search value
     this.setState({ search });
@@ -116,7 +118,7 @@ class App extends Component {
     // initialize array of robots to show
     let robotsToShow = [];
     // iterate through array of filtered robots in state
-    for (var robot of this.state.robotsToShow) {
+    for (var robot of this.state.filteredRobots) {
       console.log(robot.name.toLowerCase());
       console.log(robot.name.toLowerCase().includes(search.toLowerCase()));
       // if name includes letters in search query, add robot to array
@@ -139,17 +141,10 @@ class App extends Component {
     this.setState({ robotsToShow });
   }
 
-  handleSearch = searchQuery => {
-    console.log(searchQuery);
-  }
-
+  // handles submit of search bar
   handleSubmit = e => {
       // Prevent Page Refresh
       e.preventDefault();
-      // Pass our newly created todo txt to the add todo method
-      this.handleSearch(this.state.search.toLowerCase());
-      // lear our todo form
-      this.setState({search: ""});
   }
 
   render() {
