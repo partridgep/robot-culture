@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import LandingPage from './pages/LandingPage/LandingPage';
 import SelectionPage from './pages/SelectionPage/SelectionPage';
 import RobotInfoPage from './pages/RobotInfoPage/RobotInfoPage';
+import SignUpPage from './pages/SignUpPage/SignUpPage';
 
 import robotsService from './utils/robotsService';
+import userService from './utils/userService';
 
 class App extends Component {
 
@@ -19,7 +21,8 @@ class App extends Component {
     selCategory: "All",
     selCulture: "All Pop-Culture",
     robotsOfHoveredCategory: [],
-    search: ""
+    search: "",
+    user: userService.getUser()
   }
 
   async componentDidMount() {
@@ -108,12 +111,15 @@ class App extends Component {
   handleChange = e => {
     // get search value
     let search = e.target.value;
-    //console.log(search.toLowerCase());
+    console.log(search.toLowerCase());
 
     // set state of search value
     this.setState({ search });
     // if the search query is empty quit function (show all filtered robots)
-    if (search === "") return;
+    if (search === "") {
+      this.filterRobots();
+      return;
+    };
 
     // initialize array of robots to show
     let robotsToShow = [];
@@ -153,6 +159,15 @@ class App extends Component {
     this.filterRobots();
   }
 
+  handleSignupOrLogin = () => {
+    this.setState({ user: userService.getUser() })
+  }
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  }
+
   render() {
     return( 
     <div className="App">
@@ -167,12 +182,14 @@ class App extends Component {
             selCategory={this.state.selCategory}
             selCulture={this.state.selCulture}
             search={this.state.search}
+            user={this.state.user}
             handleRobotSelection={this.handleRobotSelection}
             handleCultureSelection={this.handleCultureSelection}
             handleCategorySelection={this.handleCategorySelection}
             handleSubmit={this.handleSubmit}
             handleChange={this.handleChange}
             resetSearch={this.resetSearch}
+            handleLogout={this.handleLogout}
           />
         } />
         <Route exact path="/robots/:id" render={ props =>
@@ -184,6 +201,12 @@ class App extends Component {
             handleCategorySelection={this.handleCategorySelection}
             handleHoverCategory={this.handleHoverCategory}
           />
+        } />
+        <Route exact path='/robots/signup' render={({ history }) => 
+            <SignUpPage
+              history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin}
+            />
         } />
     </div>
     )

@@ -17,11 +17,13 @@ function SelectionPage(props) {
                 robotsToShow={props.robotsToShow}
                 selCategory={props.selCategory}
                 search={props.search}
+                user={props.user}
                 handleCultureSelection={props.handleCultureSelection}
                 handleCategorySelection={props.handleCategorySelection}
                 handleSubmit={props.handleSubmit}
                 handleChange={props.handleChange}
                 resetSearch={props.resetSearch}
+                handleLogout={props.handleLogout}
             />
             <div className='SelectionPage-AllLinks'>
                 {/* show loading message if still getting robots */}

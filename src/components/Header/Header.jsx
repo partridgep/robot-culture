@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
+
+import UserNav from '../../components/UserNav/UserNav';
 
 // get pop-culture options for drop-down menu
 function getPopCultures(robots) {
@@ -34,28 +35,34 @@ function getCategories(robots) {
 
 const Header = props => (
     <div className={styles.header}>
-        <h1 className={styles.title}>ROBOT CULTURE</h1>
-        <Link to="/" className={styles.login}>LOGIN</Link>
-        <p className={styles.select}>Select Robot from:  
-            <select className={styles.options} onChange={props.handleCultureSelection} >
-                {getPopCultures(props.robots).map(culture => <option key={culture}>{culture}</option>)}
-            </select>
-        </p>
-        <p className={styles.select}>Choose Category: 
-            <select className={styles.options} value={props.selCategory} onChange={props.handleCategorySelection}>
-                {getCategories(props.robots).map(category => <option key={category}>{category}</option>)}
-            </select>
-        </p>
-        <form className={styles.search} onSubmit={props.handleSubmit}>
-            <input 
-                required
-                className={styles.searchBox}
-                placeholder="Search"
-                value={props.search} 
-                onChange={props.handleChange}
-            />
-            <button className={styles.closeIcon} onClick={props.resetSearch}></button>
-        </form>
+
+        <div className={styles.headerTop}>
+            <h1 className={styles.title}>ROBOT CULTURE</h1>
+            <UserNav className={styles.login} user={props.user} handleLogout={props.handleLogout}/>
+        </div>
+
+        <div className={styles.headerBottom}>
+            <p className={styles.select}>Select Robot from:  
+                <select className={styles.options} onChange={props.handleCultureSelection} >
+                    {getPopCultures(props.robots).map(culture => <option key={culture}>{culture}</option>)}
+                </select>
+            </p>
+            <p className={styles.select}>Choose Category: 
+                <select className={styles.options} value={props.selCategory} onChange={props.handleCategorySelection}>
+                    {getCategories(props.robots).map(category => <option key={category}>{category}</option>)}
+                </select>
+            </p>
+            <form className={styles.search} onSubmit={props.handleSubmit}>
+                <input 
+                    type="search"
+                    className={styles.searchBox}
+                    placeholder="Search"
+                    value={props.search} 
+                    onChange={props.handleChange}
+                />
+            </form>
+        </div>
+
     </div>
 );
 

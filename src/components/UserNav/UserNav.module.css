@@ -1,0 +1,15 @@
+.userNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    color: white;
+    text-decoration: none;
+    font-family: 'Epilogue', sans-serif;
+}
+
+.login:hover {
+    color: rgb(193, 227, 255);
+}

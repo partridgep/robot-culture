@@ -1,0 +1,22 @@
+.signupWindow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 250px;
+    background: linear-gradient(rgb(148, 176, 199), rgb(20, 53, 80));
+    border-radius: 5px;
+    font-family: 'Epilogue', sans-serif;
+}
+
+.header {
+    padding-bottom: 30px;
+    font-size: 23px;
+    text-transform: uppercase;
+}
+
+.buttons {
+    padding-top: 30px;
+}
+
