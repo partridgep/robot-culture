@@ -1,181 +1,205 @@
-@keyframes C3PO-slideFromLeft {
-    0% {
-      transform: translate(-20%, -10%);
-      opacity: 0;
-    }
-    100% {
-      transform: translate(0, -10%);
-      opacity: 100%;
-    }
-  }
-
-  @keyframes Terminator-slideFromLeft {
-    0% {
-      transform: translate(-10%, -10%);
-      opacity: 0;
-    }
-    100% {
-      transform: translate(0, -10%);
-      opacity: 100%;
-    }
-  }
-
-  @keyframes WallE-slideFromRight {
-    0% {
-      transform: translate(10%, -10%);
-      opacity: 0;
-    }
-    100% {
-      transform: translate(0, -10%);
-      opacity: 100%;
-    }
-  }
-
-  @keyframes Metropolis-slideFromRight {
-    0% {
-      transform: translate(20%, -10%);
-      opacity: 0;
-    }
-    100% {
-      transform: translate(0, -10%);
-      opacity: 100%;
-    }
-  }
-
-  @keyframes gradient-slideUp {
-    0% {
-      transform: translate(0, 20%);
-      opacity: 0;
-    }
-    100% {
-      transform: translate(0, 0%);
-      opacity: 100%;
-    }
-  }
-
-  @keyframes h2-slideUp {
-    0% {
-      /* transform: translate(0, -700%); */
-      opacity: 0;
-    }
-    100% {
-        /* transform: translate(0, -780%); */
-      opacity: 100%;
-    }
-  }
-
-
-
-
 .LandingPage {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .LandingPage h1 {
-    font-family: 'Fugaz One', sans-serif;
-    font-size: 110px;
-    width: 95vw;
-    margin: 0;
-    position: relative;
+  font-family: 'Fugaz One', sans-serif;
+  font-size: 110px;
+  width: 95vw;
+  margin: 0;
+  position: relative;
 }
 
 .LandingPage-img {
-    position: relative;
-    transform: translate(0, -10%);
-    z-index: 0;
-    transition: all 0.1s;
+  position: relative;
+  transform: translate(0, -10%);
+  z-index: 0;
+  transition: all 0.1s;
 }
 
 .LandingPage-img:hover {
-    transform: translate(-2%, -10%);
-    -webkit-filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px -1px 0 white);
-    filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px -1px 0 white);
+  transform: translate(-2%, -10%);
+  -webkit-filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px -1px 0 white);
+  filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px -1px 0 white);
 }
 
 .LandingPage-gradient {
-    background: -webkit-linear-gradient(left, #3E7EDE, #8FE2BD);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(left, #3E7EDE, #8FE2BD);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translate(0, 0%);
+  z-index: 2;
+  position: relative;
+  height: max-content;
+  animation: gradient-slideUp 1s;
+}
+
+@keyframes gradient-slideUp {
+  0% {
+    transform: translate(0, 20%);
+    opacity: 0;
+  }
+  100% {
     transform: translate(0, 0%);
-    z-index: 2;
-    position: relative;
-    height: max-content;
-    animation: gradient-slideUp 1s;
+    opacity: 100%;
+  }
 }
 
 .LandingPage-shadow {
-    color: red;
-    background: none;
-    transform: translate(0.25%, -98%);
-    z-index: 1;
+  color: red;
+  background: none;
+  transform: translate(0.25%, -98%);
+  z-index: 1;
 }
 
 .LandingPage h2 {
-    font-family: 'Epilogue', sans-serif;
-    color: white;
-    text-shadow: 3px 2px rgba(0, 0, 0, 0.4);
-    transform: translate(0, -780%);
-    z-index: 2;
-    animation: h2-slideUp 4s;
+  font-family: 'Epilogue', sans-serif;
+  color: white;
+  text-shadow: 3px 2px rgba(0, 0, 0, 0.4);
+  transform: translate(0, -780%);
+  z-index: 2;
+  animation: h2-slideUp 4s;
+}
+
+@keyframes h2-slideUp {
+  0% {
+    /* transform: translate(0, -700%); */
+    opacity: 0;
+  }
+  100% {
+    /* transform: translate(0, -780%); */
+    opacity: 100%;
+  }
 }
 
 .LandingPage-c3po {
-    width: 15vw;
-    animation: C3PO-slideFromLeft 1s;
+  width: 15vw;
+  animation: C3PO-slideFromLeft 1s;
+}
+
+@keyframes C3PO-slideFromLeft {
+  0% {
+    transform: translate(-20%, -10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, -10%);
+    opacity: 100%;
+  }
 }
 
 .LandingPage-terminator {
-    width: 20vw;
-    animation: Terminator-slideFromLeft 1s;
+  width: 20vw;
+  animation: Terminator-slideFromLeft 1s;
+}
+
+@keyframes Terminator-slideFromLeft {
+  0% {
+    transform: translate(-10%, -10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, -10%);
+    opacity: 100%;
+  }
 }
 
 .LandingPage-walle {
-    width: 24vw;
-    animation: WallE-slideFromRight 1s;
+  width: 24vw;
+  animation: WallE-slideFromRight 1s;
+}
+
+@keyframes WallE-slideFromRight {
+  0% {
+    transform: translate(10%, -10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, -10%);
+    opacity: 100%;
+  }
 }
 
 .LandingPage-metropolis {
-    width: 15vw;
-    animation: Metropolis-slideFromRight 1s;
+  width: 15vw;
+  animation: Metropolis-slideFromRight 1s;
+}
+
+@keyframes Metropolis-slideFromRight {
+  0% {
+    transform: translate(20%, -10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, -10%);
+    opacity: 100%;
+  }
 }
 
 .LandingPage-title {
-    position: relative;
-    text-align: center;
+  position: relative;
+  text-align: center;
 }
 
 .LandingPage-welcome {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    max-height: 190px;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  max-height: 190px;
 }
 
-@keyframes animated-text{
-    from{width: 0;}
-    to{width: 60%;}
-  }
-
-  @keyframes animated-cursor{
-    from{border-right-color: rgba(0,255,0,.75);}
-    to{border-right-color: transparent;}
-  }
-
 .LandingPage-enter {
-    font-family: 'Orbitron', sans-serif;
-    color: rgb(186, 255, 82);
-    text-decoration: none;
-    font-size: 30px;
-    margin-top: 1em;
-    margin-bottom: -1em;
-    white-space: nowrap;
-    overflow: hidden; 
-    animation: animated-text 4s steps(29,end) 1s 1 normal both,
-             animated-cursor 600ms steps(29,end) infinite;
+  font-family: 'Orbitron', monospace;
+  color: rgb(186, 255, 82);
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+  animation: delay 0.7s, typing 0.7s 0.6s steps(14, end), blink 1s step-end infinite;
+  white-space: nowrap;
+  font-size: 30px;
+  font-weight: 700;
+  border-right: 15px solid rgba(186, 255, 82, 0.5);
+  box-sizing: border-box;
+}
+
+.LandingPage-enter:hover {
+  color: rgb(255, 255, 255);
+  border-right: 15px solid white;
+  text-shadow: 1px 1px 1px rgb(186, 255, 82);
+}
+
+@keyframes delay {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0%
+  }
+  to {
+    width: 270px;
+  }
+}
+
+@keyframes blink {
+  from, to {
+    border-color: transparent
+  }
+  50% {
+    border-color: rgba(186, 255, 82, 0.5);
+  }
 }
