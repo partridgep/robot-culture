@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import LandingPage from './pages/LandingPage/LandingPage';
 import SelectionPage from './pages/SelectionPage/SelectionPage';
 import RobotInfoPage from './pages/RobotInfoPage/RobotInfoPage';
-import SignUpPage from './pages/SignUpPage/SignUpPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 
 import robotsService from './utils/robotsService';
@@ -202,12 +201,6 @@ class App extends Component {
             handleCategorySelection={this.handleCategorySelection}
             handleHoverCategory={this.handleHoverCategory}
           />
-        } />
-        <Route exact path='/signup' render={({ history }) => 
-            <SignUpPage
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
-            />
         } />
         <Route exact path='/login' render={({ history }) => 
             <LoginPage

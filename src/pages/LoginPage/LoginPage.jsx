@@ -7,7 +7,12 @@ import './LoginPage.css';
 class LoginPage extends Component {
 
     state = {
-        login: 1
+        login: 1,
+        message: ''
+    }
+
+    updateMessage = (msg) => {
+    this.setState({message: msg});
     }
 
     chooseLoginOrSignup = e => {
@@ -16,9 +21,7 @@ class LoginPage extends Component {
         else this.setState({login: 1});
     }
   
-  
     render() {
-
         return (
           <div className="LoginPage">
             <div className='LoginPage-loginWindow'>
@@ -29,7 +32,12 @@ class LoginPage extends Component {
                 <p><Link onClick={(e) => this.chooseLoginOrSignup(e)} >Login</Link> | Sign up</p>
                 }
                 </header>
-              {this.state.login ? <LoginForm {...this.props} /> : <SignUpForm {...this.props} />}
+                <p className='LoginPage-whySignup'>{this.state.login ? 'Login' : 'Sign up'} to save favorites and update robot database</p>
+              {this.state.login ? 
+                <LoginForm {...this.props} message={this.state.message} updateMessage={this.updateMessage}/> 
+                : 
+                <SignUpForm {...this.props} message={this.state.message} updateMessage={this.updateMessage}/>
+                }
             </div>
           </div>
         );

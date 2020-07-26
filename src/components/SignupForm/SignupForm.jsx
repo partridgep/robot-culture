@@ -29,6 +29,7 @@ class SignupForm extends Component {
       // Successfully signed up - show Robot Page
       this.props.history.push('/robots');
     } catch (err) {
+      console.log(err.message);
       // Invalid user data (probably duplicate email)
       this.props.updateMessage(err.message);
     }
@@ -41,27 +42,27 @@ class SignupForm extends Component {
   render() {
     return (
         <div className={styles.signUp}>
-        <p className={styles.whySignup}>Sign up to save favorites and update robot database</p>
-        <form onSubmit={this.handleSubmit} >
-          <div className={styles.field}>
-              <input type="text" className="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
-          </div>
-          <div className={styles.field}>
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
-          </div>
-          <div className={styles.field}>
-              <input type="password" className="form-control" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
-          </div>
-          <div className={styles.field}>
-              <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
-          </div>
-          <div className={styles.field}>
-            <div className={styles.buttons}>
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-              <Link to='/robots'>Cancel</Link>
+          <p className={styles.message}>{this.props.message}</p>
+          <form onSubmit={this.handleSubmit} >
+            <div className={styles.field}>
+                <input type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
             </div>
-          </div>
-        </form>
+            <div className={styles.field}>
+                <input type="email" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+            </div>
+            <div className={styles.field}>
+                <input type="password" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
+            </div>
+            <div className={styles.field}>
+                <input type="password" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+            </div>
+            <div className={styles.field}>
+              <div className={styles.buttons}>
+                <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+                <Link to='/robots'>Cancel</Link>
+              </div>
+            </div>
+          </form>
         </div>
     );
   }
