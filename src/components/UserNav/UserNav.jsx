@@ -11,7 +11,7 @@ const UserNav = ({user, handleLogout}) => {
         </div>
         :
         <div>
-          <Link to="/robots/signup" className={styles.login}>LOGIN</Link>
+          <Link to="/login" className={styles.login}>LOGIN</Link>
         </div>
     }
     </div>

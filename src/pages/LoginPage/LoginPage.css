@@ -1,7 +1,43 @@
 .LoginPage {
     display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
+    z-index: 3;
+    background-color: rgba(0,0,0,0.1);
+    }
+
+.LoginPage-loginWindow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 350px;
+    background: linear-gradient(rgb(148, 176, 199), rgb(20, 53, 80));
+    border-radius: 5px;
+    font-family: 'Epilogue', sans-serif;
+}
+
+.LoginPage-header {
+    position: relative;
+    top: 0;
+    height: 20%;
+    padding-top: 30px;
+    font-size: 23px;
+    text-transform: uppercase;
+}
+
+.LoginPage-header p {
+    margin: 0;
+}
+
+.LoginPage-header a, .LoginPage-buttons a {
+    color: rgb(240, 240, 240);
+}
+
+.LoginPage-header a:hover, .LoginPage-buttons a:hover {
+    color: rgb(193, 227, 255);
 }

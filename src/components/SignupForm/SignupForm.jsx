@@ -26,7 +26,7 @@ class SignupForm extends Component {
     try {
       await userService.signup(this.state);
       this.props.handleSignupOrLogin();
-      // Successfully signed up - show GamePage
+      // Successfully signed up - show Robot Page
       this.props.history.push('/robots');
     } catch (err) {
       // Invalid user data (probably duplicate email)
@@ -40,37 +40,29 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div className={styles.signupWindow}>
-        <header className={styles.header}><Link to="" >Login</Link> | Sign Up</header>
+        <div className={styles.signUp}>
+        <p className={styles.whySignup}>Sign up to save favorites and update robot database</p>
         <form onSubmit={this.handleSubmit} >
-          <div className="form-group">
-            <div className="col-sm-12">
+          <div className={styles.field}>
               <input type="text" className="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
-            </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
+          <div className={styles.field}>
               <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
-            </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
+          <div className={styles.field}>
               <input type="password" className="form-control" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
-            </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
+          <div className={styles.field}>
               <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
-            </div>
           </div>
-          <div className="form-group">
+          <div className={styles.field}>
             <div className={styles.buttons}>
               <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
               <Link to='/robots'>Cancel</Link>
             </div>
           </div>
         </form>
-      </div>
+        </div>
     );
   }
 }

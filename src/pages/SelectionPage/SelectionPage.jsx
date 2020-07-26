@@ -27,7 +27,7 @@ function SelectionPage(props) {
             />
             <div className='SelectionPage-AllLinks'>
                 {/* show loading message if still getting robots */}
-                {props.robots && props.robots.length === 0 && 'Loading...'}
+                {props.robots && props.robots.length === 0 && <p className="SelectionPage-NoRobots">No Robots</p>}
                 {/* Show robot links or "No Robots" if no robot matches query */}
                 {props.robotsToShow.length === 0 && props.robots.length > 0 ? 
                     <p className="SelectionPage-NoRobots">No Robots</p> 
