@@ -7,6 +7,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import SelectionPage from './pages/SelectionPage/SelectionPage';
 import RobotInfoPage from './pages/RobotInfoPage/RobotInfoPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import UserPage from './pages/UserPage/UserPage';
 
 import robotsService from './utils/robotsService';
 import userService from './utils/userService';
@@ -159,6 +160,14 @@ class App extends Component {
     this.filterRobots();
   }
 
+  handleAddToFavorites = (robot) => {
+    console.log(robot);
+    console.log(this.state.selRobot.name);
+    robot.favoritedBy.push(this.state.user._id);
+    console.log(robot);
+    // now send data
+  }
+
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() })
   }
@@ -198,8 +207,10 @@ class App extends Component {
             robots={this.state.robots}
             selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
             robotsOfHoveredCategory={this.state.robotsOfHoveredCategory}
+            user={this.state.user}
             handleCategorySelection={this.handleCategorySelection}
             handleHoverCategory={this.handleHoverCategory}
+            handleAddToFavorites={this.handleAddToFavorites}
           />
         } />
         <Route exact path='/login' render={({ history }) => 
@@ -208,6 +219,12 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
+        <Route exact path='/user' render={ props =>
+          <UserPage 
+            {...props} 
+            user={this.state.user}
+          />}
+        />
     </div>
     )
   }

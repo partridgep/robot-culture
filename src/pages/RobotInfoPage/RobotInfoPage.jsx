@@ -13,9 +13,11 @@ function RobotInfoPage(props) {
             <Info 
                 selRobot={props.selRobot} 
                 key={props.selRobot._id} 
+                user={props.user}
                 robotsOfHoveredCategory={props.robotsOfHoveredCategory}
                 handleCategorySelection={props.handleCategorySelection}
                 handleHoverCategory={props.handleHoverCategory}
+                handleAddToFavorites={props.handleAddToFavorites}
             />}
         </div>
     );

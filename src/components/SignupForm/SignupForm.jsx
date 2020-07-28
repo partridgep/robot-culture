@@ -10,7 +10,8 @@ class SignupForm extends Component {
     email: '',
     password: '',
     passwordConf: '',
-    admin: false
+    admin: false,
+    favoritedRobots: []
   };
 
   handleChange = (e) => {

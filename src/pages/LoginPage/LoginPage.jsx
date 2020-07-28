@@ -16,7 +16,6 @@ class LoginPage extends Component {
     }
 
     chooseLoginOrSignup = e => {
-        console.log(e.target.textContent);
         if (e.target.textContent === 'Sign up') this.setState({login: 0});
         else this.setState({login: 1});
     }
@@ -27,9 +26,9 @@ class LoginPage extends Component {
             <div className='LoginPage-loginWindow'>
             <header className='LoginPage-header'>
                 {this.state.login === 1 ? 
-                <p>Login | <Link onClick={(e) => this.chooseLoginOrSignup(e)} >Sign up</Link></p>
+                <p>Login | <Link to="/login" onClick={(e) => this.chooseLoginOrSignup(e)} >Sign up</Link></p>
                 :
-                <p><Link onClick={(e) => this.chooseLoginOrSignup(e)} >Login</Link> | Sign up</p>
+                <p><Link to="/login" onClick={(e) => this.chooseLoginOrSignup(e)} >Login</Link> | Sign up</p>
                 }
                 </header>
                 <p className='LoginPage-whySignup'>{this.state.login ? 'Login' : 'Sign up'} to save favorites and update robot database</p>

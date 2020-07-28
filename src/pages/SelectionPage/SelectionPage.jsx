@@ -12,19 +12,7 @@ function SelectionPage(props) {
 
     return (
         <div className='SelectionPage'>
-            <Header 
-                robots={props.robots}
-                robotsToShow={props.robotsToShow}
-                selCategory={props.selCategory}
-                search={props.search}
-                user={props.user}
-                handleCultureSelection={props.handleCultureSelection}
-                handleCategorySelection={props.handleCategorySelection}
-                handleSubmit={props.handleSubmit}
-                handleChange={props.handleChange}
-                resetSearch={props.resetSearch}
-                handleLogout={props.handleLogout}
-            />
+            <Header {... props} />
             <div className='SelectionPage-AllLinks'>
                 {/* show loading message if still getting robots */}
                 {props.robots && props.robots.length === 0 && <p className="SelectionPage-NoRobots">No Robots</p>}

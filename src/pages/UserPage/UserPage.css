@@ -1,0 +1,81 @@
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100%;
+    }
+}
+
+.UserPage {
+    color: white;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 3% 97%;
+    animation: 0.2s fadeIn ease-in 0s 1;
+}
+
+.UserPage-X {
+    grid-column: span 2;
+    font-size: 40px;
+    text-align: right;
+    text-decoration: none;
+    color: white;
+    padding: 15px 30px;
+}
+
+.UserPage-Info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 30%;
+}
+
+.UserPage-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    font-size: 60px;
+    text-decoration: none;
+    color: #fff;
+    line-height: 50%;
+    text-align: center;
+    background: linear-gradient(rgb(43, 78, 124), rgb(48, 67, 95));
+}
+
+.UserPage-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    font-weight: 900;
+}
+
+.UserPage-contact span {
+    font-weight: 400;
+}
+
+.UserPage-favorites h2 {
+    font-size: 40px;
+    margin-top: 10%;
+}
+
+.UserPage-robots {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.UserPage-NoFavorites {
+    color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+}

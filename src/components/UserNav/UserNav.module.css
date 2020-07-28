@@ -1,7 +1,9 @@
 .userNav {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 
 .login {
@@ -12,4 +14,53 @@
 
 .login:hover {
     color: rgb(193, 227, 255);
+}
+
+.userAccess {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 23px;
+    text-decoration: none;
+    color: #fff;
+    line-height: 50%;
+    text-align: center;
+    background: linear-gradient(rgb(43, 78, 124), rgb(48, 67, 95));
+}
+
+.userMenu {
+    position: absolute;
+    display: inline-block;
+    width: max-content;
+    right: 20%;
+    margin-top: 1px;
+    background: linear-gradient(rgb(44, 44, 44), rgb(97, 97, 97));
+    border-radius: 5px;
+}
+
+.userMenuOption {
+    display: block;
+    padding: 13px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgb(105, 105, 105);
+    text-transform: uppercase;
+    font-family: 'Epilogue', sans-serif;
+    letter-spacing: 1.5px;
+}
+
+.userMenuOption:first-of-type {
+    border-radius: 5px 5px 0 0;
+}
+
+.userMenuOption:last-of-type {
+    border-radius: 0 0 5px 5px;
+}
+
+.userMenuOption:hover {
+    background-color: rgb(19, 45, 66);
 }
