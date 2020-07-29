@@ -2,17 +2,37 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './AddName.module.css';
 
+function doesNameExist(name, robots) {
+    for (var robot of robots) {
+        if (robot.name.toLowerCase() === name.toLowerCase()) {
+            return true
+        }
+    }
+}
+
+
+
 const AddName = (props) => {
 
     return (
         <div className={styles.addName}>
+            {doesNameExist(props.name, props.robots) ? 
+                <p className={styles.alert}>Name already exists</p>
+                    :
+                <p className={styles.message}>What is this robot called?</p>
+                }
+
             <form onSubmit={props.handleSubmit} >
                 <div className={styles.field}>
-                    <input type="text" placeholder="Name" value={props.name} name="name" onChange={props.handleChange} />
+                    <input type="text" placeholder="Name" value={props.name} name="name" autoComplete="off" onChange={props.handleChange} />
                 </div>
                 <div className={styles.buttons}>
                     <Link to='/robots'>Cancel</Link>
-                    <button disabled={!(props.name.length > 0)}>Next</button>&nbsp;&nbsp;
+                    <button disabled={
+                        doesNameExist(props.name, props.robots) 
+                        ||
+                        !(props.name.length > 0) 
+                        }>Next</button>&nbsp;&nbsp;
                 </div>
             </form>
         </div>

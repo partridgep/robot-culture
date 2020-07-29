@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styles from './AddManufacturer.module.css';
 
-const AddManufacturer = (props) => {
+export class AddManufacturer extends Component {
 
-    return (
-        <div className={styles.AddManufacturer}>
-            <form onSubmit={props.handleSubmit} >
-                <div className={styles.field}>
-                    <input type="text" placeholder="Manufacturer" value={props.manufacturer} name="manufacturer" onChange={props.handleChange} />
-                </div>
-                <div className={styles.buttons}>
-                    <Link onClick={props.handleSkip}>Skip</Link>
-                    <button disabled={!(props.manufacturer.length > 0)}>Next</button>&nbsp;&nbsp;
-                </div>
-            </form>
-        </div>
-
-    )
+    render() {
+        return (
+            <div className={styles.addManufacturer}>
+                <p className={styles.message}>Who made this robot?</p>
+                <form onSubmit={this.props.handleSubmit} >
+                    <div className={styles.field}>
+                        <input type="text" placeholder="Manufacturer" value={this.props.manufacturer} name="manufacturer" autoComplete="off" onChange={this.props.handleChange} />
+                    </div>
+                    <div className={styles.buttons}>
+                        <Link onClick={this.props.handleSkip}>Skip</Link>
+                        <button disabled={!(this.props.manufacturer.length > 0)}>Next</button>&nbsp;&nbsp;
+                    </div>
+                </form>
+            </div>
+    
+        )
+    }
 }
 
 

@@ -24,7 +24,7 @@ const Info = ({selRobot, user, handleCategorySelection, handleHoverCategory, rob
                         </button></p>
                         : 
                         // if not logged in, divert user to login
-                        <Link to="/login">Add to my Favorites</Link>
+                        <Link to="/login"> Add to my Favorites</Link>
                     }
                 </div>
             </div>

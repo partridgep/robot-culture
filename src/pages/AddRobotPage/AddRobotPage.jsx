@@ -21,6 +21,13 @@ class AddRobotPage extends Component {
         addProcess: 0
     }
 
+    componentDidMount() {
+        if (this.props.user.admin) {
+            const approved = true;
+            this.setState({ approved });
+        }
+    }
+
     handleChange = (e) => {
         console.log(e.target.name);
         this.setState({
@@ -45,15 +52,15 @@ class AddRobotPage extends Component {
             <div className='AddRobotPage'>
                 {this.state.addProcess === 0 &&
                     <div>
-                    <h1 className='AddRobotPage-title'>Enter New Robot Name</h1>     
-                    <AddName 
-                        {... this.props} 
-                        addProcess={this.state.addProcess} 
-                        name={this.state.name}
-                        handleChange={this.handleChange}
-                        handleSubmit={this.handleSubmit}
-                        >
-                    </AddName>
+                        <h1 className='AddRobotPage-title'>Enter New Robot Name</h1>     
+                        <AddName 
+                            {... this.props} 
+                            addProcess={this.state.addProcess} 
+                            name={this.state.name}
+                            handleChange={this.handleChange}
+                            handleSubmit={this.handleSubmit}
+                            >
+                        </AddName>
                     </div>
                 }
                 {this.state.addProcess === 1 &&
@@ -70,6 +77,11 @@ class AddRobotPage extends Component {
                     </AddManufacturer>
                     </div>
                 }
+                <div className='AddRobotPage-progressBar'>
+                    <div className='AddRobotPage-progressBarFill' 
+                        style={{width: `${this.state.addProcess*10}%`}}
+                    />
+                </div>
             </div>
         );
     }

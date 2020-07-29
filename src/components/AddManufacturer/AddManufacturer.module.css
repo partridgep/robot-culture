@@ -1,6 +1,11 @@
+.addManufacturer {
+    margin-top: 15vh;
+    font-family: 'Epilogue', sans-serif;
+}
+
 .field {
-    margin: 28vh auto 20% auto;
     border-radius: 5px;
+    margin-bottom: 75px;
 }
 
 .field input {
@@ -34,4 +39,18 @@
 
 .buttons button:focus {
     background: linear-gradient(rgb(127, 206, 193), rgb(170, 252, 238));
+}
+
+.alert, .message {
+    height: 40px;
+    font-size: 23px;
+    margin-bottom: 7%;
+}
+
+.alert {
+    color: red;
+}
+
+.message {
+    color: white;
 }

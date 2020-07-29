@@ -1,6 +1,11 @@
+.addName {
+    margin-top: 15vh;
+    font-family: 'Epilogue', sans-serif;
+}
+
 .field {
-    margin: 28vh auto 20% auto;
     border-radius: 5px;
+    margin-bottom: 75px;
 }
 
 .field input {
@@ -29,9 +34,24 @@
 }
 
 .buttons button:not([disabled]) {
-    background: linear-gradient(rgb(170, 252, 238), rgb(127, 206, 193));
+    background: linear-gradient(rgb(170, 196, 252), rgb(127, 177, 206));
+    border: 2px solid black;
 }
 
 .buttons button:focus {
-    background: linear-gradient(rgb(127, 206, 193), rgb(170, 252, 238));
+    background: linear-gradient(rgb(109, 163, 194), rgb(170, 196, 252));
+}
+
+.alert, .message {
+    height: 40px;
+    font-size: 23px;
+    margin-bottom: 7%;
+}
+
+.alert {
+    color: red;
+}
+
+.message {
+    color: white;
 }

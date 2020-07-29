@@ -1,14 +1,32 @@
 .AddRobotPage {
     width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
+    min-height: 100vh;
     background-image: radial-gradient(#3170aa, #02142c);
+    font-family: 'Epilogue', sans-serif;
 }
 
 .AddRobotPage-title {
     color: white;
     font-size: 50px;
-    margin-top: 125px;
+    margin-top: 0;
+    padding-top: 125px;
+}
+
+.AddRobotPage-progressBar, .AddRobotPage-progressBarFill {
+    height: 25px;
+    border-radius: 9px;
+}
+
+.AddRobotPage-progressBar {
+    border: .5px solid rgb(94, 94, 94);
+    background: none;
+    position: relative;
+    margin: 5% auto;
+    width: 80%;
+}
+
+.AddRobotPage-progressBarFill {
+    transition: 0.2s all;
+    background-color: turquoise;
+    position: absolute;
 }
