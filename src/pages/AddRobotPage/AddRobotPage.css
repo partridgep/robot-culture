@@ -1,0 +1,14 @@
+.AddRobotPage {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background-image: radial-gradient(#3170aa, #02142c);
+}
+
+.AddRobotPage-title {
+    color: white;
+    font-size: 50px;
+    margin-top: 125px;
+}

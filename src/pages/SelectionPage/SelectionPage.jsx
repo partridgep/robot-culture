@@ -25,7 +25,7 @@ function SelectionPage(props) {
                     {robotLinks}
                     {/* show button to add robot on hover if logged in */}
                     {props.user && 
-                        <Link className='SelectionPage-AddRobot'>
+                        <Link to="/new-robot" className='SelectionPage-AddRobot'>
                             <div style={{display: 'block', height: '100%'}}>
                                 <p className='SelectionPage-plus'>+</p>
                                 <p className='SelectionPage-add'>Add Robot</p>

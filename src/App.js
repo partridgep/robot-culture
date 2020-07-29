@@ -155,12 +155,6 @@ class App extends Component {
       e.preventDefault();
   }
 
-  resetSearch = () => {
-    console.log('resetting');
-    this.setState({ search: ""});
-    this.filterRobots();
-  }
-
   handleAddToFavorites = async id => {
     console.log(id);
     console.log(this.state.user._id);
@@ -198,7 +192,6 @@ class App extends Component {
             handleCategorySelection={this.handleCategorySelection}
             handleSubmit={this.handleSubmit}
             handleChange={this.handleChange}
-            resetSearch={this.resetSearch}
             handleLogout={this.handleLogout}
           />
         } />

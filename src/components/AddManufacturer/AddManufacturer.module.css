@@ -1,0 +1,37 @@
+.field {
+    margin: 28vh auto 20% auto;
+    border-radius: 5px;
+}
+
+.field input {
+    font-size: 25px;
+}
+
+.buttons {
+    font-size: 20px;
+}
+
+.buttons a {
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+}
+
+.buttons a:hover {
+    color: rgb(193, 227, 255);
+}
+
+.buttons button {
+    padding: 5px 10px;
+    font-size: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+.buttons button:not([disabled]) {
+    background: linear-gradient(rgb(170, 252, 238), rgb(127, 206, 193));
+}
+
+.buttons button:focus {
+    background: linear-gradient(rgb(127, 206, 193), rgb(170, 252, 238));
+}
