@@ -40,6 +40,10 @@ const robotSchema = new Schema({
     type: String,
     required: true,
   },
+  favoritedBy: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }],
   imageLandscape: String,
   imagePortrait: String,
   movies: [movieSchema],

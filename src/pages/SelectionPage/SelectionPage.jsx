@@ -1,11 +1,12 @@
 import React from 'react';
 import './SelectionPage.css';
+import { Link } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import RobotLink from '../../components/RobotLink/RobotLink';
 
 function SelectionPage(props) {
 
-    const robotLinks = props.robotsToShow.map(robot => (
+    let robotLinks = props.robotsToShow.map(robot => (
             <RobotLink key={robot._id} robot={robot} handleRobotSelection={props.handleRobotSelection}/>
         )
     );
@@ -15,12 +16,22 @@ function SelectionPage(props) {
             <Header {... props} />
             <div className='SelectionPage-AllLinks'>
                 {/* show loading message if still getting robots */}
-                {props.robots && props.robots.length === 0 && <p className="SelectionPage-NoRobots">No Robots</p>}
+                {props.robots && props.robots.length === 0 && <p className="SelectionPage-NoRobots">Loading...</p>}
                 {/* Show robot links or "No Robots" if no robot matches query */}
                 {props.robotsToShow.length === 0 && props.robots.length > 0 ? 
                     <p className="SelectionPage-NoRobots">No Robots</p> 
                     : 
-                    robotLinks
+                    <div className="SelectionPage-RobotLinks">
+                    {robotLinks}
+                    {/* show button to add robot on hover if logged in */}
+                    {props.user && 
+                        <Link className='SelectionPage-AddRobot'>
+                            <div style={{display: 'block', height: '100%'}}>
+                                <p className='SelectionPage-plus'>+</p>
+                                <p className='SelectionPage-add'>Add Robot</p>
+                            </div>
+                        </Link>}
+                    </div>
                 }
             </div>
         </div>

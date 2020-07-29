@@ -8,6 +8,7 @@ import SelectionPage from './pages/SelectionPage/SelectionPage';
 import RobotInfoPage from './pages/RobotInfoPage/RobotInfoPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import UserPage from './pages/UserPage/UserPage';
+import AddRobotPage from './pages/AddRobotPage/AddRobotPage';
 
 import robotsService from './utils/robotsService';
 import userService from './utils/userService';
@@ -23,7 +24,7 @@ class App extends Component {
     selCulture: "All Pop-Culture",
     robotsOfHoveredCategory: [],
     search: "",
-    user: userService.getUser()
+    user: userService.getUser(),
   }
 
   async componentDidMount() {
@@ -160,12 +161,12 @@ class App extends Component {
     this.filterRobots();
   }
 
-  handleAddToFavorites = (robot) => {
-    console.log(robot);
-    console.log(this.state.selRobot.name);
-    robot.favoritedBy.push(this.state.user._id);
-    console.log(robot);
-    // now send data
+  handleAddToFavorites = async id => {
+    console.log(id);
+    console.log(this.state.user._id);
+    const robots = await robotsService.update(id, this.state.user._id);
+    console.log(robots);
+    this.setState({ robots });
   }
 
   handleSignupOrLogin = () => {
@@ -223,6 +224,15 @@ class App extends Component {
           <UserPage 
             {...props} 
             user={this.state.user}
+            robots={this.state.robots}
+            handleRobotSelection={this.handleRobotSelection}
+          />
+        }/>
+        <Route exact path='/new-robot' render={ props =>
+          <AddRobotPage 
+            {...props} 
+            user={this.state.user}
+            robots={this.state.robots}
           />}
         />
     </div>

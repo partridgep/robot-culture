@@ -64,7 +64,9 @@ const InfoContent = ({selRobot, handleCategorySelection, handleHoverCategory, ro
         </div>
 
         {/* to the right, display the robot picture */}
-        <img className={styles.picture} src={selRobot.imagePortrait} alt={selRobot.name}></img>
+        <div className={styles.picture}>
+            <img  src={selRobot.imagePortrait} alt={selRobot.name}></img>
+        </div>
     </div>
 )
 

@@ -17,4 +17,14 @@ function create(data) {
       }).then(response => response.json()); 
 };
 
-export default { index, create }
+function update(robotId, userId) {
+  return fetch(BASE_URL + "/" + robotId, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'Application/json'
+  },
+  body: JSON.stringify({userId}) //turn the data into JSON (not using AJAX anymore)
+  }).then(response => response.json());
+};
+
+export default { index, create, update }

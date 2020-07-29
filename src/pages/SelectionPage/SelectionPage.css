@@ -23,6 +23,11 @@
     animation: 0.3s ease-in 0s 1 slideDown;
 }
 
+.SelectionPage-RobotLinks {
+  display: flex;
+  flex-direction: row;
+}
+
 .SelectionPage-NoRobots {
     height: 35vh;
     width: 100vw;
@@ -33,4 +38,39 @@
     font-family: 'Epilogue', sans-serif;
     font-size: 30px;
     letter-spacing: 0.1em;
+}
+
+.SelectionPage-AddRobot {
+    color: rgb(197, 197, 197);
+    font-family: 'Epilogue', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    height: 160px;
+    width: 260px;
+    margin: 0 2% 5% 0;
+    border: 1px solid rgba(197, 197, 197, 0.5);
+    border-radius: 7px;
+    transition: all 0.2s;
+    opacity: 0;
+}
+
+.SelectionPage-AddRobot:hover {
+    opacity: 1;
+    transition: all 0.2s;
+}
+
+.SelectionPage-plus {
+  font-size: 150px;
+  height: 125px;
+  margin: -50px 20px 0 0;
+  display: block;
+  margin: 0;
+  padding: none;
+}
+
+.SelectionPage-add {
+  display: block;
+  margin: 0;
+  padding: 0;
 }
