@@ -1,0 +1,108 @@
+.addMovies {
+    margin-top: 15vh;
+    font-family: 'Epilogue', sans-serif;
+    position: relative;
+}
+
+.field {
+    border-radius: 5px;
+    margin-bottom: 75px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.field input {
+    font-size: 25px;
+}
+
+.buttons {
+    font-size: 20px;
+}
+
+.buttons a {
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+}
+
+.buttons a:hover {
+    color: rgb(193, 227, 255);
+}
+
+.buttons button {
+    padding: 5px 10px;
+    font-size: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+.buttons button:not([disabled]) {
+    background: linear-gradient(rgb(170, 196, 252), rgb(127, 177, 206));
+    border: 2px solid black;
+}
+
+.buttons button:focus {
+    background: linear-gradient(rgb(109, 163, 194), rgb(170, 196, 252));
+}
+
+.alert, .message {
+    height: 40px;
+    font-size: 23px;
+    margin-bottom: 7%;
+}
+
+.alert {
+    color: red;
+}
+
+.message {
+    color: white;
+}
+
+.options {
+    position: absolute;
+    display: block;
+    list-style: none;
+    text-decoration: none;
+    background: none;
+    width: 278px;
+    transition: width 0.3s;
+    z-index: 99;
+    top: 99%;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.options li {
+    display: block;
+    list-style: none;
+    text-decoration: none;
+    padding: 10px 2px;
+    font-size: 1.2rem;
+    width: 100%;
+    border: 1px solid #d4d4d4;
+    border-radius: 2px;
+}
+
+.options li:hover {
+    font-weight: bold;
+    color: #031e22;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.activeOption {
+    width: 100%;
+    background-color: rgb(72, 176, 245);
+    color: white;
+    font-weight: 900;
+}
+
+.options li:not(.activeOption) {
+    background-color: white;
+}

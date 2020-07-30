@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './AddRobotPage.css';
 import AddName from '../../components/AddName/AddName';
 import AddManufacturer from '../../components/AddManufacturer/AddManufacturer';
+import AddMovies from '../../components/AddMovies/AddMovies';
 
 class AddRobotPage extends Component {
 
@@ -90,6 +91,23 @@ class AddRobotPage extends Component {
                         handleClickOption={this.handleClickOption}
                         >
                     </AddManufacturer>
+                    </div>
+                }
+                {this.state.addProcess === 2 &&
+                    <div>
+                    <h1 className='AddRobotPage-title'>Enter {this.state.name}'s Movies</h1>     
+                    <AddMovies 
+                        {... this.props} 
+                        name={this.state.name}
+                        movies={this.state.movies}
+                        addProcess={this.state.addProcess} 
+                        handleChange={this.handleChange}
+                        handleSubmit={this.handleSubmit}
+                        handleSkip={this.handleSkip}
+                        handleChooseOption={this.handleChooseOption}
+                        handleClickOption={this.handleClickOption}
+                        >
+                    </AddMovies>
                     </div>
                 }
                 <div className='AddRobotPage-progressBar'>
