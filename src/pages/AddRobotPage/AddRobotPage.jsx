@@ -36,16 +36,29 @@ class AddRobotPage extends Component {
         });
       }
     
-      handleSubmit = (e) => {
-        e.preventDefault();
+    handleSubmit = (e) => {
+        if (e) e.preventDefault();
         const addProcess = this.state.addProcess + 1;
         this.setState({addProcess});
-      }
+    }
 
-      handleSkip = () => {
+    handleSkip = () => {
         const addProcess = this.state.addProcess + 1;
         this.setState({addProcess});
-      }
+    }
+
+    handleChooseOption = (e, type) => {
+        this.setState({
+            [type]: e.target.innerText
+        });
+    }
+
+    handleClickOption = (option, type) => {
+        this.setState({
+            [type]: option
+        })
+    }
+
     
     render() {
         return (
@@ -73,6 +86,8 @@ class AddRobotPage extends Component {
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
                         handleSkip={this.handleSkip}
+                        handleChooseOption={this.handleChooseOption}
+                        handleClickOption={this.handleClickOption}
                         >
                     </AddManufacturer>
                     </div>
