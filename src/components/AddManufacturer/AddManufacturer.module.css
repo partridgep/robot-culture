@@ -2,6 +2,16 @@
     margin-top: 15vh;
     font-family: 'Epilogue', sans-serif;
     position: relative;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
 }
 
 .field {
@@ -37,12 +47,12 @@
     border-radius: 5px;
 }
 
-.buttons button:not([disabled]) {
+.buttons button:not([disabled]):not(.skip) {
     background: linear-gradient(rgb(170, 196, 252), rgb(127, 177, 206));
     border: 2px solid black;
 }
 
-.buttons button:focus {
+.buttons button:focus:not(.skip) {
     background: linear-gradient(rgb(109, 163, 194), rgb(170, 196, 252));
 }
 
@@ -105,4 +115,17 @@
 
 .options li:not(.activeOption) {
     background-color: white;
+}
+
+.skip {
+    background: none;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.skip:hover {
+    color: rgb(193, 227, 255);
 }

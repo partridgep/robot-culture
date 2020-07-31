@@ -3,6 +3,16 @@
     min-height: 100vh;
     background-image: radial-gradient(#3170aa, #02142c);
     font-family: 'Epilogue', sans-serif;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
 }
 
 .AddRobotPage-title {
@@ -10,6 +20,7 @@
     font-size: 50px;
     margin-top: 0;
     padding-top: 125px;
+    animation: fadeIn 1s;
 }
 
 .AddRobotPage-progressBar, .AddRobotPage-progressBarFill {

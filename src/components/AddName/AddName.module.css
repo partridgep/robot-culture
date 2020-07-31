@@ -1,6 +1,16 @@
 .addName {
     margin-top: 15vh;
     font-family: 'Epilogue', sans-serif;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
 }
 
 .field {

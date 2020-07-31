@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import styles from './AddManufacturer.module.css';
 
 
@@ -55,7 +54,6 @@ export class AddManufacturer extends Component {
     };
 
     onKeyDown = (e) => {
-        console.log(e.keyCode);
         const { activeOption, filteredOptions } = this.state;
         // if user hits Enter
         if (e.keyCode === 13) {
@@ -64,7 +62,6 @@ export class AddManufacturer extends Component {
             // user has put in a brand new option,
             // submit form and exit
             if (this.state.options.includes(this.props.manufacturer) || (this.state.filteredOptions.length === 0 && this.state.showOptions)) {
-                console.log('time to submit');
                 this.props.handleSubmit();
                 return;
             }
@@ -138,7 +135,7 @@ export class AddManufacturer extends Component {
                     {optionList}
                     </div>
                     <div className={styles.buttons}>
-                        <Link onClick={this.props.handleSkip}>Skip</Link>
+                        <button className={styles.skip} onClick={this.props.handleSkip}>Skip</button>
                         <button onClick={this.props.handleSubmit} disabled={!(this.props.manufacturer.length > 0)}>Next</button>&nbsp;&nbsp;
                 </div>
             </div>

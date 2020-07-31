@@ -60,6 +60,12 @@ class AddRobotPage extends Component {
         })
     }
 
+    handleChooseMediaOption = (array, type) => {
+        this.setState({
+            [type]: array
+        })
+    }
+
     
     render() {
         return (
