@@ -41,3 +41,24 @@
     background-color: turquoise;
     position: absolute;
 }
+
+.AddRobotPage-thankYou {
+    padding-top: 40vh;
+}
+
+.AddRobotPage-link {
+    background: none;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.AddRobotPage-link:hover {
+    color: rgb(193, 227, 255);
+}
+
+.AddRobotPage-last {
+    padding-bottom: 27.5vh;
+}

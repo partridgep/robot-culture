@@ -8,7 +8,7 @@ import { getMovieMatches, getTvShowMatches, getGameMatches } from '../../service
 import { getBookMatches } from '../../services/googleBooks-api';
 import { getActorMatches } from '../../services/unofficial-IMDb-api';
 
-const baseURL = 'www.imdb.com/';
+const baseURL = 'https://www.imdb.com/';
 
 export class AddMedia extends Component {
 

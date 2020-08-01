@@ -15,8 +15,8 @@ async function getRobots(req, res) {
 //create new robots
 async function addRobot(req, res) {
   try {
+    console.log(req.body);
     await Robot.create(req.body);
-    // Use the highScores action to return the list
     getRobots(req, res);
   } catch (err) {
     res.json({err});

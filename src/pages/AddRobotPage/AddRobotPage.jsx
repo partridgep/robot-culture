@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import './AddRobotPage.css';
+import { Link } from 'react-router-dom';
+
 import AddName from '../../components/AddName/AddName';
 import AddManufacturer from '../../components/AddManufacturer/AddManufacturer';
 import AddHeight from '../../components/AddHeight/AddHeight';
 import AddMedia from '../../components/AddMedia/AddMedia';
 import AddImages from '../../components/AddImages/AddImages';
+import AddCategories from '../../components/AddCategories/AddCategories';
+
+import robotsService from '../../utils/robotsService';
 
 class AddRobotPage extends Component {
 
@@ -73,6 +78,28 @@ class AddRobotPage extends Component {
         if (e.keyCode === 13) {
             this.handleSubmit();
         }
+    }
+
+    handleFinalSubmit = async () => {
+        const newRobot = {
+            name: this.state.name,
+            height: this.state.height,
+            manufacturer: this.state.manufacturer,
+            movies: this.state.movies,
+            books: this.state.books,
+            tvShows: this.state.tvShows,
+            games: this.state.games,
+            actors: this.state.actors,
+            imageLandscape: this.state.imageLandscape,
+            imagePortrait: this.state.imagePortrait,
+            categories: this.state.categories,
+            approved: this.state.approved
+        };
+        console.log(newRobot);
+        const robots = await robotsService.create(newRobot);
+        console.log(robots);
+        this.props.updateRobots(robots);
+        this.handleSubmit();
     }
 
     
@@ -225,9 +252,49 @@ class AddRobotPage extends Component {
                     </AddImages>
                     </div>
                 }
+                {this.state.addProcess === 9 &&
+                    <div>
+                    <h1 className='AddRobotPage-title'>Enter Categories for {this.state.name}</h1>     
+                    <AddCategories 
+                        {... this.props} 
+                        name={this.state.name}
+                        categories={this.state.categories}
+                        addProcess={this.state.addProcess} 
+                        handleChange={this.handleChange}
+                        handleFinalSubmit={this.handleFinalSubmit}
+                        handleSkip={this.handleSkip}
+                        handleChooseOption={this.handleChooseOption}
+                        handleClickOption={this.handleClickOption}
+                        >
+                    </AddCategories>
+                    </div>
+                }
+                {this.state.addProcess === 10 &&
+                    <div>
+                    <h1 className='AddRobotPage-title'>Enter Categories for {this.state.name}</h1>     
+                    <AddCategories 
+                        {... this.props} 
+                        name={this.state.name}
+                        categories={this.state.categories}
+                        addProcess={this.state.addProcess} 
+                        handleChange={this.handleChange}
+                        handleFinalSubmit={this.handleFinalSubmit}
+                        handleSkip={this.handleSkip}
+                        handleChooseOption={this.handleChooseOption}
+                        handleClickOption={this.handleClickOption}
+                        >
+                    </AddCategories>
+                    </div>
+                }
+                {this.state.addProcess === 11 &&
+                    <div className='AddRobotPage-last'>
+                        <h1 className='AddRobotPage-title AddRobotPage-thankYou'>Thank you, {this.state.name} has been submitted for approval.</h1>
+                        <Link to='/robots' className='AddRobotPage-link'>Home</Link>    
+                    </div>
+                }
                 <div className='AddRobotPage-progressBar'>
                     <div className='AddRobotPage-progressBarFill' 
-                        style={{width: `${this.state.addProcess*10}%`}}
+                        style={{width: `${this.state.addProcess*9.1}%`}}
                     />
                 </div>
             </div>

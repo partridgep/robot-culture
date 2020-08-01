@@ -172,6 +172,10 @@ class App extends Component {
     this.setState({ user: null });
   }
 
+  updateRobots = (robots) => {
+    this.setState({ robots });
+  }
+
   render() {
     return( 
     <div className="App">
@@ -226,6 +230,7 @@ class App extends Component {
             {...props} 
             user={this.state.user}
             robots={this.state.robots}
+            updateRobots={this.updateRobots}
           />}
         />
     </div>

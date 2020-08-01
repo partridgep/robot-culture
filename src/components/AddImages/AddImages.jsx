@@ -99,7 +99,6 @@ export class AddImages extends Component {
                     </form>
 
                     <div className={styles.buttons}>
-                        <button className={styles.skip} onClick={this.props.handleSkip}>Skip</button>
                         <button 
                             disabled={this.state.landscapeInvalid || this.state.portraitInvalid}
                             onClick={this.props.handleSubmit}
