@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './AddRobotPage.css';
 import AddName from '../../components/AddName/AddName';
 import AddManufacturer from '../../components/AddManufacturer/AddManufacturer';
+import AddHeight from '../../components/AddHeight/AddHeight';
 import AddMedia from '../../components/AddMedia/AddMedia';
 
 class AddRobotPage extends Component {
@@ -15,7 +16,7 @@ class AddRobotPage extends Component {
         books: [],
         games: [],
         tvShows: [],
-        height: {},
+        height: {feet: 0, inches: 0},
         manufacturer: '',
         actors: [],
         categories: [],
@@ -101,6 +102,21 @@ class AddRobotPage extends Component {
                 }
                 {this.state.addProcess === 2 &&
                     <div>
+                    <h1 className='AddRobotPage-title'>Enter Robot Height</h1>     
+                    <AddHeight 
+                        {... this.props} 
+                        addProcess={this.state.addProcess} 
+                        height={this.state.height}
+                        name={this.state.name}
+                        handleClickOption={this.handleClickOption}
+                        handleSubmit={this.handleSubmit}
+                        handleSkip={this.handleSkip}
+                        >
+                    </AddHeight>
+                    </div>
+                }
+                {this.state.addProcess === 3 &&
+                    <div>
                     <h1 className='AddRobotPage-title'>Enter {this.state.name}'s Movies</h1>     
                     <AddMedia 
                         {... this.props} 
@@ -116,7 +132,7 @@ class AddRobotPage extends Component {
                     </AddMedia>
                     </div>
                 }
-                {this.state.addProcess === 3 &&
+                {this.state.addProcess === 4 &&
                     <div>
                     <h1 className='AddRobotPage-title'>Enter {this.state.name}'s Books</h1>     
                     <AddMedia 
@@ -133,7 +149,7 @@ class AddRobotPage extends Component {
                     </AddMedia>
                     </div>
                 }
-                {this.state.addProcess === 4 &&
+                {this.state.addProcess === 5 &&
                     <div>
                     <h1 className='AddRobotPage-title'>Enter {this.state.name}'s TV Shows</h1>     
                     <AddMedia 
@@ -150,7 +166,7 @@ class AddRobotPage extends Component {
                     </AddMedia>
                     </div>
                 }
-                {this.state.addProcess === 5 &&
+                {this.state.addProcess === 6 &&
                     <div>
                     <h1 className='AddRobotPage-title'>Enter {this.state.name}'s Games</h1>     
                     <AddMedia 
@@ -167,7 +183,7 @@ class AddRobotPage extends Component {
                     </AddMedia>
                     </div>
                 }
-                {this.state.addProcess === 6 &&
+                {this.state.addProcess === 7 &&
                     <div>
                     <h1 className='AddRobotPage-title'>Enter the Actors for {this.state.name}</h1>     
                     <AddMedia 

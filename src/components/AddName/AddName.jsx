@@ -10,8 +10,6 @@ function doesNameExist(name, robots) {
     }
 }
 
-
-
 const AddName = (props) => {
 
     return (

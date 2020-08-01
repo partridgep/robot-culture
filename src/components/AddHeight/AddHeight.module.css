@@ -1,0 +1,88 @@
+.AddHeight {
+    margin-top: 15vh;
+    font-family: 'Epilogue', sans-serif;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+.heightFields {
+    display: inline-block;
+    margin-bottom: 75px;
+}
+
+.heightFields p {
+    display: inline;
+    color: white;
+    font-size: 27px;
+    font-weight: 900;
+}
+
+.field {
+    border-radius: 5px;
+    display: inline;
+    margin: 5px;
+}
+
+.field input {
+    max-width: 60px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.buttons {
+    font-size: 20px;
+}
+
+.buttons a {
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+}
+
+.buttons a:hover {
+    color: rgb(193, 227, 255);
+}
+
+.buttons button {
+    padding: 5px 10px;
+    font-size: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+.buttons button:not([disabled]):not(.skip) {
+    background: linear-gradient(rgb(170, 196, 252), rgb(127, 177, 206));
+    border: 2px solid black;
+}
+
+.buttons button:focus:not(.skip) {
+    background: linear-gradient(rgb(109, 163, 194), rgb(170, 196, 252));
+}
+
+.message {
+    height: 40px;
+    font-size: 23px;
+    margin-bottom: 7%;
+    color: white;
+}
+
+.skip {
+    background: none;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.skip:hover {
+    color: rgb(193, 227, 255);
+}

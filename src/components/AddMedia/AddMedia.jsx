@@ -62,7 +62,7 @@ export class AddMedia extends Component {
              movies = await getMovieMatches(this.state.userInput);
              // if results obtained successfully
              if (movies.Search) {
-                // max 5 results
+                // max 4 results
                 if (movies.Search.length > 4) movies.Search.length = 4;
                 // set to state
                 this.setState({options: movies.Search});
@@ -70,12 +70,18 @@ export class AddMedia extends Component {
          }
     }
 
+    // function to grab possible book matches from our movie API
     async getBookOptions() {
         let books = [];
+        // only start a search if user has entered at least 3 characters
         if (this.state.userInput.length > 2) {
+            // grab data from API
             books = await getBookMatches(this.state.userInput);
+            // if results obtained successfully
             if (books.items) {
+                // max 4 results
                 if (books.items.length > 4) books.items.length = 4;
+                // set to state// set to state
                 this.setState({options: books.items});
             }
         }
@@ -90,10 +96,27 @@ export class AddMedia extends Component {
              tvShows = await getTvShowMatches(this.state.userInput);
              // if results obtained successfully
              if (tvShows.Search) {
-                // max 5 results
+                // max 4 results
                 if (tvShows.Search.length > 4) tvShows.Search.length = 4;
                 // set to state
                 this.setState({options: tvShows.Search});
+             }
+         }
+    }
+
+    // function to grab possible game matches from our movie API
+    async getGamesOptions() {
+        let games = [];
+        // only start a search if user has entered at least 3 characters
+         if (this.state.userInput.length > 2) {
+             // grab data from API
+             games = await getGameMatches(this.state.userInput);
+             // if results obtained successfully
+             if (games.Search) {
+                // max 4 results
+                if (games.Search.length > 4) games.Search.length = 4;
+                // set to state
+                this.setState({options: games.Search})
              }
          }
     }
@@ -105,30 +128,18 @@ export class AddMedia extends Component {
          if (this.state.userInput.length > 2) {
              // grab data from API
              actors = await getActorMatches(this.state.userInput);
+             // if results obtained successfully
              if (actors.names) {
+                 // max 4 results
                  if (actors.names.length > 3) actors.names.length = 3;
+                 // set to state
                  this.setState({options: actors.names});
              }
          }
     }
 
-    // function to grab possible movie matches from our movie API
-    async getGamesOptions() {
-        let games = [];
-        // only start a search if user has entered at least 3 characters
-         if (this.state.userInput.length > 2) {
-             // grab data from API
-             games = await getGameMatches(this.state.userInput);
-             // if results obtained successfully
-             if (games.Search) {
-                // max 5 results
-                if (games.Search.length > 5) games.Search.length = 5;
-                // set to state
-                this.setState({options: games.Search})
-             }
-         }
-    }
 
+    // function to create a media object for item selected
     getMediaObject = (id) => {
         let newMedia;
         for (var media of this.state.options) {
@@ -139,6 +150,7 @@ export class AddMedia extends Component {
         return newMedia;
     }
 
+    // function to create a book object for item selected
     getBookObject = (id) => {
         let newBook;
         for (var book of this.state.options) {
@@ -149,6 +161,7 @@ export class AddMedia extends Component {
         return newBook;
     }
 
+    // function to create an actor object for item selected
     getActorObject = (id) => {
         let newActor;
         for (var actor of this.state.options) {
@@ -182,14 +195,15 @@ export class AddMedia extends Component {
                 if (newMedia.link === otherActor.link) return;
             }
         }
-         // copy movies array from state
+         // copy media array from state
          let media = this.copyMediaArray();
-         // add selected movie
+         // add selected media
          media.push(newMedia);
          // save media array to state
          this.props.handleClickOption(media, this.getMediaType());
     }
 
+    // copy details from API object
     copyMediaDetails(mediaFromAPI) {
         let newMedia = {};
         newMedia.title = mediaFromAPI.Title;
@@ -198,6 +212,7 @@ export class AddMedia extends Component {
         return newMedia;
     }
 
+    // copy details from API object
     copyBookDetails(bookFromAPI) {
         let newBook = {};
         newBook.title = bookFromAPI.volumeInfo.title;
@@ -206,6 +221,7 @@ export class AddMedia extends Component {
         return newBook;
     }
 
+    // copy details from API object
     copyActorDetails(actorFromAPI) {
         let newActor = {};
         newActor.name = actorFromAPI.title;
@@ -349,6 +365,7 @@ export class AddMedia extends Component {
             state: { activeOption, options, showOptions, userInput }
         } = this;
 
+        // variable for autosuggestions
         let optionList;
         if (showOptions && userInput) {
             if (options.length) {
@@ -374,8 +391,10 @@ export class AddMedia extends Component {
             }
         }
 
+        // variable for items selected by user
         let chosenOptionsList;
-        if ((this.props.movies && this.props.movies.length) || (this.props.books && this.props.books.length) || (this.props.tvShows && this.props.tvShows.length) || (this.props.games && this.props.games.length) || (this.props.actors && this.props.actors.length))  {
+        // only show if media in question contains at least one item
+        if ((this.props.movies && this.props.movies.length) || (this.props.books && this.props.books.length) || (this.props.tvShows && this.props.tvShows.length) || (this.props.games && this.props.games.length) || (this.props.actors && this.props.actors.length)) {
             chosenOptionsList = (
                 <ul className={styles.chosenOptions}>
                     {this.props.movies && this.props.movies.map((movie, index) => {
@@ -432,5 +451,4 @@ export class AddMedia extends Component {
     }
 }
 
-
-    export default AddMedia;
+export default AddMedia;
