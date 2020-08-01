@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './AddRobotPage.css';
 import AddName from '../../components/AddName/AddName';
 import AddManufacturer from '../../components/AddManufacturer/AddManufacturer';
-import AddMovies from '../../components/AddMovies/AddMovies';
+import AddMedia from '../../components/AddMedia/AddMedia';
 
 class AddRobotPage extends Component {
 
@@ -23,7 +23,7 @@ class AddRobotPage extends Component {
     }
 
     componentDidMount() {
-        if (this.props.user.admin) {
+        if (this.props.user && this.props.user.admin) {
             const approved = true;
             this.setState({ approved });
         }
@@ -102,7 +102,7 @@ class AddRobotPage extends Component {
                 {this.state.addProcess === 2 &&
                     <div>
                     <h1 className='AddRobotPage-title'>Enter {this.state.name}'s Movies</h1>     
-                    <AddMovies 
+                    <AddMedia 
                         {... this.props} 
                         name={this.state.name}
                         movies={this.state.movies}
@@ -113,7 +113,75 @@ class AddRobotPage extends Component {
                         handleChooseOption={this.handleChooseOption}
                         handleClickOption={this.handleClickOption}
                         >
-                    </AddMovies>
+                    </AddMedia>
+                    </div>
+                }
+                {this.state.addProcess === 3 &&
+                    <div>
+                    <h1 className='AddRobotPage-title'>Enter {this.state.name}'s Books</h1>     
+                    <AddMedia 
+                        {... this.props} 
+                        name={this.state.name}
+                        books={this.state.books}
+                        addProcess={this.state.addProcess} 
+                        handleChange={this.handleChange}
+                        handleSubmit={this.handleSubmit}
+                        handleSkip={this.handleSkip}
+                        handleChooseOption={this.handleChooseOption}
+                        handleClickOption={this.handleClickOption}
+                        >
+                    </AddMedia>
+                    </div>
+                }
+                {this.state.addProcess === 4 &&
+                    <div>
+                    <h1 className='AddRobotPage-title'>Enter {this.state.name}'s TV Shows</h1>     
+                    <AddMedia 
+                        {... this.props} 
+                        name={this.state.name}
+                        tvShows={this.state.tvShows}
+                        addProcess={this.state.addProcess} 
+                        handleChange={this.handleChange}
+                        handleSubmit={this.handleSubmit}
+                        handleSkip={this.handleSkip}
+                        handleChooseOption={this.handleChooseOption}
+                        handleClickOption={this.handleClickOption}
+                        >
+                    </AddMedia>
+                    </div>
+                }
+                {this.state.addProcess === 5 &&
+                    <div>
+                    <h1 className='AddRobotPage-title'>Enter {this.state.name}'s Games</h1>     
+                    <AddMedia 
+                        {... this.props} 
+                        name={this.state.name}
+                        games={this.state.games}
+                        addProcess={this.state.addProcess} 
+                        handleChange={this.handleChange}
+                        handleSubmit={this.handleSubmit}
+                        handleSkip={this.handleSkip}
+                        handleChooseOption={this.handleChooseOption}
+                        handleClickOption={this.handleClickOption}
+                        >
+                    </AddMedia>
+                    </div>
+                }
+                {this.state.addProcess === 6 &&
+                    <div>
+                    <h1 className='AddRobotPage-title'>Enter the Actors for {this.state.name}</h1>     
+                    <AddMedia 
+                        {... this.props} 
+                        name={this.state.name}
+                        actors={this.state.actors}
+                        addProcess={this.state.addProcess} 
+                        handleChange={this.handleChange}
+                        handleSubmit={this.handleSubmit}
+                        handleSkip={this.handleSkip}
+                        handleChooseOption={this.handleChooseOption}
+                        handleClickOption={this.handleClickOption}
+                        >
+                    </AddMedia>
                     </div>
                 }
                 <div className='AddRobotPage-progressBar'>

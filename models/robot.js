@@ -1,25 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const movieSchema = new Schema({
-  title: String,
-  link: String,
-  releaseYear: Number
-});
-
-const bookSchema = new Schema({
-  title: String,
-  link: String,
-  publicationYear: Number
-});
-
-const gameSchema = new Schema({
-  title: String,
-  link: String,
-  releaseYear: Number
-});
-
-const tvShowSchema = new Schema({
+const mediaSchema = new Schema({
   title: String,
   link: String,
   releaseYear: Number
@@ -46,10 +28,10 @@ const robotSchema = new Schema({
   }],
   imageLandscape: String,
   imagePortrait: String,
-  movies: [movieSchema],
-  books: [bookSchema],
-  games: [gameSchema],
-  tvShows: [tvShowSchema],
+  movies: [mediaSchema],
+  books: [mediaSchema],
+  games: [mediaSchema],
+  tvShows: [mediaSchema],
   height: heightSchema,
   manufacturer: String,
   actors: [actorSchema],

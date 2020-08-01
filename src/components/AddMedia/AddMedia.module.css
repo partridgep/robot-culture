@@ -1,4 +1,4 @@
-.addMovies {
+.addMedia {
     margin-top: 15vh;
     font-family: 'Epilogue', sans-serif;
     position: relative;
@@ -24,6 +24,7 @@
 
 .field input {
     font-size: 25px;
+    width: 278px;
 }
 
 .buttons {
@@ -140,8 +141,9 @@
     width: 200px;
 }
 
-.chosenMovies {
+.chosenOptions {
     width: 278px;
+    height: auto;
     max-height: 75px;
     background-color: rgba(0,0,0,0.3);
     position: absolute;
@@ -155,20 +157,20 @@
     flex-wrap: wrap;
     border-radius: 5px 5px 0 0;
     z-index: 999;
-    animation: popUp 0.2s;
-    transition: all 0.2s;
+    animation: popUp 0.3s;
+    transition: height 0.2s;
 }
 
 @keyframes popUp {
     0% {
-        height: 0;
+        max-height: 0;
     }
     100% {
-        height: 100%;
+        max-height: auto;
     }
 }
 
-.chosenMovies li {
+.chosenOptions li {
     text-decoration: none;
     text-align: left;
     list-style: none;
@@ -182,7 +184,7 @@
     border-radius: 5px;
 }
 
-.chosenMovies button {
+.chosenOptions button {
     background-color: rgb(223, 197, 255);
     border: none;
     text-align: center;
@@ -190,13 +192,14 @@
     outline: none;
 }
 
-.chosenMovies button:hover {
-    background-color: rgba(48, 9, 95, 0.212);
+.chosenOptions button:hover {
+    font-weight: 900;
     border: none; 
 }
 
-.chosenMovies button:active {
-    background-color: rgba(24, 24, 24, 0.541);
+.chosenOptions button:active {
+    font-weight: 900;
+    color: grey;
 }
 
 .skip {
