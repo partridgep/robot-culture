@@ -21,13 +21,6 @@ export class AddHeight extends Component {
         this.props.handleClickOption(height, 'height');
     }
 
-    handleEnter = e => {
-        // if user hits Enter
-        if (e.keyCode === 13) {
-            this.props.handleSubmit();
-        }
-    }
-
     render() {
         return (
             <div className={styles.AddHeight}>
@@ -52,13 +45,16 @@ export class AddHeight extends Component {
                                 value={this.state.inches} 
                                 autoComplete="off" 
                                 onChange={this.handleChangeHeight} 
-                                onKeyDown={this.handleEnter}
+                                onKeyDown={this.props.handleEnter}
                             />
                         </div><p>"</p>
                     </div>
                     <div className={styles.buttons}>
                         <button className={styles.skip} onClick={this.props.handleSkip}>Skip</button>
-                        <button disabled={!this.state.feet && !this.state.inches } onClick={this.props.handleSubmit}>Next</button>&nbsp;&nbsp;
+                        <button 
+                            disabled={!this.state.feet && !this.state.inches } 
+                            onClick={this.props.handleSubmit}
+                        >Next</button>&nbsp;&nbsp;
                     </div>
     
             </div>

@@ -4,6 +4,7 @@ import AddName from '../../components/AddName/AddName';
 import AddManufacturer from '../../components/AddManufacturer/AddManufacturer';
 import AddHeight from '../../components/AddHeight/AddHeight';
 import AddMedia from '../../components/AddMedia/AddMedia';
+import AddImages from '../../components/AddImages/AddImages';
 
 class AddRobotPage extends Component {
 
@@ -67,6 +68,13 @@ class AddRobotPage extends Component {
         })
     }
 
+    handleEnter = e => {
+        // if user hits Enter
+        if (e.keyCode === 13) {
+            this.handleSubmit();
+        }
+    }
+
     
     render() {
         return (
@@ -111,6 +119,7 @@ class AddRobotPage extends Component {
                         handleClickOption={this.handleClickOption}
                         handleSubmit={this.handleSubmit}
                         handleSkip={this.handleSkip}
+                        handleEnter={this.handleEnter}
                         >
                     </AddHeight>
                     </div>
@@ -198,6 +207,22 @@ class AddRobotPage extends Component {
                         handleClickOption={this.handleClickOption}
                         >
                     </AddMedia>
+                    </div>
+                }
+                {this.state.addProcess === 8 &&
+                    <div>
+                    <h1 className='AddRobotPage-title'>Enter Images for {this.state.name}</h1>     
+                    <AddImages 
+                        {... this.props} 
+                        name={this.state.name}
+                        imageLandscape={this.state.imageLandscape}
+                        imagePortrait={this.state.imagePortrait} 
+                        handleChange={this.handleChange}
+                        handleSubmit={this.handleSubmit}
+                        handleSkip={this.handleSkip}
+                        handleEnter={this.handleEnter}
+                        >
+                    </AddImages>
                     </div>
                 }
                 <div className='AddRobotPage-progressBar'>
