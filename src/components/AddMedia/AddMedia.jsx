@@ -239,6 +239,18 @@ export class AddMedia extends Component {
         return media;
     }
 
+    // scroll to anchor div at bottom of chosen options list
+    scrollToBottom = () => {
+        if (this.optionsEnd) this.optionsEnd.scrollIntoView({ behavior: "smooth" });
+      }
+
+    /*----      LIFECYCLE METHOD        ----*/
+
+    // scroll to bottom when new options gets selected
+    componentDidUpdate() {
+        this.scrollToBottom();
+      }
+
     /*----      EVENT HANDLERS        ----*/
 
     // function to handle change and consider options
@@ -422,7 +434,10 @@ export class AddMedia extends Component {
                             <li key={index}>{actor.name} <button onClick={handleActorRemoval}>X</button></li>
                         )
                     })}
-                        </ul>
+                    {/* anchor div at bottom to always scroll down to */}
+                    <div ref={(el) => { this.optionsEnd = el; }}>
+                    </div>
+                </ul>
             )
         }
 

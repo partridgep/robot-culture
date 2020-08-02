@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import './UpdatesPage.css';
 import RobotLink from '../../components/RobotLink/RobotLink';
 
-function getNewRobots(user, robots, handleRobotSelection) {
+function getNewRobots(robots, handleRobotSelection, handleApproval, handleDelete) {
     let newRobots = [];
+    console.log(robots);
     for (var robot of robots) {
         if (!robot.approved) newRobots.push(robot);
     }
@@ -15,8 +16,8 @@ function getNewRobots(user, robots, handleRobotSelection) {
             />
             <p>{robot.createdAt}</p>
             <div className='UpdatesPage-buttons'>
-                <button>Approve</button>
-                <button>Delete</button>
+                <button onClick={() => handleApproval(robot._id)}>Approve</button>
+                <button onClick={() => handleDelete(robot._id)}>Delete</button>
             </div>
         </div>
         )
@@ -24,7 +25,7 @@ function getNewRobots(user, robots, handleRobotSelection) {
     return robotLinks;
 }
 
-function UpdatesPage({user, robots, handleRobotSelection}) {
+function UpdatesPage({user, robots, handleRobotSelection, handleApproval, handleDelete}) {
 
     return (
         <div>
@@ -33,9 +34,9 @@ function UpdatesPage({user, robots, handleRobotSelection}) {
                     <Link to="/robots" className='UpdatesPage-X'>X</Link>
                     <h2>New Robots</h2>
                     <div className='UpdatesPage-newRobots'>
-                            {getNewRobots(user, robots, handleRobotSelection).length > 0 ?
+                            {getNewRobots(robots, handleRobotSelection).length > 0 ?
                                 <div className='UpdatesPage-robots'>
-                                    {getNewRobots(user, robots, handleRobotSelection)}
+                                    {getNewRobots(robots, handleRobotSelection, handleApproval, handleDelete)}
                                 </div>
                                 :
                                 <div className='UpdatesPage-NoNew'><p>No New Robots</p></div>

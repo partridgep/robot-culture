@@ -19,7 +19,7 @@ const Categories = ({selRobot, handleCategorySelection, handleHoverCategory, rob
     Categories:&nbsp;
         <span>
             {/* for each category, create a hoverable link */}
-            {selRobot.categories.map((category, idx) => 
+            {robotsOfHoveredCategory.length && selRobot.categories.map((category, idx) => 
                 (<ReactHover options={hoverOptions} key={idx}>
 
                     {/* declare the link as the hover "trigger" */}
@@ -37,6 +37,7 @@ const Categories = ({selRobot, handleCategorySelection, handleHoverCategory, rob
                     </ReactHover.Trigger>
 
                     {/* display of robots in category that appears on hover */}
+                    {robotsOfHoveredCategory.length && 
                     <ReactHover.Hover type='hover'>
                         <div className={styles.hover}>
                             {/* for each robot in the category, create a link to robot */}
@@ -45,8 +46,8 @@ const Categories = ({selRobot, handleCategorySelection, handleHoverCategory, rob
                                     to={'/robots/'+robot._id} 
                                     key={robot._id}
                                 >{robot.name}</Link>)}</div>
-                    </ReactHover.Hover>
-
+                    </ReactHover.Hover> }
+                    
                     {/* add comma between categories */}
                 </ReactHover>)).reduce((prev, curr) => [prev, ', ', curr])}
         </span>

@@ -44,6 +44,18 @@ export class AddCategories extends Component {
          this.props.handleClickOption(categories, 'categories');
     }
 
+    // scroll to anchor div at bottom of chosen options list
+    scrollToBottom = () => {
+        if (this.optionsEnd) this.optionsEnd.scrollIntoView({ behavior: "smooth" });
+      }
+
+    /*----      LIFECYCLE METHOD        ----*/
+
+    // scroll to bottom when new options gets selected
+    componentDidUpdate() {
+        this.scrollToBottom();
+      }
+
     /*----      EVENT HANDLERS        ----*/
 
     // function to handle change and consider options
@@ -78,14 +90,8 @@ export class AddCategories extends Component {
         const { activeOption, options } = this.state;
         // if user hits Enter
         if (e.keyCode === 13) {
-            // if user has selected category and is no longer typing
-            // submit form and exit
-            if (!this.state.userInput) {
-                this.props.handleFinalSubmit();
-                return;
-            }
             // if adding new category
-            else if (!this.state.filteredOptions.length) {
+            if (!this.state.filteredOptions.length) {
                 console.log(this.state.userInput);
                 this.pushNewCategoryToState(this.state.userInput);
                 this.setState({ userInput: '', filteredOptions: this.getCategories()});
@@ -171,7 +177,9 @@ export class AddCategories extends Component {
                             <li key={index}>{category}<button onClick={handleCategoryRemoval}>X</button></li>
                         )
                     })}
-                        </ul>
+                    {/* anchor div at bottom to always scroll down to */}
+                    <div ref={(el) => { this.optionsEnd = el; }}></div>
+                </ul>
             )
         }
 
@@ -191,8 +199,7 @@ export class AddCategories extends Component {
                         {optionList}
                     </div>
                     <div className={styles.buttons}>
-                        <button className={styles.skip} onClick={this.props.handleSkip}>Skip</button>
-                        <button onClick={this.props.handleFinalSubmit} >Next</button>&nbsp;&nbsp;
+                        <button disabled={!this.props.categories.length} onClick={this.props.handleFinalSubmit} >Next</button>&nbsp;&nbsp;
                 </div>
             </div>
 

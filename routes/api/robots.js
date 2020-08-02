@@ -9,6 +9,9 @@ router.get('/', robotsCtrl.getRobots);
 router.post('/', robotsCtrl.addRobot);
 
 // PUT /api/robots/:id
-router.put('/:id', robotsCtrl.updateRobot)
+router.put('/:id', robotsCtrl.updateRobot);
+
+// DELETE /api/robots/:id
+router.delete('/:id', robotsCtrl.deleteRobot);
 
 module.exports = router;

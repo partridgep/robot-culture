@@ -29,6 +29,10 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    this.getRobots();
+  }
+
+  getRobots = async () => {
     //grab all the robots from the database
     const robots = await robotsService.index();
     console.log(robots);
@@ -37,6 +41,10 @@ class App extends Component {
     //filter robots to show (only the approved at this time)
     this.filterRobots();
   }
+
+  // async componentDidUpdate() {
+  //   this.getRobots();
+  // }
 
   //function called to filter the robots in the robotsToShow property
   filterRobots() {
@@ -157,11 +165,23 @@ class App extends Component {
   }
 
   handleAddToFavorites = async id => {
-    console.log(id);
-    console.log(this.state.user._id);
     const robots = await robotsService.update(id, this.state.user._id);
-    console.log(robots);
     this.setState({ robots });
+  }
+
+  handleApproval = async id => {
+    const robots = await robotsService.approve(id);
+    await this.setState({ robots });
+    this.filterRobots();
+  }
+
+  handleDelete = async id => {
+    const robots = await robotsService.deleteRobot(id);
+    console.log('deleted robot');
+    await this.setState({ robots });
+    console.log('set state for robots:');
+    console.log(robots);
+    this.filterRobots();
   }
 
   handleSignupOrLogin = () => {
@@ -232,6 +252,8 @@ class App extends Component {
             user={this.state.user}
             robots={this.state.robots}
             handleRobotSelection={this.handleRobotSelection}
+            handleApproval={this.handleApproval}
+            handleDelete={this.handleDelete}
           />
         }/>
         <Route exact path='/new-robot' render={ props =>

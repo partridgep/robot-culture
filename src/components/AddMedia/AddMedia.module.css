@@ -158,7 +158,7 @@
     border-radius: 5px 5px 0 0;
     z-index: 999;
     animation: popUp 0.3s;
-    transition: height 0.2s;
+    transition: max-height 0.2s;
 }
 
 @keyframes popUp {
@@ -213,5 +213,10 @@
 
 .skip:hover {
     color: rgb(193, 227, 255);
+}
+
+.anchor {
+    overflow-anchor: auto;
+    height: 1px;
 }
 
