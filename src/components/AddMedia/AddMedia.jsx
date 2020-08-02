@@ -267,8 +267,8 @@ export class AddMedia extends Component {
         // get corresponding media object in options array
         let chosenOption;
         if (this.props.books) chosenOption = this.getBookObject(mediaID);
-        if (this.props.actors) chosenOption = this.getActorObject(mediaID);
-        else chosenOption = this.getMediaObject(mediaID);
+        else if (this.props.actors) chosenOption = this.getActorObject(mediaID);
+        else chosenOption = this.getMediaObject(mediaID)
         // remove options and user input
         this.setState({
             activeOption: 0,

@@ -23,10 +23,6 @@
     animation: fadeIn 1s;
 }
 
-.AddRobotPage-progressBar, .AddRobotPage-progressBarFill {
-    height: 25px;
-    border-radius: 9px;
-}
 
 .AddRobotPage-progressBar {
     border: .5px solid rgb(94, 94, 94);
@@ -40,10 +36,13 @@
     transition: 0.2s all;
     background-color: turquoise;
     position: absolute;
+    top: 0;
+    height: 10px;
 }
 
 .AddRobotPage-thankYou {
-    padding-top: 40vh;
+    padding: 40vh 0 5vh 0;
+    
 }
 
 .AddRobotPage-link {

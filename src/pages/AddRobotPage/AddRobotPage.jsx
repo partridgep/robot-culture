@@ -292,12 +292,10 @@ class AddRobotPage extends Component {
                         <Link to='/robots' className='AddRobotPage-link'>Home</Link>    
                     </div>
                 }
-                <div className='AddRobotPage-progressBar'>
                     <div className='AddRobotPage-progressBarFill' 
                         style={{width: `${this.state.addProcess*9.1}%`}}
                     />
                 </div>
-            </div>
         );
     }
 }

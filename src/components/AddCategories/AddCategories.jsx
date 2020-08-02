@@ -78,18 +78,20 @@ export class AddCategories extends Component {
         const { activeOption, options } = this.state;
         // if user hits Enter
         if (e.keyCode === 13) {
-            // if user has selected movie and is no longer typing
+            // if user has selected category and is no longer typing
             // submit form and exit
             if (!this.state.userInput) {
-                this.props.handleSubmit();
+                this.props.handleFinalSubmit();
                 return;
             }
+            // if adding new category
             else if (!this.state.filteredOptions.length) {
                 console.log(this.state.userInput);
                 this.pushNewCategoryToState(this.state.userInput);
+                this.setState({ userInput: '', filteredOptions: this.getCategories()});
             }
             else {
-                // get selected media object
+                // get selected category
                 let category = options[activeOption];
                 // set option to state
                 this.pushNewCategoryToState(category);

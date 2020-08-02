@@ -12,6 +12,14 @@ function robotFontSize(name) {
     return size;
 }
 
+function robotMargin(robot) {
+    let margin;
+    if (robot.approved) {
+        margin = "0 15px 5% 15px";
+    } else margin = "10px";
+    return margin;
+}
+
 const RobotLink = ({robot, handleRobotSelection}) => (
 
         <Link
@@ -20,7 +28,8 @@ const RobotLink = ({robot, handleRobotSelection}) => (
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
-                fontSize: robotFontSize(robot.name)
+                fontSize: robotFontSize(robot.name),
+                margin: robotMargin(robot)
             }}
             className={styles.link} 
             to={'/robots/'+robot._id}

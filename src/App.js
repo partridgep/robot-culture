@@ -12,6 +12,7 @@ import AddRobotPage from './pages/AddRobotPage/AddRobotPage';
 
 import robotsService from './utils/robotsService';
 import userService from './utils/userService';
+import UpdatesPage from './pages/UpdatesPage/UpdatesPage';
 
 class App extends Component {
 
@@ -225,14 +226,22 @@ class App extends Component {
             handleRobotSelection={this.handleRobotSelection}
           />
         }/>
+        <Route exact path='/admin' render={ props =>
+          <UpdatesPage 
+            {...props} 
+            user={this.state.user}
+            robots={this.state.robots}
+            handleRobotSelection={this.handleRobotSelection}
+          />
+        }/>
         <Route exact path='/new-robot' render={ props =>
           <AddRobotPage 
             {...props} 
             user={this.state.user}
             robots={this.state.robots}
             updateRobots={this.updateRobots}
-          />}
-        />
+          />
+        }/>
     </div>
     )
   }

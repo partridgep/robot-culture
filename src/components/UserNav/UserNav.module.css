@@ -64,3 +64,16 @@
 .userMenuOption:hover {
     background-color: rgb(19, 45, 66);
 }
+
+.notification {
+    position: absolute;
+    background: linear-gradient(rgb(223, 106, 106), red);
+    border: 1px solid rgba(0,0,0,0.3);
+    color: white;
+    border-radius: 50px;
+    z-index: 4;
+    width: max-content;
+    min-width: 20px;
+    height: max-content;
+    right: 0;
+}

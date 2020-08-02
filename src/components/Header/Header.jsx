@@ -38,7 +38,7 @@ const Header = props => (
 
         <div className={styles.headerTop}>
             <h1 className={styles.title}>ROBOT CULTURE</h1>
-            <UserNav className={styles.login} user={props.user} handleLogout={props.handleLogout}/>
+            <UserNav className={styles.login} user={props.user} robots={props.robots} handleLogout={props.handleLogout}/>
         </div>
 
         <div className={styles.headerBottom}>
