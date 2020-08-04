@@ -4,8 +4,6 @@ const BASE_URL = '/api/robots';
 function index() {
   return fetch(BASE_URL)
   .then(response => response.json());
-  //.then(res => res.text())          // convert to plain text
-  //.then(text => console.log(text))  // then log it out
 };
 
 // add new robot to database
@@ -43,7 +41,10 @@ function approve(robotId) {
 // delete robot 
 function deleteRobot(robotId) {
   return fetch(BASE_URL + "/" + robotId, {
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'Application/json'
+  }
   }).then(response => response.json());
 }
 

@@ -10,8 +10,8 @@ function getNewRobots(robots, handleRobotSelection, handleApproval, handleDelete
         if (!robot.approved) newRobots.push(robot);
     }
     let robotLinks = newRobots.map(robot => (
-        <div className='UpdatesPage-approvalRow'>
-            <RobotLink style={{margin: "0"}} key={robot._id} robot={robot} 
+        <div key={robot._id} className='UpdatesPage-approvalRow'>
+            <RobotLink style={{margin: "0"}} robot={robot} 
             handleRobotSelection={handleRobotSelection}
             />
             <p>{robot.createdAt}</p>

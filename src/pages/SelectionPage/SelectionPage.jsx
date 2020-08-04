@@ -3,6 +3,7 @@ import './SelectionPage.css';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import RobotLink from '../../components/RobotLink/RobotLink';
+import Footer from '../../components/Footer/Footer';
 
 function SelectionPage(props) {
 
@@ -34,6 +35,7 @@ function SelectionPage(props) {
                     </div>
                 }
             </div>
+            <Footer {... props} />
         </div>
     );
 }

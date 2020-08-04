@@ -19,7 +19,7 @@ const Categories = ({selRobot, handleCategorySelection, handleHoverCategory, rob
     Categories:&nbsp;
         <span>
             {/* for each category, create a hoverable link */}
-            {robotsOfHoveredCategory.length && selRobot.categories.map((category, idx) => 
+            {selRobot.categories.map((category, idx) => 
                 (<ReactHover options={hoverOptions} key={idx}>
 
                     {/* declare the link as the hover "trigger" */}

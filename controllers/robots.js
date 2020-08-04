@@ -54,7 +54,7 @@ async function updateRobot(req, res) {
 async function deleteRobot(req, res) {
   try {
     await robot.findByIdAndDelete(req.params.id);
-    index(req, res);
+    getRobots(req, res);
   } catch (err) {
     res.json(err);
   }

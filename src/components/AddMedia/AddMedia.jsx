@@ -63,7 +63,7 @@ export class AddMedia extends Component {
              // if results obtained successfully
              if (movies.Search) {
                 // max 4 results
-                if (movies.Search.length > 4) movies.Search.length = 4;
+                //if (movies.Search.length > 4) movies.Search.length = 4;
                 // set to state
                 this.setState({options: movies.Search});
              }
@@ -80,7 +80,7 @@ export class AddMedia extends Component {
             // if results obtained successfully
             if (books.items) {
                 // max 4 results
-                if (books.items.length > 4) books.items.length = 4;
+                //if (books.items.length > 4) books.items.length = 4;
                 // set to state// set to state
                 this.setState({options: books.items});
             }
@@ -97,7 +97,7 @@ export class AddMedia extends Component {
              // if results obtained successfully
              if (tvShows.Search) {
                 // max 4 results
-                if (tvShows.Search.length > 4) tvShows.Search.length = 4;
+                //if (tvShows.Search.length > 4) tvShows.Search.length = 4;
                 // set to state
                 this.setState({options: tvShows.Search});
              }
@@ -114,7 +114,7 @@ export class AddMedia extends Component {
              // if results obtained successfully
              if (games.Search) {
                 // max 4 results
-                if (games.Search.length > 4) games.Search.length = 4;
+                //if (games.Search.length > 4) games.Search.length = 4;
                 // set to state
                 this.setState({options: games.Search})
              }

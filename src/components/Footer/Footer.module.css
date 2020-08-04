@@ -1,0 +1,19 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    background: rgba(0,0,0,0.5);
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Epilogue', sans-serif;
+}
+
+.footer p, .footer a {
+    color: rgb(193, 227, 255);
+}
+
+.socialLink {
+    margin-left: 15px;
+}
+

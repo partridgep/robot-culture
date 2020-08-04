@@ -48,17 +48,12 @@
 }
 
 .UpdatesPage-newRobots {
-    background-color: rgba(160, 198, 255, 0.2);
-    border: 2px solid rgb(109, 108, 108);
-    border-radius: 10px;
     justify-content: center;
     align-items: center;
     width: 90vw;
     margin: 5px auto;
-    max-height: 40vh;
-    overflow-y: scroll;
+    min-height: 40vh;
     text-align: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .UpdatesPage-buttons {

@@ -54,10 +54,27 @@
     cursor: pointer;
 }
 
-.AddRobotPage-link:hover {
+.AddRobotPage-link:hover, .AddRobotPage-prev:hover {
     color: rgb(193, 227, 255);
 }
 
 .AddRobotPage-last {
     padding-bottom: 27.5vh;
+}
+
+.AddRobotPage-prev, .AddRobotPage-X {
+    position: absolute;
+    top: 15px;
+    cursor: pointer;
+    color: white;
+    animation: fadeIn 1s;
+}
+
+.AddRobotPage-prev { 
+    left: 15px;
+}
+
+.AddRobotPage-X {
+    right: 20px;
+    font-size: 30px;
 }

@@ -48,7 +48,6 @@ class App extends Component {
 
   //function called to filter the robots in the robotsToShow property
   filterRobots() {
-    console.log("filtering");
     //initialize an array
     let robotsToShow = [];
     //filter through all the robots
@@ -68,7 +67,7 @@ class App extends Component {
           // or we are on "Books" and the robot has at least one book
           || (this.state.selCulture === "Books" && robot.books.length > 0) 
           // or we are on "TV Shows" and the robot has at least one TV show
-          || (this.state.selCulture === "TV shows" && robot.tvShows.length > 0) 
+          || (this.state.selCulture === "TV Shows" && robot.tvShows.length > 0) 
           // or we are on "Games" and the robot has at least one game
           || (this.state.selCulture === "Games" && robot.games.length > 0)) {
             //push the robot into the array
@@ -114,7 +113,7 @@ class App extends Component {
     // grab category name
     const hoveredCategory = e.target.textContent;
     // find all robots from category
-    const categoryRobots = this.state.robots.filter((robot) => robot.categories.includes(hoveredCategory));
+    const categoryRobots = this.state.robots.filter((robot) => (robot.categories.includes(hoveredCategory)) && robot.approved);
     // set state of category robots
     this.setState({ robotsOfHoveredCategory: categoryRobots });
   }
@@ -178,6 +177,7 @@ class App extends Component {
   handleDelete = async id => {
     const robots = await robotsService.deleteRobot(id);
     console.log('deleted robot');
+    console.log(robots);
     await this.setState({ robots });
     console.log('set state for robots:');
     console.log(robots);
@@ -263,6 +263,9 @@ class App extends Component {
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />
+        }/>
+        <Route exact path='/icon' render={ props =>
+          <div ><p style={{height: '100vh'}}> </p></div>
         }/>
     </div>
     )

@@ -5,6 +5,25 @@
     height: 100%;
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(3%);
+    }
+    100% {
+        transform: translateX(2.5%);
+    }
+}
+
 .diagonalBox:before {
     position: absolute;
     top: 0;
@@ -15,10 +34,12 @@
     transform: skewY(-12deg);
 }
 
+
 .display {
     margin: 0 auto; 
     transform: skewY(12deg);
     height: 100vh;
+    overflow-y: scroll;
 }
 
 .top {
@@ -34,6 +55,7 @@
     transform: translateX(2.5%);
     margin-bottom: 0;
     padding-bottom: 0;
+    animation: fadeIn 0.5s, slideIn 0.8s;
 }
 
 .xOut {
@@ -47,6 +69,7 @@
     color: rgb(185, 185, 185);
     grid-column: span 2;
     display: inline-block;
+    animation: fadeIn 3s;
 }
 
 .favorites p {

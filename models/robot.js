@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const mediaSchema = new Schema({
   title: String,
   link: String,
-  releaseYear: Number
+  releaseYear: String
 });
 
 const actorSchema = new Schema({

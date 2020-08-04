@@ -11,7 +11,7 @@ const Info = ({selRobot, user, handleCategorySelection, handleHoverCategory, rob
             {/* at the top, show the name and X button */}
             <div className={styles.top}>
                 <h2 className={styles.name}>{selRobot.name}</h2>
-                <Link to='/robots' className={styles.xOut}>X</Link>
+                <Link to={selRobot.approved ? '/robots' : '/admin'} className={styles.xOut}>X</Link>
                 {/* show # of likes and link to add/remove favorite */}
                 <div className={styles.favorites}>
                     {/* only show # of likes if > 0 */}

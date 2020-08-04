@@ -33,7 +33,7 @@ function UserNav({user, robots, handleLogout}) {
             {clickedOnUserNav && 
               <div className={styles.userMenu}>
                 <Link to="/user" className={styles.userMenuOption}>My Account</Link>
-                {user.admin && <Link to="/admin" className={styles.userMenuOption}>Updates</Link>}
+                {user.admin && <Link to="/admin" className={styles.userMenuOption}>Updates ({getNumNotifications()})</Link>}
                 <Link to="/robots" onClick={handleLogout} className={styles.userMenuOption}>Logout</Link>
               </div>
           }

@@ -46,6 +46,7 @@ class AddRobotPage extends Component {
     
     handleSubmit = (e) => {
         if (e) e.preventDefault();
+        console.log('next page');
         const addProcess = this.state.addProcess + 1;
         this.setState({addProcess});
     }
@@ -80,6 +81,11 @@ class AddRobotPage extends Component {
         }
     }
 
+    handlePrevious = () => {
+        const addProcess = this.state.addProcess - 1;
+        this.setState({addProcess});
+    }
+
     handleFinalSubmit = async () => {
         const newRobot = {
             name: this.state.name,
@@ -98,14 +104,17 @@ class AddRobotPage extends Component {
         console.log(newRobot);
         const robots = await robotsService.create(newRobot);
         console.log(robots);
-        this.props.updateRobots(robots);
         this.handleSubmit();
+        this.props.updateRobots(robots);
     }
 
     
     render() {
         return (
             <div className='AddRobotPage'>
+                <div className='AddRobotPage-progressBarFill' 
+                        style={{width: `${this.state.addProcess*10}%`}}
+                />
                 {this.state.addProcess === 0 &&
                     <div>
                         <h1 className='AddRobotPage-title'>Enter New Robot Name</h1>     
@@ -119,6 +128,8 @@ class AddRobotPage extends Component {
                         </AddName>
                     </div>
                 }
+                {this.state.addProcess > 0 && <h2 onClick={this.handlePrevious} className='AddRobotPage-prev'>{"< Previous"}</h2>}
+                {this.state.addProcess > 0 && <Link to="/robots"><h2 className='AddRobotPage-X'>X</h2></Link>}
                 {this.state.addProcess === 1 &&
                     <div>
                     <h1 className='AddRobotPage-title'>Enter Robot Manufacturer</h1>     
@@ -270,31 +281,15 @@ class AddRobotPage extends Component {
                     </div>
                 }
                 {this.state.addProcess === 10 &&
-                    <div>
-                    <h1 className='AddRobotPage-title'>Enter Categories for {this.state.name}</h1>     
-                    <AddCategories 
-                        {... this.props} 
-                        name={this.state.name}
-                        categories={this.state.categories}
-                        addProcess={this.state.addProcess} 
-                        handleChange={this.handleChange}
-                        handleFinalSubmit={this.handleFinalSubmit}
-                        handleSkip={this.handleSkip}
-                        handleChooseOption={this.handleChooseOption}
-                        handleClickOption={this.handleClickOption}
-                        >
-                    </AddCategories>
-                    </div>
-                }
-                {this.state.addProcess === 11 &&
                     <div className='AddRobotPage-last'>
+                        {this.state.approved ?
+                        <h1 className='AddRobotPage-title AddRobotPage-thankYou'>Thank you, {this.state.name} has been added to the database.</h1>
+                        :
                         <h1 className='AddRobotPage-title AddRobotPage-thankYou'>Thank you, {this.state.name} has been submitted for approval.</h1>
+                        }
                         <Link to='/robots' className='AddRobotPage-link'>Home</Link>    
                     </div>
                 }
-                    <div className='AddRobotPage-progressBarFill' 
-                        style={{width: `${this.state.addProcess*9.1}%`}}
-                    />
                 </div>
         );
     }

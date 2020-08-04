@@ -1,3 +1,31 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(2%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(-2%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
 .lower {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -12,6 +40,7 @@
     align-items: flex-start;
     max-height: 800px;
     margin: 0 10% 0% auto;
+    animation: fadeIn 0.6s, slideInLeft 0.8s;
 }
 
 .picture img {
@@ -30,6 +59,8 @@
     color: white;
     font-size: 22px;
     font-weight: 800;
+    overflow-y: auto;
+    animation: fadeIn 0.6s, slideInRight 0.8s;
 }
 
 .trivia span {
