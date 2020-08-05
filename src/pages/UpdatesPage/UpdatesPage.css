@@ -15,6 +15,7 @@
     flex-direction: column;
     align-content: center;
     justify-content: flex-start;
+    font-family: 'Epilogue', sans-serif;
 }
 
 .UpdatesPage-X {
@@ -37,14 +38,20 @@
 .UpdatesPage-approvalRow {
     width: 95%;
     margin: 10px auto;
-    background: linear-gradient(rgb(25, 78, 124), rgb(15, 57, 94));
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: linear-gradient(rgba(25, 78, 124, 0.2), rgba(15, 57, 94, 0.3));
+    border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    transition: 0.2s all;
+}
+
+.UpdatesPage-approvalRow:hover {
+    width: 96%;
+    background: linear-gradient(rgba(80, 145, 202, 0.3), rgba(28, 107, 177, 0.2));
 }
 
 .UpdatesPage-newRobots {
@@ -52,7 +59,6 @@
     align-items: center;
     width: 90vw;
     margin: 5px auto;
-    min-height: 40vh;
     text-align: center;
 }
 
@@ -68,13 +74,30 @@
     border-radius: 10px;
     text-transform: uppercase;
     border: 2px solid black;
+    font-family: 'Epilogue', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
 }
 
 .UpdatesPage-buttons button:first-of-type {
-    background: linear-gradient(rgb(175, 255, 188), rgb(78, 196, 32));
+    background: linear-gradient(rgb(175, 255, 188), rgba(151, 241, 120, 0.445));
+}
+
+.UpdatesPage-buttons button:hover, .UpdatesPage-buttons button:last-of-type:hover {
+    color: rgb(61, 109, 133);
+}
+
+.UpdatesPage-buttons button:first-of-type:focus {
+    background: linear-gradient(rgba(151, 241, 120, 0.445), rgb(175, 255, 188));
 }
 
 .UpdatesPage-buttons button:last-of-type {
-    background: linear-gradient(rgb(150, 3, 3), rgb(236, 10, 10));
+    background: linear-gradient(rgb(150, 3, 3), rgba(128, 5, 5, 0.8));
     color: white;
+}
+
+.UpdatesPage-buttons button:last-of-type:focus {
+    background: linear-gradient(rgba(128, 5, 5, 0.8), rgb(150, 3, 3));
 }

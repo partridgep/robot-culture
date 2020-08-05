@@ -25,7 +25,6 @@ const AddName = (props) => {
                     <input type="text" placeholder="Name" value={props.name} name="name" autoComplete="off" onChange={props.handleChange} />
                 </div>
                 <div className={styles.buttons}>
-                    <Link to='/robots'>Cancel</Link>
                     <button disabled={
                         doesNameExist(props.name, props.robots) 
                         ||

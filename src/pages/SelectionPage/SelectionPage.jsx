@@ -35,7 +35,9 @@ function SelectionPage(props) {
                     </div>
                 }
             </div>
-            <Footer {... props} />
+            <div style={{position: "relative", bottom: "0"}}>
+                <Footer {... props} />
+            </div>
         </div>
     );
 }

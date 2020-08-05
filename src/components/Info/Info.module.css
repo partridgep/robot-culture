@@ -17,10 +17,10 @@
 
 @keyframes slideIn {
     0% {
-        transform: translateX(3%);
+        transform: translateX(4%);
     }
     100% {
-        transform: translateX(2.5%);
+        transform: translateX(3.5%);
     }
 }
 
@@ -45,29 +45,34 @@
 .top {
     width: 100%;
     display: grid;
-    grid-template-columns: 95% 5%;
+    grid-template-columns: 93% 2% 5%;
     grid-template-rows: 95% 5%;
 }
 
 .name {
     font-size: 50px;
     color: white;
-    transform: translateX(2.5%);
+    transform: translateX(3.5%);
     margin-bottom: 0;
     padding-bottom: 0;
     animation: fadeIn 0.5s, slideIn 0.8s;
 }
 
-.xOut {
+.xOut, .editModeButton {
     font-size: 40px;
     color: white;
     text-decoration: none;
 }
 
+.editModeButton {
+    margin: -10px 0 0 0;
+    cursor: pointer;
+}
+
 .favorites {
     font-size: 15px;
     color: rgb(185, 185, 185);
-    grid-column: span 2;
+    grid-column: span 3;
     display: inline-block;
     animation: fadeIn 3s;
 }
@@ -92,3 +97,4 @@
 .favorites button:hover, .favorites a:hover {
     color: white;
 }
+

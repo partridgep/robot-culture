@@ -36,6 +36,7 @@ const robotSchema = new Schema({
   manufacturer: String,
   actors: [actorSchema],
   categories: [String],
+  updates: [Object],
   approved: Boolean
 }, {
   timestamps: true

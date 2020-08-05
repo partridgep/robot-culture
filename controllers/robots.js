@@ -28,8 +28,16 @@ async function addRobot(req, res) {
 async function updateRobot(req, res) {
   try {
     const robot = await Robot.findById(req.params.id);
-    // if we passed the user's id, it means we're trying to favorite the robot
-    if (req.body.userId) {
+
+    if (req.body.updatedFields) {
+      console.log('updating')
+      console.log(req.body.updatedFields);
+      robot.updates.push(req.body.updatedFields);
+      }
+
+      // if we passed the user's id, it means we're trying to favorite the robot
+    else if (req.body.userId) {
+      console.log('favoriting');
       const userId = req.body.userId;
       // remove user if from robot's FavoriteBy array if already in there
       if (!robot.favoritedBy.includes(userId)) robot.favoritedBy.push(userId);
@@ -42,6 +50,7 @@ async function updateRobot(req, res) {
     }
     // otherwise, we're just getting it approved
     else {
+      console.log('approved');
       robot.approved = true;
     }
     await robot.save();
@@ -53,7 +62,7 @@ async function updateRobot(req, res) {
 
 async function deleteRobot(req, res) {
   try {
-    await robot.findByIdAndDelete(req.params.id);
+    await Robot.findByIdAndDelete(req.params.id);
     getRobots(req, res);
   } catch (err) {
     res.json(err);

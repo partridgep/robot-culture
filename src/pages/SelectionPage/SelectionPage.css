@@ -1,5 +1,5 @@
 .SelectionPage {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 @keyframes slideDown {
@@ -17,8 +17,9 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 5%;   
+    padding: 5%;  
     animation: 0.3s ease-in 0s 1 slideDown;
+    min-height: calc(100vh - 220px);
 }
 
 .SelectionPage-RobotLinks {

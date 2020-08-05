@@ -17,8 +17,8 @@ function create(data) {
       }).then(response => response.json()); 
 };
 
-// update a robot (let it be favorited)
-function update(robotId, userId) {
+// favorite a robot
+function favorite(robotId, userId) {
   return fetch(BASE_URL + "/" + robotId, {
     method: 'PUT',
     headers: {
@@ -38,14 +38,22 @@ function approve(robotId) {
   }).then(response => response.json());
 }
 
-// delete robot 
-function deleteRobot(robotId) {
+function update(robotId, updatedFields) {
   return fetch(BASE_URL + "/" + robotId, {
-    method: 'DELETE',
+    method: 'PUT',
     headers: {
       'Content-type': 'Application/json'
-  }
+  },
+  body: JSON.stringify({updatedFields}) //turn the data into JSON 
   }).then(response => response.json());
 }
 
-export default { index, create, update, approve, deleteRobot }
+// delete robot 
+function deleteRobot(robotId) {
+  console.log(robotId);
+  return fetch(BASE_URL + "/" + robotId, {
+    method: 'DELETE'
+  }).then(response => response.json());
+}
+
+export default { index, create, favorite, approve, deleteRobot, update }

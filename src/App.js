@@ -13,6 +13,7 @@ import AddRobotPage from './pages/AddRobotPage/AddRobotPage';
 import robotsService from './utils/robotsService';
 import userService from './utils/userService';
 import UpdatesPage from './pages/UpdatesPage/UpdatesPage';
+import EditRobotPage from './pages/EditRobotPage/EditRobotPage';
 
 class App extends Component {
 
@@ -164,7 +165,7 @@ class App extends Component {
   }
 
   handleAddToFavorites = async id => {
-    const robots = await robotsService.update(id, this.state.user._id);
+    const robots = await robotsService.favorite(id, this.state.user._id);
     this.setState({ robots });
   }
 
@@ -176,12 +177,7 @@ class App extends Component {
 
   handleDelete = async id => {
     const robots = await robotsService.deleteRobot(id);
-    console.log('deleted robot');
-    console.log(robots);
-    await this.setState({ robots });
-    console.log('set state for robots:');
-    console.log(robots);
-    this.filterRobots();
+    this.setState({ robots });
   }
 
   handleSignupOrLogin = () => {
@@ -264,8 +260,85 @@ class App extends Component {
             updateRobots={this.updateRobots}
           />
         }/>
-        <Route exact path='/icon' render={ props =>
-          <div ><p style={{height: '100vh'}}> </p></div>
+        <Route exact path='/:id/edit-name' render={ props =>
+          <EditRobotPage 
+            {...props} 
+            user={this.state.user}
+            selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
+            editPart={0}
+            robots={this.state.robots}
+            updateRobots={this.updateRobots}
+          />
+        }/>
+        <Route exact path='/:id/edit-manufacturer' render={ props =>
+          <EditRobotPage 
+            {...props} 
+            user={this.state.user}
+            selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
+            editPart={1}
+            robots={this.state.robots}
+            updateRobots={this.updateRobots}
+          />
+        }/>
+        <Route exact path='/:id/edit-height' render={ props =>
+          <EditRobotPage 
+            {...props} 
+            user={this.state.user}
+            selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
+            editPart={2}
+            robots={this.state.robots}
+            updateRobots={this.updateRobots}
+          />
+        }/>
+        <Route exact path='/:id/edit-movies' render={ props =>
+          <EditRobotPage 
+            {...props} 
+            user={this.state.user}
+            selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
+            editPart={3}
+            robots={this.state.robots}
+            updateRobots={this.updateRobots}
+          />
+        }/>
+        <Route exact path='/:id/edit-books' render={ props =>
+          <EditRobotPage 
+            {...props} 
+            user={this.state.user}
+            selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
+            editPart={4}
+            robots={this.state.robots}
+            updateRobots={this.updateRobots}
+          />
+        }/>
+        <Route exact path='/:id/edit-tvShows' render={ props =>
+          <EditRobotPage 
+            {...props} 
+            user={this.state.user}
+            selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
+            editPart={5}
+            robots={this.state.robots}
+            updateRobots={this.updateRobots}
+          />
+        }/>
+        <Route exact path='/:id/edit-games' render={ props =>
+          <EditRobotPage 
+            {...props} 
+            user={this.state.user}
+            selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
+            editPart={6}
+            robots={this.state.robots}
+            updateRobots={this.updateRobots}
+          />
+        }/>
+        <Route exact path='/:id/edit-actors' render={ props =>
+          <EditRobotPage 
+            {...props} 
+            user={this.state.user}
+            selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
+            editPart={7}
+            robots={this.state.robots}
+            updateRobots={this.updateRobots}
+          />
         }/>
     </div>
     )

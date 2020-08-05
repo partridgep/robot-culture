@@ -1,0 +1,19 @@
+.summary {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.listOfUpdates {
+    height: 96%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 0;
+}
+
+.listOfUpdates a {
+    color: white;
+    font-style: italic;
+}
