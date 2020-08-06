@@ -12,7 +12,7 @@ const hoverOptions = {
     shiftY: 0
 }
 
-const Categories = ({selRobot, handleCategorySelection, handleHoverCategory, robotsOfHoveredCategory}) => (
+const Categories = ({selRobot, handleCategorySelection, handleHoverCategory, robotsOfHoveredCategory, editMode, toggleEditing}) => (
 
     // display all the categories the robot belongs to
     <div className={styles.categories}>
@@ -50,7 +50,9 @@ const Categories = ({selRobot, handleCategorySelection, handleHoverCategory, rob
                     
                     {/* add comma between categories */}
                 </ReactHover>)).reduce((prev, curr) => [prev, ', ', curr])}
-        </span>
+                
+        </span> &nbsp;
+        {editMode.activated && <Link to={"/"+selRobot._id+"/edit-categories/"}><button>EDIT</button></Link>}
     </div>
 )
 

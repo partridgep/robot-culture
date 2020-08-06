@@ -49,7 +49,13 @@ class EditRobotPage extends Component {
 
     getRobotInfo() {
         let updatedCategory = editPartNames[this.props.editPart];
-        this.setState({
+        if (updatedCategory === 'images') {
+            this.setState({
+                imageLandscape: this.props.selRobot.imageLandscape,
+                imagePortrait: this.props.selRobot.imagePortrait
+            })
+        }
+        else this.setState({
             [`${updatedCategory}`] : this.props.selRobot[`${updatedCategory}`]
         });
     }
@@ -93,9 +99,17 @@ class EditRobotPage extends Component {
 
     handleFinalSubmit = async (e) => {
         if (e) e.preventDefault();
+        let updatedFields;
         let updatedCategory = editPartNames[this.props.editPart];
-        let updatedFields = {
-            [`${updatedCategory}`] : this.state[`${updatedCategory}`]
+        if (updatedCategory !== 'images') {
+            updatedFields = {
+                [`${updatedCategory}`] : this.state[`${updatedCategory}`]
+            }
+        } else {
+            updatedFields = {
+                imageLandscape: this.state.imageLandscape,
+                imagePortrait: this.state.imagePortrait
+            }
         }
         console.log(updatedFields);
         const robots = await robotsService.update(this.state.robot._id, updatedFields);

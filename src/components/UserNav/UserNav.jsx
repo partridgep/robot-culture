@@ -12,6 +12,9 @@ function UserNav({user, robots, handleLogout}) {
     let num = 0;
     for (var robot of robots) {
       if (!robot.approved) num++;
+      if (robot.updates.length) {
+        num++;
+      }
     }
     return num;
   }

@@ -36,22 +36,23 @@ function getNewRobots(robots, handleRobotSelection, handleApproval, handleDelete
     return robotLinks;
 }
 
-function getUpdatedRobots(robots) {
+function getUpdatedRobots(robots, updateRobots) {
     let updatedRobots = [];
     for (var robot of robots) {
         if (robot.updates.length) updatedRobots.push(robot);
     }
-    let updateLinks = updatedRobots.map(robot => (
-        <UpdateSummary robot={robot} />
+    let updateLinks = updatedRobots.map((robot, index) => (
+        <UpdateSummary robot={robot} key={index} updateRobots={updateRobots}/>
     ));
     return updateLinks;
 }
 
-function UpdatesPage({user, robots, handleRobotSelection, handleApproval, handleDelete}) {
+function UpdatesPage({user, robots, handleRobotSelection, handleApproval, handleDelete, updateRobots}) {
 
     return (
         <div>
             {user ? 
+                robots.length && 
                 <div className='UpdatesPage'>
                     <Link to="/robots" className='UpdatesPage-X'>X</Link>
                     <h2>New Robots</h2>
@@ -66,9 +67,9 @@ function UpdatesPage({user, robots, handleRobotSelection, handleApproval, handle
                     </div>
                     <h2>Updates to Robots</h2>
                     <div className='UpdatesPage-newRobots'>
-                            {getUpdatedRobots(robots).length > 0 ?
+                            {getUpdatedRobots(robots, updateRobots).length > 0 ?
                                 <div className='UpdatesPage-robots'>
-                                    {getUpdatedRobots(robots)}
+                                    {getUpdatedRobots(robots, updateRobots)}
                                 </div>
                                 :
                                 <div className='UpdatesPage-NoNew'><p>No Updated Robots</p></div>

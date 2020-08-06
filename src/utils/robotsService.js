@@ -48,6 +48,36 @@ function update(robotId, updatedFields) {
   }).then(response => response.json());
 }
 
+function approveChange(robotId, updatedField, idx) {
+  return fetch(BASE_URL + "/" + robotId, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'Application/json'
+  },
+  body: JSON.stringify({updatedField, idx}) //turn the data into JSON 
+  }).then(response => response.json());
+}
+
+function denyChange(robotId, updatedField, idx) {
+  return fetch(BASE_URL + "/" + robotId, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'Application/json'
+  },
+  body: JSON.stringify({updatedField, idx, denied: true}) //turn the data into JSON 
+  }).then(response => response.json());
+}
+
+function approveRemoval(robotId, updatedField, idx) {
+  return fetch(BASE_URL + "/" + robotId, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'Application/json'
+  },
+  body: JSON.stringify({updatedField, idx, toBeRemoved: true}) //turn the data into JSON 
+  }).then(response => response.json());
+}
+
 // delete robot 
 function deleteRobot(robotId) {
   console.log(robotId);
@@ -56,4 +86,4 @@ function deleteRobot(robotId) {
   }).then(response => response.json());
 }
 
-export default { index, create, favorite, approve, deleteRobot, update }
+export default { index, create, favorite, approve, deleteRobot, update, approveChange, denyChange, approveRemoval }

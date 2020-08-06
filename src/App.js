@@ -250,6 +250,7 @@ class App extends Component {
             handleRobotSelection={this.handleRobotSelection}
             handleApproval={this.handleApproval}
             handleDelete={this.handleDelete}
+            updateRobots={this.updateRobots}
           />
         }/>
         <Route exact path='/new-robot' render={ props =>
@@ -336,6 +337,26 @@ class App extends Component {
             user={this.state.user}
             selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
             editPart={7}
+            robots={this.state.robots}
+            updateRobots={this.updateRobots}
+          />
+        }/>
+        <Route exact path='/:id/edit-image' render={ props =>
+          <EditRobotPage 
+            {...props} 
+            user={this.state.user}
+            selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
+            editPart={8}
+            robots={this.state.robots}
+            updateRobots={this.updateRobots}
+          />
+        }/>
+        <Route exact path='/:id/edit-categories' render={ props =>
+          <EditRobotPage 
+            {...props} 
+            user={this.state.user}
+            selRobot={this.state.robots.find((robot) => robot._id === props.match.params.id)}
+            editPart={9}
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />

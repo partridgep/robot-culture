@@ -16,6 +16,8 @@ const InfoContent = ({selRobot, handleCategorySelection, handleHoverCategory, ro
                 robotsOfHoveredCategory={robotsOfHoveredCategory}
                 handleCategorySelection={handleCategorySelection}
                 handleHoverCategory={handleHoverCategory}
+                editMode={editMode}
+                toggleEditing={toggleEditing}
             />
 
             {/* then show the height */}
