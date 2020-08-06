@@ -1,7 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
-//const path = require('path');
-//const favicon = require('serve-favicon');
+const path = require('path');
+const favicon = require('serve-favicon');
 
 // Configure to use port 3001 instead of 3000 during
 // development to avoid collision with React's dev server
