@@ -3,7 +3,7 @@
 A MERN React.js App to access a cloud-deployed database of robots from pop-culture, with CRUD features for signed-in users and admins.
 
 ## Getting Started
-Coming soon...
+Click here to access the app.
 
 ## Technologies Used
 * React.js
