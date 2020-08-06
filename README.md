@@ -3,7 +3,7 @@
 A MERN React.js App to access a cloud-deployed database of robots from pop-culture, with CRUD features for signed-in users and admins.
 
 ## Getting Started
-Click here to access the app.
+Click [here](https://dashboard.heroku.com/apps/robot-culture) to access the app (please allow 20-30 seconds for Heroku to warm up.)
 
 ## Technologies Used
 * React.js
@@ -14,6 +14,12 @@ Click here to access the app.
 * JWT (JSON Web Tokens)
 * Google Fonts
 * APIs: [OMDB API](http://omdbapi.com/), [Google Books API](https://developers.google.com/books), [Unofficial IMDb API](https://rapidapi.com/hmerritt/api/imdb-internet-movie-database-unofficial/details)
+
+
+## ERD
+
+![ERD](https://i.imgur.com/f0zpQqm.png)
+
 
 ## Wireframes + Screenshots of Completed Project
 
