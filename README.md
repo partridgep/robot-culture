@@ -18,7 +18,7 @@ Click [here](https://dashboard.heroku.com/apps/robot-culture) to access the app 
 
 ## ERD
 
-![ERD](https://i.imgur.com/f0zpQqm.png)
+![ERD](https://i.imgur.com/wUGLkWa.png)
 
 
 ## Wireframes + Screenshots of Completed Project
