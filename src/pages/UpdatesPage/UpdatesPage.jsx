@@ -52,7 +52,6 @@ function UpdatesPage({user, robots, handleRobotSelection, handleApproval, handle
     return (
         <div>
             {user ? 
-                robots.length && 
                 <div className='UpdatesPage'>
                     <Link to="/robots" className='UpdatesPage-X'>X</Link>
                     <h2>New Robots</h2>

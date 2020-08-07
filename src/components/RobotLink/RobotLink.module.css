@@ -30,3 +30,15 @@
     font-weight: 300;
     border-width: 3px;
 }
+
+@media (max-width: 560px) {
+
+    .link {
+        width: 40%;
+        height: 100px;
+        line-height: 110%;
+        padding: 2px;
+    }
+
+
+}

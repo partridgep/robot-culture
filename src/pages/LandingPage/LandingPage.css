@@ -12,6 +12,7 @@
   width: 95vw;
   margin: 0;
   position: relative;
+  transition: 0.2s all;
 }
 
 .LandingPage-img {
@@ -39,13 +40,13 @@
 }
 
 @keyframes gradient-slideUp {
-  0% {
+  from {
     transform: translate(0, 20%);
     opacity: 0;
   }
-  100% {
+  to {
     transform: translate(0, 0%);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
@@ -66,13 +67,11 @@
 }
 
 @keyframes h2-slideUp {
-  0% {
-    /* transform: translate(0, -700%); */
+  from {
     opacity: 0;
   }
-  100% {
-    /* transform: translate(0, -780%); */
-    opacity: 100%;
+  to {
+    opacity: 1;
   }
 }
 
@@ -82,13 +81,13 @@
 }
 
 @keyframes C3PO-slideFromLeft {
-  0% {
+  from {
     transform: translate(-20%, -10%);
     opacity: 0;
   }
-  100% {
+  to {
     transform: translate(0, -10%);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
@@ -98,13 +97,13 @@
 }
 
 @keyframes Terminator-slideFromLeft {
-  0% {
+  from {
     transform: translate(-10%, -10%);
     opacity: 0;
   }
-  100% {
+  to {
     transform: translate(0, -10%);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
@@ -114,13 +113,13 @@
 }
 
 @keyframes WallE-slideFromRight {
-  0% {
+  from {
     transform: translate(10%, -10%);
     opacity: 0;
   }
-  100% {
+  to {
     transform: translate(0, -10%);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
@@ -130,13 +129,13 @@
 }
 
 @keyframes Metropolis-slideFromRight {
-  0% {
+  from {
     transform: translate(20%, -10%);
     opacity: 0;
   }
-  100% {
+  to {
     transform: translate(0, -10%);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
@@ -175,14 +174,14 @@
 }
 
 @keyframes delay {
-  0% {
+  from {
     opacity: 0;
   }
   99% {
-    opacity: 0%;
+    opacity: 0;
   }
-  100% {
-    opacity: 100%;
+  to {
+    opacity: 1;
   }
 }
 
@@ -203,3 +202,103 @@
     border-color: rgba(186, 255, 82, 0.5);
   }
 }
+
+@media (max-width: 1000px) {
+  .LandingPage h1 {
+    font-size: 90px;
+  }
+
+  .LandingPage h2 {
+    font-family: 'Epilogue', sans-serif;
+    color: white;
+    text-shadow: 3px 2px rgba(0, 0, 0, 0.4);
+    transform: translate(0, -580%);
+    z-index: 2;
+    animation: h2-slideUp 4s;
+  }  
+}
+
+
+@media (max-width: 770px) {
+
+  .LandingPage h1 {
+    font-size: 70px;
+  }
+
+  .LandingPage h2 {
+    font-family: 'Epilogue', sans-serif;
+    color: white;
+    text-shadow: 3px 2px rgba(0, 0, 0, 0.4);
+    transform: translate(0, -480%);
+    z-index: 2;
+    animation: h2-slideUp 4s;
+  } 
+}
+
+@keyframes gradient-slideUpMobile {
+  from {
+    transform: translate(0, 120%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 100%);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .LandingPage h1 {
+    font-size: 46px;
+    letter-spacing: -3px;
+  }
+
+  .LandingPage h2 {
+    transform: translate(0, -500%);
+    font-size: 18px;
+  }  
+}
+
+@media (max-width: 560px) {
+
+  .LandingPage h2 {
+    transform: translate(0, 45%);
+    font-size: 18px;
+  }  
+
+  .LandingPage-gradient {
+    transform: translate(0, 100%);
+    animation: gradient-slideUpMobile 1s;
+  }
+
+  .LandingPage-shadow {
+    transform: translate(0.25%, -3%);
+  }
+
+  .LandingPage-enter {
+    font-size: 21px;
+    transform: translateY(350%);
+  }
+
+  .LandingPage-c3po {
+    width: 30vw;
+    margin: -20px -20px -20px -50px;
+  }
+
+  .LandingPage-terminator {
+    width: 40vw;
+    margin: -20px -20px -28px -20px;
+  }
+
+  .LandingPage-walle {
+    width: 45vw;
+    margin: -20px -40px -30px -40px;
+  }
+
+  .LandingPage-metropolis {
+    width: 30vw;
+    margin: -20px -50px -30px -20px;
+  }
+}
+
+

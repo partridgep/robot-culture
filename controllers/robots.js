@@ -17,7 +17,6 @@ async function getRobots(req, res) {
 //create new robots
 async function addRobot(req, res) {
   try {
-    console.log(req.body);
     await Robot.create(req.body);
     getRobots(req, res);
   } catch (err) {
@@ -32,14 +31,11 @@ async function updateRobot(req, res) {
 
     // if passing new updated fields
     if (req.body.updatedFields) {
-      console.log('updating')
-      console.log(req.body.updatedFields);
       robot.updates.push(req.body.updatedFields);
       }
 
     // if we passed the user's id, it means we're trying to favorite the robot
     else if (req.body.userId) {
-      console.log('favoriting');
       const userId = req.body.userId;
       // remove user if from robot's FavoriteBy array if already in there
       if (!robot.favoritedBy.includes(userId)) robot.favoritedBy.push(userId);
@@ -53,37 +49,38 @@ async function updateRobot(req, res) {
 
     //else if approving a change
     else if (req.body.updatedField) {
+      keepThisUpdate = false;
+      //console.log(req.body.updatedField);
+      // only changing our robot if not denying the change
       if (!req.body.denied) {
-        console.log('approving change');
-        console.log("updated field is:");
-        console.log(req.body.updatedField);
+
+        // grab update object from req.body
+        // ex: {name: 'New Name'}
         const updatedField = req.body.updatedField;
+
+        // we want to know the name of the property we are changing,
+        // which is going to be the first (and only) key of our update object
         const changedFieldName = Object.keys(updatedField)[0];
-        console.log("robot[`${changedFieldName}`]: ");
-        console.log(robot[`${changedFieldName}`]);
   
-        // if only changing a string property (name, manufacturer, and images)
+        // if only changing a string property (for name, manufacturer, and images)
         if (typeof(updatedField[`${changedFieldName}`]) === 'string') {
-          console.log('is a string');
+          // replace value with update value
+          // ex: robot[name]: 'Old Name' -> robot[name]: 'New Name'
           robot[`${changedFieldName}`] = updatedField[`${changedFieldName}`];
-          console.log("new value is:");
-          console.log(robot[`${changedFieldName}`]);
         }
-        // else if changing height (only object property)
+        // else if changing height (it's only object property)
         else if (changedFieldName === 'height') {
-          console.log('changing height!');
           robot.height.feet = updatedField.height.feet;
           robot.height.inches = updatedField.height.inches;
         }
-        // else if it is an array (media, actors, and categories)
+        // else if it is an array (for media, actors, and categories)
         else if (Array.isArray(updatedField[`${changedFieldName}`])) {
-          console.log('is an array!');
+          // check if we are removing an item from an array
           if (req.body.toBeRemoved) {
-            console.log('remove this one!');
+            // if so, iterate through items in robot's array
             for (let i=0; i<robot[`${changedFieldName}`].length; i++) {
-              if (robot[`${changedFieldName}`][i] === updatedField[`${changedFieldName}`][0]) {
-                console.log('found the one to be removed');
-                console.log(robot[`${changedFieldName}`][i]);
+              // find matching item and remove
+              if (JSON.stringify(robot[`${changedFieldName}`][i]) === JSON.stringify(updatedField[`${changedFieldName}`][0])) {
                 robot[`${changedFieldName}`].splice(i, 1);
               }
             }
@@ -91,15 +88,34 @@ async function updateRobot(req, res) {
             // insert new item
             robot[`${changedFieldName}`] = [...robot[`${changedFieldName}`], ...updatedField[`${changedFieldName}`]];
           }
+          // TODO: if update array contains other remaining changes, do not delete update yet
+          let update = robot.updates[req.body.idx];
+            //console.log(update);
+            // console.log('update.movies: ')
+            // console.log(update[`${changedFieldName}`]);
+            // console.log('update.movies: ');
+            // console.log(update[`${changedFieldName}`]);
+            // console.log('updatedField[movies]:');
+            // console.log(updatedField[`${changedFieldName}`]);
+            // if (changedFieldName !== 'categories') {
+            //   let result = robot[`${changedFieldName}`].filter(movies1 => !update[`${changedFieldName}`].some(movies2 => movies1.link === movies2.link));
+            //   console.log('result:');
+            //   console.log(result);
+            // }
+            // if (update[`${changedFieldName}`].includes(updatedField[`${changedFieldName}`])) {
+            //     console.log('still remaining updates');
+            //     keepThisUpdate = true;
+            // }
+          
         }
       } 
-      //now we need to remove the update object from robot
-      robot.updates.splice(req.body.idx, 1);
+      console.log(req.body.idx)
+      //now we need to remove the update object from our robot
+      if (!keepThisUpdate) robot.updates.splice(req.body.idx, 1);
     }
 
     // otherwise, we're just getting a new robot approved
     else {
-      console.log('approved');
       robot.approved = true;
     }
 
@@ -107,7 +123,6 @@ async function updateRobot(req, res) {
     await robot.save();
     getRobots(req, res);
   } catch (err) {
-    console.log(err);
     res.json({err});
   }
 }

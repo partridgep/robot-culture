@@ -4,8 +4,16 @@ import styles from './RobotLink.module.css';
 
 function robotFontSize(name) {
     let size = '50px';
-    if (name.length > 8) {
-        size = '40px';
+    if (window.innerWidth < 560) {
+        size = '32px';
+        if (name.length > 8) {
+            size = '25px';
+        }
+    }
+    else {
+        if (name.length > 8) {
+            size = '40px';
+        }
     }
     return size;
 }

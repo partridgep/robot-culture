@@ -199,6 +199,7 @@ export class AddCategories extends Component {
                         {optionList}
                     </div>
                     <div className={styles.buttons}>
+                        {this.props.addProcess && <button className={styles.skip} onClick={this.props.handleSkip}>Skip</button>}
                         <button disabled={!this.props.categories.length} onClick={this.props.handleFinalSubmit} >Next</button>&nbsp;&nbsp;
                 </div>
             </div>

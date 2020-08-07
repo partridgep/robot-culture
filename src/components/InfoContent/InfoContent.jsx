@@ -100,7 +100,7 @@ const InfoContent = ({selRobot, handleCategorySelection, handleHoverCategory, ro
         {/* to the right, display the robot picture */}
         <div className={styles.picture}>
             <img  src={selRobot.imagePortrait} alt={selRobot.name}></img>
-            {editMode.activated && <Link to={"/"+selRobot._id+"/edit-image/"}><button>EDIT</button></Link>}
+            {editMode.activated && <Link className={styles.editButton}to={"/"+selRobot._id+"/edit-image/"}><button>EDIT</button></Link>}
         </div>
     </div>
 )

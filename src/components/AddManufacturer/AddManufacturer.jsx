@@ -135,7 +135,7 @@ export class AddManufacturer extends Component {
                     {optionList}
                     </div>
                     <div className={styles.buttons}>
-                        <button className={styles.skip} onClick={this.props.handleSkip}>Skip</button>
+                    {this.props.addProcess && <button className={styles.skip} onClick={this.props.handleSkip}>Skip</button>}
                         <button onClick={this.props.handleSubmit} disabled={!(this.props.manufacturer.length > 0)}>Next</button>&nbsp;&nbsp;
                 </div>
             </div>

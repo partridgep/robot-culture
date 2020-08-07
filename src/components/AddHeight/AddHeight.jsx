@@ -50,7 +50,7 @@ export class AddHeight extends Component {
                         </div><p>"</p>
                     </div>
                     <div className={styles.buttons}>
-                        <button className={styles.skip} onClick={this.props.handleSkip}>Skip</button>
+                    {this.props.addProcess && <button className={styles.skip} onClick={this.props.handleSkip}>Skip</button>}
                         <button 
                             disabled={!this.state.feet && !this.state.inches } 
                             onClick={this.props.handleSubmit}

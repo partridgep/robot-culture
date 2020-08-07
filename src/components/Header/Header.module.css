@@ -64,10 +64,6 @@
 
 .searchBox {
     position: relative;
-    z-index: 0;
-}
-
-.searchBox {
     border: 1px solid #ccc;
     border-radius: 4px;
     outline: 0;
@@ -77,9 +73,42 @@
 
 .searchBox:focus, .options:focus {
     box-shadow: 0 0 5px 1px #85d5ee;
-    border: 2px solid #a7eaff;
 }
 
 .searchBox::-webkit-search-cancel-button{
     cursor: pointer;  
+}
+
+@media (max-width: 560px) {
+
+    .header {
+        font-size: 13px;
+    }
+
+    .headerTop {
+        grid-template-columns: 80% 20%;
+    }
+
+    .title {
+        font-size: 32px;
+        margin: 10px 5px;
+        transform: translateX(10%);
+    }
+
+    .headerBottom {
+        position: relative;
+        grid-row: span 1;
+        display: grid;
+        grid-template-columns: 35% 35% 30%;
+        z-index: 0;
+    }
+
+    .searchBox {
+        width: 100%;
+    }
+
+    .options {
+        width: 80%;
+    }
+
 }

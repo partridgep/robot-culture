@@ -54,6 +54,7 @@
 .landscape, .portrait {
     border: 1px solid white;
     border-radius: 5px;
+    margin: 15px 0;
 }
 
 .landscape {

@@ -20,10 +20,10 @@ function Info({selRobot, user, handleCategorySelection, handleHoverCategory, rob
                 {/* at the top, show the name and X button */}
                 <div className={styles.top}>
 
-                    <h2 className={styles.name}>{selRobot.name} {editMode.activated && <Link className={styles.editButton} to={"/"+selRobot._id+"/edit-name/"}><button>EDIT</button></Link>}
+                    <h2 className={styles.name}>{selRobot.name} {editMode.activated && <Link className={styles.editButton} to={"/"+selRobot._id+"/edit-name/"}><button className={styles.toEdit}>EDIT</button></Link>}
                     </h2>
                     {/* toggle edit mode */}
-                    <p className={styles.editModeButton} onClick={() => toggleEditing(editMode)}>...</p>
+                    {user ? <p className={styles.editModeButton} onClick={() => toggleEditing(editMode)}>...</p>: <p> </p>}
 
                     <Link to={selRobot.approved ? '/robots' : '/admin'} className={styles.xOut}>X</Link>
                     {/* show # of likes and link to add/remove favorite */}

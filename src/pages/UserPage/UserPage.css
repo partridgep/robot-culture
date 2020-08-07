@@ -1,9 +1,9 @@
 @keyframes fadeIn {
-    0% {
+    from {
       opacity: 0;
     }
-    100% {
-      opacity: 100%;
+    to {
+      opacity: 1;
     }
 }
 
@@ -78,4 +78,48 @@
     justify-content: center;
     align-items: center;
     height: 60%;
+}
+
+@media (max-width: 560px) {
+
+    .UserPage {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: 25% 75%;
+    }
+
+    .UserPage-X {
+        position: absolute;
+        right: 5px;
+        padding: 15px;
+    }
+
+    .UserPage-Info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 15%;
+    }
+
+    .UserPage-icon {
+        width: 160px;
+        height: 160px;
+        font-size: 50px;
+        margin-bottom: 5px;
+    }
+
+    .UserPage-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 25px;
+    font-weight: 900;
+    margin: 0 40px;
+}
+    
+
+
+
 }

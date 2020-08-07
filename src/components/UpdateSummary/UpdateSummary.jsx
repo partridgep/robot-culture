@@ -61,6 +61,7 @@ function getUpdates(robot, updateRobots) {
             )
         }
         if (update.movies) {
+            console.log('update movies');
             // for each movie in update, see if already in robot's movies
             for (let movie of update.movies) {
                 if (!robot.movies.some(oldMovie => oldMovie.link === movie.link)) {
@@ -214,9 +215,14 @@ function getUpdates(robot, updateRobots) {
             }
         }
         if (update.imageLandscape && update.imageLandscape !== robot.imageLandscape) {
-            updates.push(<div className={styles.imageSection}>
-                <img className={styles.landscape} src={robot.imageLandscape} alt="old landscape" /><p>&#8594;</p><img className={styles.landscape} src={update.imageLandscape} alt="new landscape" />
-            </div>)
+            updates.push(
+                <div className={styles.changeRow} key={update.imageLandscape}>
+                    <div className={styles.imageSection}>
+                        <img className={styles.landscape} src={robot.imageLandscape} alt="old landscape" /><p>&#8594;</p><img className={styles.landscape} src={update.imageLandscape} alt="new landscape" />
+                    </div>
+                    <ApprovalButtons approveChange={approveChange} denyChange={denyChange} robot={robot} update={update} idx={i} updateRobots={updateRobots}/>
+                </div>
+            )
         }
         if (update.imagePortrait && update.imagePortrait !== robot.imagePortrait) {
             updates.push(
@@ -224,7 +230,7 @@ function getUpdates(robot, updateRobots) {
                     <div className={styles.imageSection}>
                         <img className={styles.portrait} src={robot.imagePortrait} alt="old portrait" /><p>&#8594;</p><img className={styles.portrait} src={update.imagePortrait} alt="new portrait" />
                     </div>
-                    <ApprovalButtons approveChange={approveChange} denyChange={denyChange} robot={robot} update={{imagePortrait: update}} idx={i} updateRobots={updateRobots}/>
+                    <ApprovalButtons approveChange={approveChange} denyChange={denyChange} robot={robot} update={update} idx={i} updateRobots={updateRobots}/>
                 </div>
             )
         }

@@ -6,20 +6,20 @@
 }
 
 @keyframes fadeIn {
-    0% {
+    from {
         opacity: 0;
     }
-    100% {
-        opacity: 100%;
+    to {
+        opacity: 1;
     }
 }
 
 
 @keyframes slideIn {
-    0% {
+    from {
         transform: translateX(4%);
     }
-    100% {
+    to {
         transform: translateX(3.5%);
     }
 }
@@ -96,5 +96,35 @@
 
 .favorites button:hover, .favorites a:hover {
     color: white;
+}
+
+.editButton {
+    position: absolute;
+    margin: auto 15px;
+}
+
+.editButton button {
+    margin: auto 0;
+}
+
+@media (max-width: 560px) {
+
+    .display {
+        margin: 0 auto; 
+        transform: skewY(12deg);
+        overflow-y: scroll;
+    }
+
+    .top {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 93% 2% 5%;
+        grid-template-rows: 95% 5%;
+    }
+
+    .xOut, .editModeButton {
+        margin-left: -25px;
+    }
+
 }
 

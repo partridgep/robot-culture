@@ -7,20 +7,24 @@
 }
 
 @keyframes fadeIn {
-    0% {
+    from {
         opacity: 0;
     }
-    100% {
-        opacity: 100%;
+    to {
+        opacity: 1;
     }
 }
 
 .AddRobotPage-title {
     color: white;
     font-size: 50px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 0;
     padding-top: 125px;
     animation: fadeIn 1s;
+    text-align: center;
+    width: 90%;
 }
 
 
@@ -42,7 +46,6 @@
 
 .AddRobotPage-thankYou {
     padding: 40vh 0 5vh 0;
-    
 }
 
 .AddRobotPage-link {
@@ -64,17 +67,19 @@
 
 .AddRobotPage-prev, .AddRobotPage-X {
     position: absolute;
-    top: 15px;
     cursor: pointer;
     color: white;
     animation: fadeIn 1s;
+    margin-top: 20px;
 }
 
 .AddRobotPage-prev { 
     left: 15px;
+    top: 15px;
 }
 
 .AddRobotPage-X {
     right: 20px;
+    top: 10px;
     font-size: 30px;
 }

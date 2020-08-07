@@ -20,7 +20,7 @@ function getPopCultures(robots) {
 // get category options for drop-down menu
 function getCategories(robots) {
     // initialize array of categories with catch-all
-    let categories = ["All"];
+    let categories = [];
     for (var robot of robots) {
         // iterate through categories of each robot
         for(var category of robot.categories) {
@@ -30,6 +30,8 @@ function getCategories(robots) {
     }
     //alphabetize categories
     categories.sort();
+    // add first option for all
+    categories.unshift("All");
     return categories;
 }
 

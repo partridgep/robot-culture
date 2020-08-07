@@ -77,3 +77,25 @@
     height: max-content;
     right: 0;
 }
+
+@media (max-width: 560px) {
+
+    .userNav {
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 5px;
+    }
+
+    .userAccess {
+        margin: auto;
+        width: 30px;
+        height: 30px;
+        margin-top: -20px;
+        font-size: 15px;
+    }
+
+    .UserNav > div {
+        height: 30px;
+    }
+
+}

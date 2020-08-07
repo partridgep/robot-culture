@@ -3,13 +3,13 @@
 }
 
 @keyframes slideDown {
-    0% {
+    from {
       transform: translateY(5%);
       opacity: 0;
     }
-    100% {
+    to {
       transform: translateY(0);
-      opacity: 100%;
+      opacity: 1;
     }
 }
 
@@ -74,4 +74,22 @@
   display: block;
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 560px) {
+
+  .SelectionPage-AllLinks {
+    width: 100vw;
+    padding: 5%;
+    min-height: calc(100vh - 178px);
+  }
+
+  .SelectionPage-RobotLinks {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
 }
