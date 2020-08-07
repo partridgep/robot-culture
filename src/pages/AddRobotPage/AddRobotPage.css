@@ -1,6 +1,7 @@
 .AddRobotPage {
     width: 100vw;
     min-height: 100vh;
+    height: max-content;;
     background-image: radial-gradient(#3170aa, #02142c);
     font-family: 'Epilogue', sans-serif;
     animation: fadeIn 1s;
@@ -82,4 +83,12 @@
     right: 20px;
     top: 10px;
     font-size: 30px;
+}
+
+@media (max-width: 560px) {
+
+    .AddRobotPage-title {
+        font-size: 40px;
+    }
+
 }

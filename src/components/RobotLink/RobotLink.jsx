@@ -3,19 +3,12 @@ import { Link } from 'react-router-dom';
 import styles from './RobotLink.module.css';
 
 function robotFontSize(name) {
-    let size = '50px';
-    if (window.innerWidth < 560) {
-        size = '32px';
-        if (name.length > 8) {
-            size = '25px';
-        }
+
+    let className = styles.normal;
+    if (name.length > 8) {
+        className = styles.long;
     }
-    else {
-        if (name.length > 8) {
-            size = '40px';
-        }
-    }
-    return size;
+    return className;
 }
 
 function robotMargin(robot) {
@@ -34,10 +27,9 @@ const RobotLink = ({robot, handleRobotSelection}) => (
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
-                fontSize: robotFontSize(robot.name),
                 margin: robotMargin(robot)
             }}
-            className={styles.link} 
+            className={`${styles.link} ${robotFontSize(robot.name)}`} 
             to={'/robots/'+robot._id}
             key={robot._id}
             onClick={() => handleRobotSelection(robot)}

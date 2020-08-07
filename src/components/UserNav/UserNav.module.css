@@ -98,4 +98,14 @@
         height: 30px;
     }
 
+    .notification {
+        min-width: 15px;
+        top: -25px;
+        font-size: 10px;
+    }
+
+    .userMenu {
+        z-index: 4;
+    }
+
 }

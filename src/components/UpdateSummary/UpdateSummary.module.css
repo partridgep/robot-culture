@@ -78,3 +78,41 @@
     font-weight: 900;
     margin: 0 5%;
 }
+
+@media (max-width: 560px) {
+
+    .approvalButtons {
+        opacity: 1;
+    }
+
+    .changeRow {
+        display: flex;
+        justify-content: space-between;
+        width: 99%;
+        border-radius: 5px;
+        padding: 0 10px;
+        transition: 0.1s all;
+    }
+
+    .approvalButtons button {
+        background-color: white;
+        border-radius: 5px;
+    }
+
+    .approvalButtons button:first-of-type {
+        background: linear-gradient(rgb(175, 255, 188), rgba(151, 241, 120, 0.445));
+    }
+
+    .approvalButtons button:last-of-type {
+        background: linear-gradient(rgb(150, 3, 3), rgba(128, 5, 5, 0.8));
+        color: white;
+    }
+
+
+
+    
+
+    
+
+}
+

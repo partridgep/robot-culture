@@ -1,9 +1,9 @@
 # Robot Culture
 
-A MERN React.js App to access a cloud-deployed database of robots from pop-culture, with CRUD features for signed-in users and admins.
+A MERN React.js responsive app to access a cloud-deployed database of robots from pop-culture, with CRUD features for signed-in users and admins.
 
 ## Getting Started
-Click [here](https://dashboard.heroku.com/apps/robot-culture) to access the app (please allow 20-30 seconds for Heroku to warm up.)
+Click [here](https://robot-culture.herokuapp.com/) to access the app (please allow 20-30 seconds for Heroku to warm up.)
 
 ## Technologies Used
 * React.js
@@ -18,7 +18,7 @@ Click [here](https://dashboard.heroku.com/apps/robot-culture) to access the app 
 
 ## ERD
 
-![ERD](https://i.imgur.com/wUGLkWa.png)
+![ERD](https://i.imgur.com/aWqicDC.png)
 
 
 ## Wireframes + Screenshots of Completed Project
@@ -41,7 +41,7 @@ Click [here](https://dashboard.heroku.com/apps/robot-culture) to access the app 
 
 *Robot Information Page (Wireframe):*
 
-![Wireframe of Robot Information Page](https://i.imgur.com/r13aKjt.png)
+![Wireframe of Robot Information Page](https://i.imgur.com/8EeLhdo.png)
 
 *Robot Information Page (Completed):*
 
@@ -54,3 +54,33 @@ Click [here](https://dashboard.heroku.com/apps/robot-culture) to access the app 
 *Adding New Robot Form (Completed):*
 
 ![Screenshot of Form to Add New Robot](https://i.imgur.com/zfBN8AK.png)
+
+*Login Page (Wireframe):*
+
+![Wireframe of Login Page](https://i.imgur.com/3KJVEhK.png)
+
+*Login Page (Completed):*
+
+![Screenshot of Login Page](https://i.imgur.com/9vAD5Pv.png)
+
+*User Page (Wireframe):*
+
+![Wireframe of User Page](https://i.imgur.com/xcsIxik.png)
+
+*User Page (Completed):*
+
+![Screenshot of User Page](https://i.imgur.com/EbI9cBw.png)
+
+*Admin Page (Wireframe):*
+
+![Wireframe of Admin Page](https://i.imgur.com/ZShHw1N.png)
+
+*Admin Page (Completed):*
+
+![Screenshot of Admin Page](https://i.imgur.com/m9yX0Tl.png)
+
+## IceBox
+
+* Admins should be able to delete any robot in the database
+* Simplify & improve update robot controller
+* Make Robot Culture a WPA

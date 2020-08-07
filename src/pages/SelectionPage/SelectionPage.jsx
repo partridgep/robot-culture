@@ -17,21 +17,24 @@ function SelectionPage(props) {
             <Header {... props} />
             <div className='SelectionPage-AllLinks'>
                 {/* show loading message if still getting robots */}
-                {props.robots && props.robots.length === 0 && <p className="SelectionPage-NoRobots">Loading...</p>}
-                {/* Show robot links or "No Robots" if no robot matches query */}
-                {props.robotsToShow.length === 0 && props.robots.length > 0 ? 
+                {props.robots && props.robots.length === 0 ? <p className="SelectionPage-NoRobots">Loading...</p>
+                :
+                // Show robot links or "No Robots" if no robot matches query
+                props.robotsToShow.length === 0 && props.robots.length > 0 ? 
                     <p className="SelectionPage-NoRobots">No Robots</p> 
                     : 
                     <div className="SelectionPage-RobotLinks">
                     {robotLinks}
                     {/* show button to add robot on hover if logged in */}
-                    {props.user && 
+                    {props.user && props.robots.length ? 
                         <Link to="/new-robot" className='SelectionPage-AddRobot'>
                             <div style={{display: 'block', height: '100%'}}>
                                 <p className='SelectionPage-plus'>+</p>
                                 <p className='SelectionPage-add'>Add Robot</p>
                             </div>
-                        </Link>}
+                        </Link>
+                        :
+                        <div></div>}
                     </div>
                 }
             </div>

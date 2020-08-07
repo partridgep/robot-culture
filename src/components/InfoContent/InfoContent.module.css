@@ -39,6 +39,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     height: max-content;
+    width: max-content;
     margin: 0 10% 0% auto;
     position: relative;
     animation: fadeIn 0.6s, slideInLeft 0.8s;
@@ -96,15 +97,16 @@
 }
 
 .editButton button {
+    background-color: white;
     font-size: 25px;
     text-decoration: none;
-    border-radius: 3px;
+    border-radius: 8px;
     width: 75px;
     transition: all 0.1s;
 }
 
-.editButton button:hover {
-    width: 77px;
+.editButton button:active {
+    background-color: rgb(72, 149, 194);
 }
 
 @media (max-width: 560px) {
@@ -118,7 +120,7 @@
     }
 
     .picture {
-        margin: auto 5%;
+        margin: auto;
         justify-content: center;
     }
 
@@ -131,6 +133,16 @@
         height: max-content;
         margin: 10% 5% 30% 5%;
     }
+
+    .editButton button {
+        font-size: 25px;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 3px;
+        width: 100px;
+        transition: all 0.1s;
+    }
+
     
 
 

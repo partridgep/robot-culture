@@ -24,11 +24,26 @@
 }
 
 .link:hover {
-    font-size: 51px;
     border-color: rgba(0, 149, 235, 0.3);
     color: rgb(210, 238, 255);
     font-weight: 300;
     border-width: 3px;
+}
+
+.normal {
+    font-size: 50px;
+}
+
+.normal:hover {
+    font-size: 51px;
+}
+
+.long {
+    font-size: 40px;
+}
+
+.long:hover {
+    font-size: 41px;
 }
 
 @media (max-width: 560px) {
@@ -40,5 +55,20 @@
         padding: 2px;
     }
 
+    .normal {
+        font-size: 32px;
+    }
+
+    .normal:hover {
+        font-size: 30px;
+    }
+
+    .long {
+        font-size: 25px;
+    }
+
+    .long:hover {
+        font-size: 24px;
+    }
 
 }

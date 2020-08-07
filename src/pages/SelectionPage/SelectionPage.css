@@ -39,6 +39,8 @@
     font-family: 'Epilogue', sans-serif;
     font-size: 30px;
     letter-spacing: 0.1em;
+    z-index: 5;
+    position: relative;
 }
 
 .SelectionPage-AddRobot {
@@ -90,6 +92,19 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+  }
+
+  .SelectionPage-AddRobot {
+    height: 100px;
+    width: 40%;
+    margin: 0 15px 5% ;
+    opacity: 1;
+  }
+
+  .SelectionPage-plus {
+    font-size: 100px;
+    height: 80px;
+    margin: -10px 0 0 0;
   }
 
 }

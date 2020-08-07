@@ -93,6 +93,7 @@
         font-size: 32px;
         margin: 10px 5px;
         transform: translateX(10%);
+        z-index: 0;
     }
 
     .headerBottom {

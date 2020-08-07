@@ -129,7 +129,7 @@ class AddRobotPage extends Component {
                     </div>
                 }
                 {this.state.addProcess > 0 && <h2 onClick={this.handlePrevious} className='AddRobotPage-prev'>{"< Previous"}</h2>}
-                {this.state.addProcess > 0 && <Link to="/robots"><h2 className='AddRobotPage-X'>X</h2></Link>}
+                <Link to="/robots"><h2 className='AddRobotPage-X'>X</h2></Link>
                 {this.state.addProcess === 1 &&
                     <div>
                     <h1 className='AddRobotPage-title'>Enter Robot Manufacturer</h1>     

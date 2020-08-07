@@ -126,5 +126,12 @@
         margin-left: -25px;
     }
 
+    .editModeButton {
+        margin: -10px 0 0 -80px;
+        cursor: pointer;
+    }
+
+
+
 }
 
