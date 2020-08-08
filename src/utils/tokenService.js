@@ -11,7 +11,6 @@ function getToken() {
     if (token) {
         // Check if token is expired
         const payload = JSON.parse(atob(token.split('.')[1]));
-        console.log(payload);
         if (payload.exp < Date.now() / 1000) {
             localStorage.removeItem('token');
             token = null;

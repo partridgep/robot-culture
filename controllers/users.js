@@ -14,7 +14,6 @@ function createJWT(user) {
 
 async function signup(req, res) {
   const user = new User(req.body);
-  console.log(user);
   try {
     await user.save();
     // Send back a JWT instead of the user

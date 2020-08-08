@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import LandingPage from './pages/LandingPage/LandingPage';
 import SelectionPage from './pages/SelectionPage/SelectionPage';
@@ -36,16 +36,11 @@ class App extends Component {
   getRobots = async () => {
     //grab all the robots from the database
     const robots = await robotsService.index();
-    console.log(robots);
     //set them to state
     this.setState({ robots });
     //filter robots to show (only the approved at this time)
     this.filterRobots();
   }
-
-  // async componentDidUpdate() {
-  //   this.getRobots();
-  // }
 
   //function called to filter the robots in the robotsToShow property
   filterRobots() {
@@ -122,7 +117,6 @@ class App extends Component {
   handleChange = e => {
     // get search value
     let search = e.target.value;
-    console.log(search.toLowerCase());
 
     // set state of search value
     this.setState({ search });
@@ -136,8 +130,6 @@ class App extends Component {
     let robotsToShow = [];
     // iterate through array of filtered robots in state
     for (var robot of this.state.filteredRobots) {
-      //console.log(robot.name.toLowerCase());
-      //console.log(robot.name.toLowerCase().includes(search.toLowerCase()));
       // if name includes letters in search query, add robot to array
       if (robot.name.toLowerCase().includes(search.toLowerCase())) {
         robotsToShow.push(robot);
@@ -235,14 +227,21 @@ class App extends Component {
             />
           }/>
         <Route exact path='/user' render={ props =>
+          this.state.user ?
           <UserPage 
             {...props} 
             user={this.state.user}
             robots={this.state.robots}
             handleRobotSelection={this.handleRobotSelection}
           />
+          :
+          <Redirect to='/login' />
         }/>
         <Route exact path='/admin' render={ props =>
+          !this.state.user ?
+          <Redirect to='/login' />
+          :
+          this.state.user.admin ?
           <UpdatesPage 
             {...props} 
             user={this.state.user}
@@ -252,16 +251,22 @@ class App extends Component {
             handleDelete={this.handleDelete}
             updateRobots={this.updateRobots}
           />
+          :
+          <Redirect to='/user' />
         }/>
         <Route exact path='/new-robot' render={ props =>
+          this.state.user ?
           <AddRobotPage 
             {...props} 
             user={this.state.user}
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />
+          :
+          <Redirect to='/login' />
         }/>
         <Route exact path='/:id/edit-name' render={ props =>
+          this.state.user ?
           <EditRobotPage 
             {...props} 
             user={this.state.user}
@@ -270,8 +275,11 @@ class App extends Component {
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />
+          :
+          <Redirect to='/login' />
         }/>
         <Route exact path='/:id/edit-manufacturer' render={ props =>
+          this.state.user ?
           <EditRobotPage 
             {...props} 
             user={this.state.user}
@@ -280,8 +288,11 @@ class App extends Component {
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />
+          :
+          <Redirect to='/login' />
         }/>
         <Route exact path='/:id/edit-height' render={ props =>
+          this.state.user ?
           <EditRobotPage 
             {...props} 
             user={this.state.user}
@@ -290,8 +301,11 @@ class App extends Component {
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />
+          :
+          <Redirect to='/login' />
         }/>
         <Route exact path='/:id/edit-movies' render={ props =>
+          this.state.user ?
           <EditRobotPage 
             {...props} 
             user={this.state.user}
@@ -300,8 +314,11 @@ class App extends Component {
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />
+          :
+          <Redirect to='/login' />
         }/>
         <Route exact path='/:id/edit-books' render={ props =>
+          this.state.user ?
           <EditRobotPage 
             {...props} 
             user={this.state.user}
@@ -310,8 +327,11 @@ class App extends Component {
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />
+          :
+          <Redirect to='/login' />
         }/>
         <Route exact path='/:id/edit-tvShows' render={ props =>
+          this.state.user ?
           <EditRobotPage 
             {...props} 
             user={this.state.user}
@@ -320,8 +340,11 @@ class App extends Component {
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />
+          :
+          <Redirect to='/login' />
         }/>
         <Route exact path='/:id/edit-games' render={ props =>
+          this.state.user ?
           <EditRobotPage 
             {...props} 
             user={this.state.user}
@@ -330,8 +353,10 @@ class App extends Component {
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />
+          : <Redirect to='/login' />
         }/>
         <Route exact path='/:id/edit-actors' render={ props =>
+          this.state.user ?
           <EditRobotPage 
             {...props} 
             user={this.state.user}
@@ -340,8 +365,11 @@ class App extends Component {
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />
+          :
+          <Redirect to='/login' />
         }/>
         <Route exact path='/:id/edit-image' render={ props =>
+          this.state.user ?
           <EditRobotPage 
             {...props} 
             user={this.state.user}
@@ -350,8 +378,11 @@ class App extends Component {
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />
+          :
+          <Redirect to='/login' />
         }/>
         <Route exact path='/:id/edit-categories' render={ props =>
+          this.state.user ?
           <EditRobotPage 
             {...props} 
             user={this.state.user}
@@ -360,6 +391,8 @@ class App extends Component {
             robots={this.state.robots}
             updateRobots={this.updateRobots}
           />
+          :
+          <Redirect to='/login' />
         }/>
     </div>
     )

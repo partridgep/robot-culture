@@ -50,7 +50,6 @@ async function updateRobot(req, res) {
     //else if approving a change
     else if (req.body.updatedField) {
       keepThisUpdate = false;
-      //console.log(req.body.updatedField);
       // only changing our robot if not denying the change
       if (!req.body.denied) {
 
@@ -88,8 +87,10 @@ async function updateRobot(req, res) {
             // insert new item
             robot[`${changedFieldName}`] = [...robot[`${changedFieldName}`], ...updatedField[`${changedFieldName}`]];
           }
-          // TODO: if update array contains other remaining changes, do not delete update yet
-          let update = robot.updates[req.body.idx];
+
+
+          /*---- TODO: if update array contains other remaining changes, do not delete update yet  ----*/
+          //let update = robot.updates[req.body.idx];
             //console.log(update);
             // console.log('update.movies: ')
             // console.log(update[`${changedFieldName}`]);
@@ -109,7 +110,6 @@ async function updateRobot(req, res) {
           
         }
       } 
-      console.log(req.body.idx)
       //now we need to remove the update object from our robot
       if (!keepThisUpdate) robot.updates.splice(req.body.idx, 1);
     }

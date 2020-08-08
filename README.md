@@ -5,12 +5,15 @@ A MERN React.js responsive app to access a cloud-deployed database of robots fro
 ## Getting Started
 Click [here](https://robot-culture.herokuapp.com/) to access the app (please allow 20-30 seconds for Heroku to warm up.)
 
+You may find the project planning Trello board at [this link](https://trello.com/b/O7AjDUUq/robot-culture).
+
 ## Technologies Used
 * React.js
 * CSS
 * Express
 * MongoDB
 * Mongoose
+* Node
 * JWT (JSON Web Tokens)
 * Google Fonts
 * APIs: [OMDB API](http://omdbapi.com/), [Google Books API](https://developers.google.com/books), [Unofficial IMDb API](https://rapidapi.com/hmerritt/api/imdb-internet-movie-database-unofficial/details)
@@ -23,63 +26,53 @@ Click [here](https://robot-culture.herokuapp.com/) to access the app (please all
 
 ## Wireframes + Screenshots of Completed Project
 
-*Landing Page (Wireframe):*
+*Landing Page:*
 
-![Wireframe of Landing Page](https://i.imgur.com/3Ikiw5U.png)
+![Landing Page](https://i.imgur.com/7DzxjxC.png)
 
-*Landing Page (Completed):*
+*Robot Selection Page:*
 
-![Screenshot of Landing Page](https://i.imgur.com/xhemmLN.png)
+![Robot Selection Page](https://i.imgur.com/RCsBvPh.png)
 
-*Robot Selection Page (Wireframe):*
+*Robot Information Page:*
 
-![Wireframe of Robot Selection Page](https://i.imgur.com/2lZDZre.png)
+![Robot Information Page](https://i.imgur.com/0YbLPpX.png)
 
-*Robot Selection Page (Completed):*
+*Adding New Robot Form:*
 
-![Screenshot of Robot Selection Page](https://i.imgur.com/JUfgyDa.jpg)
+![Form to Add New Robot](https://i.imgur.com/wzoLhLf.png)
 
-*Robot Information Page (Wireframe):*
+*Login Page:*
 
-![Wireframe of Robot Information Page](https://i.imgur.com/8EeLhdo.png)
+![Login Page](https://i.imgur.com/jnIVOyF.png)
 
-*Robot Information Page (Completed):*
+*User Page:*
 
-![Screenshot of Robot Information Page](https://i.imgur.com/B5efbMM.png)
+![User Page](https://i.imgur.com/9ZPGxj1.png)
 
-*Adding New Robot Form (Wireframe):*
+*Admin Page:*
 
-![Wireframe of Form to Add New Robot](https://i.imgur.com/4UmOCM7.png)
+![Admin Page](https://i.imgur.com/GhNn72Z.png)
 
-*Adding New Robot Form (Completed):*
+# Functionality
 
-![Screenshot of Form to Add New Robot](https://i.imgur.com/zfBN8AK.png)
+## Retrieving Robots
 
-*Login Page (Wireframe):*
+All robots displayed in the app are stored in a MongoDB database. Upon mounting, the App component accesses the database and stores its robot in state. 
 
-![Wireframe of Login Page](https://i.imgur.com/3KJVEhK.png)
+## Setting the Criteria to Show Robots
 
-*Login Page (Completed):*
+The robot selection page doesn't just show every robot in the database, but instead it filters them through a set of criteria. Only the robots that fit the criteria will be added to the `RobotsToShow` array in state. For each robot in that array, a link is generated in the form of a button displaying their name and picture on the robot selection page.
 
-![Screenshot of Login Page](https://i.imgur.com/9vAD5Pv.png)
+The first criteria is *being approved by an admin*.
 
-*User Page (Wireframe):*
+The second criteria is the pop-culture criteria. By default, it is set to "All Pop-Culture," but as the user specifies the type of pop-culture they wish to narrow their selection by in the drop-down menu, `RobotsToShow` will reflect their specifications.
 
-![Wireframe of User Page](https://i.imgur.com/xcsIxik.png)
+The third criteria is category. Again, it it set by default to "All," but can be changed by the user in the drop-down menu.
 
-*User Page (Completed):*
+The fourth and last criteria corresponds to the user's search input.  
 
-![Screenshot of User Page](https://i.imgur.com/EbI9cBw.png)
-
-*Admin Page (Wireframe):*
-
-![Wireframe of Admin Page](https://i.imgur.com/ZShHw1N.png)
-
-*Admin Page (Completed):*
-
-![Screenshot of Admin Page](https://i.imgur.com/m9yX0Tl.png)
-
-## IceBox
+# Future Enhancemnts
 
 * Admins should be able to delete any robot in the database
 * Simplify & improve update robot controller

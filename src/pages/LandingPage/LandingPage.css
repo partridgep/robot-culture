@@ -55,6 +55,7 @@
   background: none;
   transform: translate(0.25%, -98%);
   z-index: 1;
+  animation: fadeIn 1s;
 }
 
 .LandingPage h2 {
@@ -63,10 +64,10 @@
   text-shadow: 3px 2px rgba(0, 0, 0, 0.4);
   transform: translate(0, -780%);
   z-index: 2;
-  animation: h2-slideUp 4s;
+  animation: fadeIn 3s;
 }
 
-@keyframes h2-slideUp {
+@keyframes fadeIn {
   from {
     opacity: 0;
   }
@@ -209,12 +210,8 @@
   }
 
   .LandingPage h2 {
-    font-family: 'Epilogue', sans-serif;
-    color: white;
-    text-shadow: 3px 2px rgba(0, 0, 0, 0.4);
     transform: translate(0, -580%);
-    z-index: 2;
-    animation: h2-slideUp 4s;
+    animation: fadeIn 4s;
   }  
 }
 
@@ -226,12 +223,7 @@
   }
 
   .LandingPage h2 {
-    font-family: 'Epilogue', sans-serif;
-    color: white;
-    text-shadow: 3px 2px rgba(0, 0, 0, 0.4);
     transform: translate(0, -480%);
-    z-index: 2;
-    animation: h2-slideUp 4s;
   } 
 }
 
