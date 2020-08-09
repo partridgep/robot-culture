@@ -90,13 +90,29 @@ For any media details, such as movies, TV Shows, books, games, or actors, the us
 
 On the Robot Information Page, the user can see which categories the selected robot belongs to. Each category acts as a link that will take the user back to the Robot Selection Page with the corresponding category filters.
 
-However, a significantly more fun way to explore robots of the same category is to hover over each category name and let a list of robots appear. Each robot in this list is then a link to that robot.
+However, a significantly more fun way to explore robots of the same category is to hover over each category name and let a list of robots appear. Using the `react-hover` node module, the Categories component maps each category into a trigger that displays links to robots of the hovered category when hovered over. 
 
 ![Category Hover Example](https://i.imgur.com/g6Tq9Vi.gif)
 
 ## User Authentification
 
 This app utilizes JWTs (JSON Web Tokens) to authentificate users. On the Login Page, new users may sign up, and returning users may log back in. Many features are exclusive to signed-in users, such as favoriting a robot, adding a new robot to the database, or suggesting updates to robots. Furthermore, admin users have extra privileges, such as approving or rejecting new robots and updates to existing robots.
+
+## Updating a Robot: Favoriting
+
+The simplest way to update  robot is for a user to favorite it. When a logged in user clicks on the 'Add to Favorites' button, both the robot ID and user ID are passed to the controller. If the controller receives a user ID inside of `req.body`, it knows to either add the user ID to the robot's `favoritedBy` array if it doesn't already include it, or remove it if it does.
+
+## Adding a Robot to the Database
+
+Any logged in user can add a robot to the database by clicking on the 'Add Robot' button at the bottom of the Robot Selection Page. This will take the user to the Add Robot page.
+
+Instead of immediately bombarding the user with questions about this new robot with one lengthy form, this page will take them on a more pleasant journey, asking simply one question at a time. The trick to this is that even though the user stays on one page, every time they answer a question, a new component is loaded.
+
+Behind the scenes, the Add Robot Page keeps track of `AddProcess` in state, which starts at 0 and goes up to 10. When the user hits 'Next', `AddProcess` gets incremented by 1.
+
+![Incrementing AddProcess](https://i.imgur.com/7MGH9Aj.png)
+
+
 
 # Future Enhancements
 
