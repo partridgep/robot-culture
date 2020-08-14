@@ -1,6 +1,6 @@
 # Robot Culture
 
-A MERN React.js responsive app to access a cloud-deployed database of robots from pop-culture, with CRUD features for signed-in users and admins.
+A MERN React.js responsive and Web Progressive App to access a cloud-deployed database of robots from pop-culture, with CRUD features for signed-in users and admins.
 
 ## Getting Started
 Click [here](https://robot-culture.herokuapp.com/) to access the app (please allow 20-30 seconds for Heroku to warm up.)
@@ -110,12 +110,107 @@ Instead of immediately bombarding the user with questions about this new robot w
 
 Behind the scenes, the Add Robot Page keeps track of `AddProcess` in state, which starts at 0 and goes up to 10. When the user hits 'Next', `AddProcess` gets incremented by 1.
 
-![Incrementing AddProcess](https://i.imgur.com/7MGH9Aj.png)
+![Incrementing AddProcess](https://i.imgur.com/ycpy5d3.png)
 
+Upon loading the form, the Add Robot Page initializes properties in state for each attribute in the Robot model, as such:
 
+![Empty New Robot Properties in State](https://i.imgur.com/BMOPN6Q.png)
+
+The properties then get passed down as props to be changed by the relevant component:
+
+| AddProcess | Component | Changed Property in State |
+| --- | --- | --- |
+| 0 | AddName | name |
+| 1 | AddManudacturer | manufacturer |
+| 2 | AddHeight | height |
+| 3 | AddMedia | movies |
+| 4 | AddMedia | books |
+| 5 | AddMedia | tvShows |
+| 6 | AddMedia | games |
+| 7 | AddMedia | actors |
+| 8 | AddImages | imageLandscape, imagePortrait |
+| 9 | AddCategories | categories |
+| 10 | N/A | N/A (submission success message) |
+
+### AddName
+
+On change, the input field in the `AddName` component sets the name in state to the user input. The `doesNameExist` function iterates through all robots in app state to verify that the name does not already exist, disabling the submit button and alerting the user if so.
+
+### AddManufacturer
+
+The `AddManufacturer` component functions similarly to the `AddName` one, with the added wrinkle of offering autosuggestions to the user based on existing manufacturers in the robot database.
+
+![Manufacturer Autosuggestions](https://i.imgur.com/9s99VqU.png)
+
+To accomplish this, the `AddManufacturer` component generates an array of options in state, by iterating through all robots in app state and finding the manufacturers. Based on the user input, an array of filtered options is then rendered. A `showOptions` boolean checks whether or not the filtered options array is not empty. As the user types, a list of these filtered options appears:
+
+```
+if (showOptions && userInput) {
+            if (filteredOptions.length) {
+                optionList = (
+                    <ul className={styles.options}>
+                        {filteredOptions.map((optionName, index) => {
+                            let className;
+                            if (index === activeOption) {
+                                className = styles.activeOption;
+                            }
+                            return (
+                                <li className={className} key={optionName} onClick={onClick} name="manufacturer" value={optionName}>
+                                    {optionName}
+                                </li>
+                            );
+                        })}
+                    </ul>
+                );
+            }
+        }
+```
+
+For each, the user can select either by clicking or navigating with arrow keys and hitting Enter.
+
+### AddHeight
+
+Similar to `AddName`, but there are now two input fields, both of them of type number. A `height` object is generated in the component state, with `feet` and `inches` keys. 
+
+On user input, the relevant object key is targeted to set the right number (`height.feet` is set to 5, for instance), and the `height` object in the Add Robot Page state is set to match the `height` object in the `AddHeight` component.
+
+### AddMedia
+
+The AddMedia component is more tricky as it attempts to function for `movies`, `books`, `tvShows`, `games`, and `actors`. The reason for this is to avoid repeating similar code.
+
+For all of these, we are accessing an API to generate a list of autosuggestions, of which the user can select multiple at a time. 
+
+![Add Media in Action](https://i.imgur.com/dcvaGAW.gif)
+
+For `movies`, `tvShows`, and `games`, the component grabs data from the OMDB API.
+For `books`, the component the component grabs data from the Google Books API.
+For `actors`, the component the component grabs data from the Unofficial IMDb API.
+
+From the search results obtained in these APIs, the component copies the data it needs to generate its list of options, such as the Title, the Release Date, and the Poster or Image.
+
+Along with the `optionList`, a `chosenOptionList` is generated to show all the options chosen by the user. To this effect, it maps through the relevant array in the Add Robot Page state and renders a list element for each, which can be removed by Clicking 'X'.
+
+### AddImages
+
+This component asks the user to enter two image URLs, one landscape and one portrait. 
+
+Two functions, `checkIfLandscapeDoesntLoad` and `checkIfPortraitDoesntLoad` verify that both images load properly, and if not, will disable the "Submit" button.
+
+### AddCategories
+
+Finally, the `AddCategories` component displays a list of autosuggestions of existing robot categories for the user to choose from. Alternatively, the user is free to enter new categories:
+
+![AddCategories in Action](https://i.imgur.com/3SX9ZW0.gif)
+
+### New Robot Submission
+
+Finally, the last part of the Add Robot Page simply informs the user that the robot has been submitted to the database.
+
+![Thank You Message](https://i.imgur.com/gi0XF5c.png)
+
+If the user is not an admin, `robot.approved` will be `false`, and while the robot will have been added to the database, it will not be visible to users. 
 
 # Future Enhancements
 
 * Admins should be able to delete any robot in the database
 * Simplify & improve update robot controller
-* Make Robot Culture a WPA
